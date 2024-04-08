@@ -61,10 +61,6 @@ packages = [
     { include = "flpianoroll", from = "build_lib" },
 ]
 
-[tool.poetry.scripts]
-build = "scripts.build_lib:main"
-docs = "scripts.build_docs:main"
-
 [tool.poetry.urls]
 "Online Documentation" = "https://miguelguthridge.github.io/FL-Studio-API-Stubs/"
 "Bug Tracker" = "https://github.com/MiguelGuthridge/FL-Studio-Api-Stubs/issues"
@@ -94,10 +90,6 @@ transdoc = "^0.2.1"
 exclude = ['.git', '__pycache__', 'old', 'build', 'dist']
 ignore = ['E501', 'W503']
 
-[tool.poetry.build]
-generate-setup-file = false
-script = "scripts/build_lib.py"
-
 [build-system]
-requires = ["poetry-core>=1.0.0", "transdoc>=0.2.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
