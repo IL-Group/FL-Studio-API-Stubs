@@ -5,11 +5,11 @@ version = "33.2.0"
 description = "Module and function definitions and documentation for the FL Studio Python API"
 readme = "README.md"
 
-authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
+authors = ["Miguel Guthridge <hello@miguelguthridge.com>"]
 license = "LGPL-3.0-only"
 
-repository = "https://github.com/MiguelGuthridge/FL-Studio-Api-Stubs"
-documentation = "https://miguelguthridge.github.io/FL-Studio-API-Stubs/"
+repository = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
+documentation = "https://il-group.github.io/FL-Studio-API-Stubs/"
 
 keywords = [
     "fl-studio",
@@ -21,6 +21,7 @@ keywords = [
     "studio",
     "daw",
     "controller",
+    "image-line",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -38,32 +39,32 @@ include = ["py.typed"]
 
 packages = [
     # MIDI controller scripting
-    { include = "arrangement", from = "build_lib" },
-    { include = "channels", from = "build_lib" },
-    { include = "device", from = "build_lib" },
-    { include = "general", from = "build_lib" },
-    { include = "launchMapPages", from = "build_lib" },
-    { include = "mixer", from = "build_lib" },
-    { include = "patterns", from = "build_lib" },
-    { include = "playlist", from = "build_lib" },
-    { include = "plugins", from = "build_lib" },
-    { include = "screen", from = "build_lib" },
-    { include = "transport", from = "build_lib" },
-    { include = "ui", from = "build_lib" },
+    { include = "arrangement", from = "build_lib/midi_controller_scripting" },
+    { include = "channels", from = "build_lib/midi_controller_scripting" },
+    { include = "device", from = "build_lib/midi_controller_scripting" },
+    { include = "general", from = "build_lib/midi_controller_scripting" },
+    { include = "launchMapPages", from = "build_lib/midi_controller_scripting" },
+    { include = "mixer", from = "build_lib/midi_controller_scripting" },
+    { include = "patterns", from = "build_lib/midi_controller_scripting" },
+    { include = "playlist", from = "build_lib/midi_controller_scripting" },
+    { include = "plugins", from = "build_lib/midi_controller_scripting" },
+    { include = "screen", from = "build_lib/midi_controller_scripting" },
+    { include = "transport", from = "build_lib/midi_controller_scripting" },
+    { include = "ui", from = "build_lib/midi_controller_scripting" },
     # MIDI controller scripting extra libraries
-    { include = "midi", from = "build_lib" },
-    { include = "utils", from = "build_lib" },
+    { include = "midi", from = "build_lib/midi_controller_scripting" },
+    { include = "utils", from = "build_lib/midi_controller_scripting" },
     # API stubs extra modules
-    { include = "fl_classes", from = "build_lib" },
+    { include = "fl_classes", from = "build_lib/midi_controller_scripting" },
     # Edison scripting
-    { include = "enveditor", from = "build_lib" },
+    { include = "enveditor", from = "build_lib/edison_scripting" },
     # Piano roll scripting
-    { include = "flpianoroll", from = "build_lib" },
+    { include = "flpianoroll", from = "build_lib/edison_scripting" },
 ]
 
 [tool.poetry.urls]
-"Online Documentation" = "https://miguelguthridge.github.io/FL-Studio-API-Stubs/"
-"Bug Tracker" = "https://github.com/MiguelGuthridge/FL-Studio-Api-Stubs/issues"
+"Bug Tracker" = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
+"Online Documentation" = "https://il-group.github.io/FL-Studio-API-Stubs/"
 
 
 # Primary dependencies

@@ -97,7 +97,6 @@ def generate_module_tree(
     tree: FileTree,
     mod_path: Path,
     input_base: Path,
-    output_base: Path,
 ):
     """
     Generate Markdown template for a tree of modules.
@@ -111,9 +110,13 @@ def generate_module_tree(
     # `generate_auto_docstrings`
     import mkdocs_gen_files  # type: ignore
 
+    # Skip over __init__.py
+    if mod_path.name == "__init__.py":
+        return
+
     # If it's a file, write its output
     if (input_base / mod_path).is_file():
-        output_file = py_path_to_md(output_base / mod_path)
+        output_file = py_path_to_md(mod_path)
         with mkdocs_gen_files.open(output_file, "w") as f:
             identifier = ".".join(mod_path.with_suffix("").parts)
             print(f"::: {identifier}", file=f)
@@ -122,10 +125,10 @@ def generate_module_tree(
     else:
         # Now write the `.pages` and `index.md` files, only if we're in a
         # module
-        if mod_path != Path(""):
+        if "__init__.py" in tree:
             # Create a `.pages` config to manage navigation in this directory
             with mkdocs_gen_files.open(
-                output_base / mod_path / ".pages",
+                mod_path / ".pages",
                 "w",
             ) as f:
                 print("nav:", file=f)
@@ -135,7 +138,7 @@ def generate_module_tree(
 
             # index.md
             with mkdocs_gen_files.open(
-                output_base / mod_path / "index.md",
+                mod_path / "index.md",
                 "w",
             ) as f:
                 identifier = ".".join(mod_path.with_suffix("").parts)
@@ -152,7 +155,6 @@ def generate_module_tree(
                 sub_tree,
                 mod_path / node,
                 input_base,
-                output_base,
             )
 
 
@@ -189,11 +191,7 @@ def generate_auto_docstrings():
 
         # only include it if it's not part of our modules to skip
         if not any(part in AUTO_DOCSTRINGS_SKIPPED for part in module.parts):
-            # Skip over __init__.py, since it gets covered by parent directories
-            if module.name == "__init__.py":
-                add_path_to_tree(module_tree, module.parent)
-            else:
-                add_path_to_tree(module_tree, module)
+            add_path_to_tree(module_tree, module)
 
     # Now generate each module
     # Place all contents in
@@ -201,13 +199,6 @@ def generate_auto_docstrings():
         module_tree,
         Path(""),
         DOCS_PREBUILD_DIR,
-        # FIXME: Currently, everything that's not MIDI Controller scripting is
-        # excluded using `AUTO_DOCSTRINGS_SKIPPED`, which is why we can get
-        # away with hard-coding this.
-        # We may want to restructure the layout in `src/` so that the
-        # organization is done there if we want to use this script to build
-        # docs for Edison and Piano roll scripting
-        Path("MIDI Controller Scripting"),
     )
 
 
