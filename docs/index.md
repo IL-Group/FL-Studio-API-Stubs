@@ -1,49 +1,24 @@
 # FL Studio API Documentation
 
-This is user-written documentation for FL Studio's Python API. It contains information on how to use the API to interact with FL Studio. As well as this, it is also available as an [installable package](https://github.com/MiguelGuthridge/FL-Studio-API-Stubs#installation), which allows you to write code for FL Studio with the help of smart suggestions and inline documentation. Both the online documentation and the installable package use the same definitions, meaning that they share the same detailed and helpful information.
+This website contains documentation for functions and classes used in FL
+Studio's Python API. This includes modules used within:
 
-If you wish to help contribute to this documentation, you can do so by creating a pull request to [the repository](https://github.com/MiguelGuthridge/FL-Studio-API-Stubs). If you find any errors or omissions, please create an issue on the repository.
+* [MIDI Controller Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/midi_scripting.htm)
+* [Edison Audio Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/pianoroll_scripting_api.htm)
+* [Piano Roll Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/plugins/editortool_run.htm)
 
-## List of modules
+Additionally, the function documentation can be accessed as an installable
+Python package. For instructions, see the [installation page](installation.md).
 
-### MIDI controller scripting
+## Table of contents
 
-* [`arrangement`][arrangement]: functions for interacting with individual arrangements,
-  including markers and playlist selections.
-* [`channels`][channels]: functions for interacting with the channel rack and its channels.
-* [`device`][device]: functions for interacting with the device hardware, as well as
-  tools for managing rec events.
-* [`general`][general]: miscellaneous functions for interacting with FL Studio.
-* [`launchMapPages`][launchMapPages]: functions for implementing page displays on some MIDI
-  controllers.
-* [`mixer`][mixer]: functions for interacting with the mixer and its tracks.
-* [`patterns`][patterns]: functions for interacting with patterns.
-* [`playlist`][playlist]: functions for interacting with the playlist.
-* [`plugins`][plugins]: functions for interacting with plugins on the channel rack and
-  mixer.
-* [`screen`][screen]: functions for controlling the screen of the AKAI Fire MIDI
-  controller.
-* [`transport`][transport]: functions for interacting with FL Studio's playback and
-  recording systems.
-* [`ui`][ui]: functions for interacting with FL Studio's user interface.
+[MIDI Controller Scripting](midi_controller_scripting/index.md) - interact with
+MIDI controllers to add advanced integration with FL Studio.
 
-### MIDI controller scripting (extra libraries)
+[Edison Audio Scripting](edison_scripting/index.md) - modify and interact with
+audio in the Edison audio editor to do weird and wonderful things with your
+audio clips.
 
-* [`midi`][midi]: a module containing constants used by the rest of the API.
-* [`utils`][utils]: utility functions and classes. Note that a lot of code in this
-  module is buggy and should be avoided.
-
-### MIDI controller scripting (stub code utilities)
-
-* [`fl_classes`][fl_classes]: a non-built-in module that provides definitions for classes
-  used by FL Studio. It cannot be imported during runtime.
-
-### Edison scripting
-
-* [`enveditor`](edison_scripting/index.md): a module for interacting with edison, only available through its
-  scripting interface.
-
-### Piano roll scripting
-
-* [`flpianoroll`](piano_roll_scripting/index.md): a module for interacting with the
-  piano roll, only available through its scripting interface.
+[Piano Roll Scripting](piano_roll_scripting/index.md) - modify and interact
+with notes and markers in the piano roll to efficiently generate, warp, and
+mangle the contents of the piano roll.
