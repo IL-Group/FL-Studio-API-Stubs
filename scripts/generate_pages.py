@@ -2,7 +2,13 @@ import os
 from pathlib import Path
 from shutil import copytree, rmtree
 
+DOC_BUILD_DIR = Path("build_docs")
+"""Directory where documentation is built"""
+MD_DOCS_DIR = Path("docs")
+"""Directory where markdown docs are located"""
 
+
+# Documentation for these modules is written manually
 SKIPPED_MODULES = [
     "enveditor",
     "flpianoroll"
@@ -10,11 +16,9 @@ SKIPPED_MODULES = [
 
 
 def generate():
-    # Remove the old docs_build directory
-    docs_build_dir = Path("docs_build")
-    docs_dir = Path("docs")
-    rmtree(docs_build_dir, ignore_errors=True)
-    docs_build_dir.mkdir()
+    # Remove the old build_docs directory
+    rmtree(DOC_BUILD_DIR, ignore_errors=True)
+    DOC_BUILD_DIR.mkdir()
 
     # We need to import this here, otherwise it kinda dies a little
     import mkdocs_gen_files  # type: ignore
@@ -61,7 +65,7 @@ def generate():
 
         return duplicates
 
-    duplicates = find_duplicates(docs_dir, docs_build_dir)
+    duplicates = find_duplicates(MD_DOCS_DIR, DOC_BUILD_DIR)
     if len(duplicates):
         print("Unable to generate docs, files would be overwritten")
         for dup in duplicates:
@@ -69,7 +73,7 @@ def generate():
         exit(1)
 
     # Now go and merge in the docs directory
-    copytree(Path("docs"), Path("docs_build"), dirs_exist_ok=True)
+    copytree(MD_DOCS_DIR, DOC_BUILD_DIR, dirs_exist_ok=True)
 
 
 if __name__ == "__main__":
