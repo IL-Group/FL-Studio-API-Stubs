@@ -88,6 +88,11 @@ def generate_module(module: Path):
     if Path(DOCS_PREBUILD_DIR, module).is_dir():
         output_file = Path(module, "index.md")
         exclude_contents = True
+        # Also create `.pages` config to manage navigation in this directory
+        with mkdocs_gen_files.open(output_file.with_name(".pages"), "w") as f:
+            print("nav:", file=f)
+            print("  - Home: index.md", file=f)
+            print("  - ...", file=f)
     else:
         output_file = module.with_suffix(".md")
         exclude_contents = False
@@ -98,12 +103,12 @@ def generate_module(module: Path):
 
     # Output the markdown contents
     with mkdocs_gen_files.open(output_file, "w") as f:
-        identifier = ".".join(module.parts)
+        identifier = ".".join(module.with_suffix("").parts)
         print(f"::: {identifier}", file=f)
         if exclude_contents:
             # Output options so that the contents of the module are excluded
-            print("  - options:", file=f)
-            print("    - members: false", file=f)
+            print("    options:", file=f)
+            print("      members: no", file=f)
 
 
 def generate_auto_docstrings():
@@ -212,8 +217,8 @@ def main():
     assert TEMP_SITE_OUTPUT.is_dir()
     # FIXME: This sometimes causes a 404 when using the Live Server extension
     # -- we should consider overwriting the files one by one instead.
-    rmtree(TEMP_SITE_OUTPUT, ignore_errors=True)
-    move(TEMP_SITE_OUTPUT, TEMP_SITE_OUTPUT)
+    rmtree(FINAL_OUTPUT, ignore_errors=True)
+    move(TEMP_SITE_OUTPUT, FINAL_OUTPUT)
 
 
 if __name__ == "__main__":
