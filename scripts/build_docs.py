@@ -201,7 +201,12 @@ def generate_auto_docstrings():
         module_tree,
         Path(""),
         DOCS_PREBUILD_DIR,
-        # FIXME: Don't hard-code this
+        # FIXME: Currently, everything that's not MIDI Controller scripting is
+        # excluded using `AUTO_DOCSTRINGS_SKIPPED`, which is why we can get
+        # away with hard-coding this.
+        # We may want to restructure the layout in `src/` so that the
+        # organization is done there if we want to use this script to build
+        # docs for Edison and Piano roll scripting
         Path("MIDI Controller Scripting"),
     )
 
