@@ -1,5 +1,5 @@
 """
-# Channels
+{{module_title[channels]}}
 
 FL Studio built-in module.
 

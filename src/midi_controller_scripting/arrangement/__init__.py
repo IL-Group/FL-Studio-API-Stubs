@@ -1,5 +1,5 @@
 """
-# Arrangement
+{{module_title[arrangement]}}
 
 FL Studio built-in module.
 

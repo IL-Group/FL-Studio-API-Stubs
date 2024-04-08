@@ -1,4 +1,6 @@
 """
+{{module_title[midi]}}
+
 Included in FL Studio Python lib folder
 
 Contains useful constants for working with MIDI events, and with FL Studio API
@@ -43,17 +45,17 @@ PME_FromHost = 1 << 4
 PME_FromMIDI = 1 << 5
 PME_FromScript = 1 << 6
 
-#crDisplayRect flags
-CR_HighlightChannels = 1;
-CR_ScrollToView     = 1 << 1;
-CR_HighlightChannelMute = 1 << 2;
-CR_HighlightChannelPanVol = 1 << 3;
-CR_HighlightChannelTrack = 1 << 4;
-CR_HighlightChannelName = 1 << 5;
-CR_HighlightChannelSelect = 1 << 6;
+# crDisplayRect flags
+CR_HighlightChannels = 1
+CR_ScrollToView = 1 << 1
+CR_HighlightChannelMute = 1 << 2
+CR_HighlightChannelPanVol = 1 << 3
+CR_HighlightChannelTrack = 1 << 4
+CR_HighlightChannelName = 1 << 5
+CR_HighlightChannelSelect = 1 << 6
 
-#miDisplayRect flags
-MI_ScrollToView     = 1 << 1;
+# miDisplayRect flags
+MI_ScrollToView = 1 << 1
 
 # playlist.triggerLiveClip flags
 TLC_MuteOthers = 1
@@ -62,11 +64,11 @@ TLC_Queue = 1 << 2
 TLC_Release = 1 << 5
 TLC_NoPlayCheck = 1 << 6
 TLC_NoHardwareUpdate = 1 << 30
-TLC_SecondPass = 1 << 31 # system
+TLC_SecondPass = 1 << 31  # system
 
-TLC_ColumnMode = 1 << 7 # scene
-TLC_WeakColumnMode = 1 << 8 # +scene
-TLC_TriggerCheckColumnMode = 1 << 9 # same press mode
+TLC_ColumnMode = 1 << 7  # scene
+TLC_WeakColumnMode = 1 << 8  # +scene
+TLC_TriggerCheckColumnMode = 1 << 9  # same press mode
 
 TLC_TrackSnap = 0 << 3
 TLC_GlobalSnap = 1 << 3
@@ -87,20 +89,21 @@ PM_Precount = 2
 HW_Dirty_Mixer_Sel = 1
 HW_Dirty_Mixer_Display = 2
 HW_Dirty_Mixer_Controls = 4
-HW_Dirty_RemoteLinks = 16 # links have changed
-HW_Dirty_FocusedWindow = 32 # needed for controllers that reflect generic links
-HW_Dirty_Performance = 64 # performance layout (not playing state!) has changed
+HW_Dirty_RemoteLinks = 16  # links have changed
+HW_Dirty_FocusedWindow = 32  # needed for controllers that reflect generic links
+# performance layout (not playing state!) has changed
+HW_Dirty_Performance = 64
 HW_Dirty_LEDs = 256
 HW_Dirty_RemoteLinkValues = 512
-HW_Dirty_Patterns = 1024 # selected pattern is changed or pattern self is changed
-HW_Dirty_Tracks  = 2048 # tracks changes
+HW_Dirty_Patterns = 1024  # selected pattern is changed or pattern self is changed
+HW_Dirty_Tracks = 2048  # tracks changes
 HW_Dirty_ControlValues = 4096
 HW_Dirty_Colors = 8192
-HW_Dirty_Names =  16384
+HW_Dirty_Names = 16384
 HW_Dirty_ChannelRackGroup = 32768
 HW_ChannelEvent = 65536
 
-#song time flags
+# song time flags
 SONGLENGTH_MS = 0
 SONGLENGTH_S = 1
 SONGLENGTH_ABSTICKS = 2
@@ -108,12 +111,12 @@ SONGLENGTH_BARS = 3
 SONGLENGTH_STEPS = 4
 SONGLENGTH_TICKS = 5
 
-#TEventIDInfo
+# TEventIDInfo
 Event_CantInterpolate = 0x00
 Event_Float = 0x02
 Event_Centered = 0x04
 
-#rec events
+# rec events
 REC_ItemRange = 0x10000
 REC_TrackRange = 0x10
 REC_EnvRange = 0x100
@@ -155,7 +158,7 @@ REC_Chan_OfsFCut = REC_Chan_First + 19
 REC_Chan_OfsFRes = REC_Chan_First + 20
 
 # TS404
-REC_Chan_TS404_First = REC_Chan_First + 0x100 # same order as the 404 params
+REC_Chan_TS404_First = REC_Chan_First + 0x100  # same order as the 404 params
 REC_Chan_TS404_FCut = REC_Chan_TS404_First + 18
 REC_Chan_TS404_FRes = REC_Chan_TS404_First + 19
 REC_Chan_TS404_Env_First = REC_Chan_TS404_First + 31
@@ -228,17 +231,17 @@ REC_Plug_Last = REC_Plug_First + 0x2000 * REC_ItemRange - 1
 # plugin common properties (up to 256)
 REC_Plug_General_First = REC_Plug_First + 0x2000 - 0x100
 REC_Plug_General_Last = REC_Plug_General_First + 0x40 - 1
-REC_Plug_Mute = REC_Plug_General_First # mute
-REC_Plug_MixLevel = REC_Plug_General_First + 1 # mix level
+REC_Plug_Mute = REC_Plug_General_First  # mute
+REC_Plug_MixLevel = REC_Plug_General_First + 1  # mix level
 
 # mixer track properties
 REC_Mixer_First = REC_Plug_General_First + 0x40
 REC_Mixer_Last = REC_Mixer_First + 0x800 - 1
-REC_Mixer_Send_First = REC_Mixer_First # sends (up to 128)
+REC_Mixer_Send_First = REC_Mixer_First  # sends (up to 128)
 REC_Mixer_Send_Last = REC_Mixer_Send_First + 0x80 - 1
-REC_Mixer_Vol = REC_Mixer_Send_Last + 1 # volume
-REC_Mixer_Pan = REC_Mixer_Vol + 1 # pan
-REC_Mixer_SS = REC_Mixer_Vol + 2 # stereo separation
+REC_Mixer_Vol = REC_Mixer_Send_Last + 1  # volume
+REC_Mixer_Pan = REC_Mixer_Vol + 1  # pan
+REC_Mixer_SS = REC_Mixer_Vol + 2  # stereo separation
 
 # EQ (up to 8 bands)
 REC_Mixer_EQ_First = REC_Mixer_Vol + 0x10
@@ -258,11 +261,11 @@ REC_Global_Last = REC_Global_First + REC_ItemRange
 REC_MainVol = REC_Global_First
 REC_MainShuffle = REC_Global_First + 1
 REC_MainPitch = REC_Global_First + 2
-REC_MainFRes = REC_Global_First + 3 # obsolete
-REC_MainFCut = REC_Global_First + 4 # obsolete
+REC_MainFRes = REC_Global_First + 3  # obsolete
+REC_MainFCut = REC_Global_First + 4  # obsolete
 REC_Tempo = REC_Global_First + 5
 
-REC_TS404Delay_First = REC_Global_First + 0x100 # obsolete
+REC_TS404Delay_First = REC_Global_First + 0x100  # obsolete
 REC_TS404Delay_Feed = REC_TS404Delay_First
 REC_TS404Delay_Pan = REC_TS404Delay_First + 1
 REC_TS404Delay_Vol = REC_TS404Delay_First + 2
@@ -275,15 +278,17 @@ REC_Playlist_Last = REC_Playlist_First + 0x2000 * REC_ItemRange - 1
 # patterns (up to 4096)
 REC_Pat_First = REC_Playlist_First
 REC_Pat_Last = REC_Pat_First + 0x1000 * REC_ItemRange - 1
-REC_Pat_Clip = REC_Pat_First + 0x5000 # clip item
+REC_Pat_Clip = REC_Pat_First + 0x5000  # clip item
 
 # all clips
-REC_PLClip_First = REC_Chan_First # this is not a typo, it includes channel and pattern clips
+# this is not a typo, it includes channel and pattern clips
+REC_PLClip_First = REC_Chan_First
 REC_PLClip_Last = REC_Pat_Last
 
 # pattern instances at the top of the playlist
-REC_Playlist_Old = REC_Playlist_First # obsolete
-REC_Pat_Block = REC_Playlist_First + 0x1000 * REC_ItemRange # pattern block, but shouldn't happen anymore?
+REC_Playlist_Old = REC_Playlist_First  # obsolete
+# pattern block, but shouldn't happen anymore?
+REC_Pat_Block = REC_Playlist_First + 0x1000 * REC_ItemRange
 REC_Playlist = REC_Playlist_Old
 
 # playlist tracks (up to 4096)
@@ -296,9 +301,9 @@ REC_Reserved = 0x80000000
 # special commands
 # for remote control by external apps
 REC_Special = -1
-REC_StartStop = REC_Special # 0=Stop, 1=Start
-REC_SongPosition = REC_Special - 1 # get/set song position (in bars)
-REC_SongLength = REC_Special - 2 # get song length (in bars)
+REC_StartStop = REC_Special  # 0=Stop, 1=Start
+REC_SongPosition = REC_Special - 1  # get/set song position (in bars)
+REC_SongLength = REC_Special - 2  # get song length (in bars)
 # last tweaked
 REC_LastTweakedFirst = -32
 REC_LastTweakedLast = REC_LastTweakedFirst + 1
@@ -325,16 +330,20 @@ REC_NoSaveUndo = 1 << 15
 
 # combo's
 REC_InitStore = REC_Init | REC_Store
-REC_Control = REC_UpdateValue | REC_UpdateControl | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_SetTouched # called by a control
-REC_MIDIController = REC_Control | REC_FromMIDI # called by a MIDI controller from midi
-REC_Controller = REC_Control #for compatibility only, wrong name used
+REC_Control = REC_UpdateValue | REC_UpdateControl | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_SetTouched  # called by a control
+# called by a MIDI controller from midi
+REC_MIDIController = REC_Control | REC_FromMIDI
+REC_Controller = REC_Control  # for compatibility only, wrong name used
 
-REC_SetAll = REC_UpdateValue | REC_UpdateControl | REC_InitStore | REC_SetChanged | REC_SetTouched # called externally
-REC_Control = REC_UpdateValue | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_UpdatePlugLabel | REC_SetTouched # called by the param's control
-REC_Visual = REC_GetValue | REC_UpdateControl | REC_UpdatePlugLabel # refresh visually
-REC_FromMixThread = REC_UpdateValue # change the value only
+# called externally
+REC_SetAll = REC_UpdateValue | REC_UpdateControl | REC_InitStore | REC_SetChanged | REC_SetTouched
+# called by the param's control
+REC_Control = REC_UpdateValue | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_UpdatePlugLabel | REC_SetTouched
+REC_Visual = REC_GetValue | REC_UpdateControl | REC_UpdatePlugLabel  # refresh visually
+REC_FromMixThread = REC_UpdateValue  # change the value only
 REC_PlugCallback = REC_InitStore | REC_SetChanged | REC_SetTouched
-REC_FromInternalCtrl = REC_UpdateValue | REC_FromMIDI | REC_InternalCtrl # let's not prevent automation & internal controllers at the same time
+# let's not prevent automation & internal controllers at the same time
+REC_FromInternalCtrl = REC_UpdateValue | REC_FromMIDI | REC_InternalCtrl
 REC_AnyInternalCtrl = REC_InternalCtrl | REC_Smoothed
 
 # ProcessRECEvent returns this when the ID is invalid
@@ -351,7 +360,8 @@ REC_WrapperModWheel = 0x0FFF9001
 REC_WrapperAfterTouch = 0x0FFF9080
 
 # recording flags for ProcessMIDIEvent
-PME_RECFlagsT = [REC_UpdateValue | REC_UpdateControl | REC_FromMIDI | REC_SetChanged | REC_SetTouched, REC_MIDIController]
+PME_RECFlagsT = [REC_UpdateValue | REC_UpdateControl |
+                 REC_FromMIDI | REC_SetChanged | REC_SetTouched, REC_MIDIController]
 
 # Global transport commnads
 FPT_Jog = 0
@@ -454,25 +464,25 @@ GT_Global = 8
 GT_All = GT_Plugin | GT_Form | GT_Menu | GT_Global
 
 
-#Pickup modes
+# Pickup modes
 PIM_None = 0
 PIM_AlwaysPickup = 1
 PIM_FollowGlobal = 2
 
-#FPN_Preset flags
+# FPN_Preset flags
 GPN_GetCurrentPreset = -1
 
 #
 TranzPort_OffOnT = [MIDI_NOTEON, MIDI_NOTEON + (0x7F << 16)]
 TranzPort_OffBlinkT = [MIDI_NOTEON, MIDI_NOTEON + (1 << 16)]
-TranzPort_OffOnBlinkT = [MIDI_NOTEON, MIDI_NOTEON + (0x7F << 16), MIDI_NOTEON + (1 << 16)]
+TranzPort_OffOnBlinkT = [MIDI_NOTEON, MIDI_NOTEON +
+                         (0x7F << 16), MIDI_NOTEON + (1 << 16)]
 
 FromMIDI_Max = 1073741824
 FromMIDI_Half = FromMIDI_Max >> 1
 
 # resolution of endless knobs is assumed to be 24 ticks per revolution
 EKRes = 1 / 24
-
 
 
 TrackNum_Master = 0
@@ -503,7 +513,7 @@ fxSoloGetValue = 3
 
 EKRes = 1 / 24
 
-#get peaks mode
+# get peaks mode
 PEAK_L = 0
 PEAK_R = 1
 PEAK_LR = 2
@@ -567,7 +577,8 @@ CT_Layer = 3
 CT_AudioClip = 4
 CT_AutoClip = 5
 
-CT_ColorT = (0x565148 + 0x141414 , 0x868178, 0x514F61, 0x474440, 0x787168, 0x787168)
+CT_ColorT = (0x565148 + 0x141414, 0x868178,
+             0x514F61, 0x474440, 0x787168, 0x787168)
 
 # event editor modes
 EE_EE = 0
@@ -590,10 +601,10 @@ Snap_ThirdBeat = 11
 Snap_HalfBeat = 12
 Snap_Beat = 13
 
-Snap_SixthBar  = 14
+Snap_SixthBar = 14
 Snap_FourthBar = 15
-Snap_ThirdBar  = 16
-Snap_HalfBar   = 17
+Snap_ThirdBar = 16
+Snap_HalfBar = 17
 
 Snap_Bar = 14
 Snap_Events = 16
@@ -609,7 +620,7 @@ TN_FirstIns = 1
 TN_LastIns = 2
 TN_Sel = 3
 
-#undo
+# undo
 UF_None = 0
 
 UF_EE = 1
@@ -626,14 +637,14 @@ UF_PLMarker = 1 << 11
 UF_Plugin = 1 << 12
 UF_SSLooping = 1 << 13
 
-CC_Normal = 0 # standard CC
-CC_Special = 128 # non-CC are mapped to CC after 128
+CC_Normal = 0  # standard CC
+CC_Special = 128  # non-CC are mapped to CC after 128
 CC_PitchBend = 255
 CC_KeyAfterTouch = 254
 CC_ChanAfterTouch = 253
-CC_Note = 256 # when notes are linked to parameters
+CC_Note = 256  # when notes are linked to parameters
 CC_Free = 256 + 128
-CC_PLTrack = CC_Free # playlist track XY control (performance mode)
+CC_PLTrack = CC_Free  # playlist track XY control (performance mode)
 
 # song tick options
 ST_Int = 0
@@ -676,7 +687,7 @@ FPN_OutCtrl = 7
 FPN_VoiceColor = 8
 FPN_OutVoice = 9
 
-#OnProjectLoad status
+# OnProjectLoad status
 PL_Start = 0
 PL_LoadOk = 100
 PL_LoadError = 101
@@ -696,6 +707,7 @@ CT_Layer = 3
 CT_AudioClip = 4
 CT_AutoClip = 5
 
-EventNameT = ['Note Off', 'Note On ', 'Key Aftertouch', 'Control Change','Program Change',  'Channel Aftertouch', 'Pitch Bend', 'System Message' ]
+EventNameT = ['Note Off', 'Note On ', 'Key Aftertouch', 'Control Change',
+              'Program Change',  'Channel Aftertouch', 'Pitch Bend', 'System Message']
 ChannelDefaultVolume = 1000 / 1280
 TackDefaultVolume = 800 / 1000

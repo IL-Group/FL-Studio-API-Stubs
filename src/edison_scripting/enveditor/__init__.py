@@ -1,5 +1,5 @@
 """
-# Env Editor
+{{module_title[enveditor]}}
 
 FL Studio built-in module.
 

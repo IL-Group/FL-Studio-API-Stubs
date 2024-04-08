@@ -1,5 +1,5 @@
 """
-# Plugins
+{{module_title[plugins]}}
 
 FL Studio built-in module.
 

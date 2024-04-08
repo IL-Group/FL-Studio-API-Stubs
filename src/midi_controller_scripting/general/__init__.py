@@ -1,5 +1,5 @@
 """
-# General
+{{module_title[general]}}
 
 FL Studio built-in module.
 

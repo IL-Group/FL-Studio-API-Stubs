@@ -1,5 +1,5 @@
 """
-# User Interface
+{{module_title[ui]}}
 
 FL Studio built-in module.
 

@@ -1,5 +1,5 @@
 """
-# Screen
+{{module_title[screen]}}
 
 FL Studio built-in module.
 

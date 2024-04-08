@@ -1,5 +1,5 @@
 """
-# Playlist
+{{module_title[playlist]}}
 
 FL Studio built-in module.
 

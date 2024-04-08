@@ -1,5 +1,5 @@
 """
-# Device
+{{module_title[device]}}
 
 FL Studio built-in module.
 

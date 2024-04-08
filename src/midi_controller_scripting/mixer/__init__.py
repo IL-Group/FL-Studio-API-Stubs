@@ -1,5 +1,5 @@
 """
-# Mixer
+{{module_title[mixer]}}
 
 FL Studio built-in module.
 

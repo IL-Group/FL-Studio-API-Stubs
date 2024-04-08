@@ -1,5 +1,5 @@
 """
-# FL Piano Roll
+{{module_title[flpianoroll]}}
 
 FL Studio built-in module.
 

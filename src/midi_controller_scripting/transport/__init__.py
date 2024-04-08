@@ -1,5 +1,5 @@
 """
-# Transport
+{{module_title[transport]}}
 
 FL Studio built-in module.
 

@@ -1,5 +1,5 @@
 """
-# Patterns
+{{module_title[patterns]}}
 
 FL Studio built-in module.
 
