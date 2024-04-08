@@ -1,0 +1,24 @@
+nav:
+  - Home: index.md
+  - MIDI Controller Scripting:
+      - Tutorials: tutorials
+      - Built-in Modules:
+          - arrangement.md
+          - channels.md
+          - device.md
+          - general.md
+          - launchMapPages.md
+          - mixer.md
+          - patterns.md
+          - playlist.md
+          - plugins.md
+          - screen.md
+          - transport.md
+          - ui.md
+      - Extra Libraries:
+          - midi.md
+          - utils.md
+      - Type Definitions:
+          - fl_classes.md
+  - Edison Audio Scripting: enveditor
+  - Piano Roll Scripting: flpianoroll

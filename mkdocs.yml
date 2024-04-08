@@ -29,6 +29,7 @@ theme:
 
 plugins:
   - search
+  - awesome-pages
   - autorefs
   - mkdocstrings:
       handlers:
@@ -37,6 +38,7 @@ plugins:
             - prebuild_docs
           options:
             show_source: false
+
   ## Not using mkdocs scripts since we need to do a ton of pre-build stuff
   ## Maybe I'll try and get this working some point
   # - gen-files:
