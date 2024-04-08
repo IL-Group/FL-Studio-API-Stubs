@@ -29,7 +29,8 @@ theme:
 
 plugins:
   - search
-  - awesome-pages
+  - awesome-pages:
+      collapse_single_pages: true
   - autorefs
   - mkdocstrings:
       handlers:

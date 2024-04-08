@@ -6,6 +6,8 @@ build_lib/
 prebuild_docs/
 # Build of documentation -- merging of markdown files in preparation for mkdocs
 build_docs/
+# Temporary directory for mkdocs build
+temp_site/
 # Final output of mkdocs
 site/
 

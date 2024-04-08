@@ -71,12 +71,39 @@ Final output location for the script
 """
 
 
-def generate_module(module: Path):
+FileTree = dict[str, 'FileTree']
+"""
+Tree of files.
+
+Leaves (files) have value `None`, and directories are another `FileTree`.
+"""
+
+
+def py_path_to_md(path: Path) -> Path:
     """
-    Generate Markdown template for a module.
+    Transform a Python filename into a Markdown filename.
+
+    ## Examples
+
+    * `__example.py` -> `Example.md`
+    * `__script_dialog.py` -> `Script Dialog.md`
+    """
+    return path \
+        .with_name(path.name.replace('_', ' ').strip()) \
+        .with_suffix(".md")
+
+
+def generate_module_tree(
+    tree: FileTree,
+    mod_path: Path,
+    input_base: Path,
+    output_base: Path,
+):
+    """
+    Generate Markdown template for a tree of modules.
 
     These will be used by mkdocstrings to get documentation for the functions
-    from the source code transpiled to `prebuild_docs/`
+    from the source code transpiled to `prebuild_docs/`.
     """
 
     # We need to import this here, otherwise it kinda dies a little, likely
@@ -84,31 +111,64 @@ def generate_module(module: Path):
     # `generate_auto_docstrings`
     import mkdocs_gen_files  # type: ignore
 
-    # For directories, generate an index.md
-    if Path(DOCS_PREBUILD_DIR, module).is_dir():
-        output_file = Path(module, "index.md")
-        exclude_contents = True
-        # Also create `.pages` config to manage navigation in this directory
-        with mkdocs_gen_files.open(output_file.with_name(".pages"), "w") as f:
-            print("nav:", file=f)
-            print("  - Home: index.md", file=f)
-            print("  - ...", file=f)
+    # If it's a file, write its output
+    if (input_base / mod_path).is_file():
+        output_file = py_path_to_md(output_base / mod_path)
+        with mkdocs_gen_files.open(output_file, "w") as f:
+            identifier = ".".join(mod_path.with_suffix("").parts)
+            print(f"::: {identifier}", file=f)
+
+    # Otherwise, it's a directory
     else:
-        output_file = module.with_suffix(".md")
-        exclude_contents = False
+        # Now write the `.pages` and `index.md` files, only if we're in a
+        # module
+        if mod_path != Path(""):
+            # Create a `.pages` config to manage navigation in this directory
+            with mkdocs_gen_files.open(
+                output_base / mod_path / ".pages",
+                "w",
+            ) as f:
+                print("nav:", file=f)
+                # Put index.md at the top
+                print(f"  - {mod_path.name.capitalize()}: index.md", file=f)
+                print("  - ...", file=f)
 
-    # Change module path to a dot-separated identifier for mkdocs-gen-files,
-    # similar to those used in Python imports
-    identifier = ".".join(module.parts)
+            # index.md
+            with mkdocs_gen_files.open(
+                output_base / mod_path / "index.md",
+                "w",
+            ) as f:
+                identifier = ".".join(mod_path.with_suffix("").parts)
+                print(f"::: {identifier}", file=f)
+                # If there are files here, we should exclude function
+                # definitions from the main page, since they'll be in sub-pages
+                if len(tree):
+                    print("    options:", file=f)
+                    print("      members: no", file=f)
 
-    # Output the markdown contents
-    with mkdocs_gen_files.open(output_file, "w") as f:
-        identifier = ".".join(module.with_suffix("").parts)
-        print(f"::: {identifier}", file=f)
-        if exclude_contents:
-            # Output options so that the contents of the module are excluded
-            print("    options:", file=f)
-            print("      members: no", file=f)
+        # Now write contents for all remaining contents in the directory
+        for node, sub_tree in tree.items():
+            generate_module_tree(
+                sub_tree,
+                mod_path / node,
+                input_base,
+                output_base,
+            )
+
+
+def add_path_to_tree(tree: FileTree, path: Path):
+    """
+    Add a path to the file tree.
+    """
+    if len(path.parts) == 1:
+        if str(path) not in tree:
+            tree[str(path)] = {}
+    else:
+        part = path.parts[0]
+        if part not in tree:
+            tree[part] = {}
+        branch = tree[part]
+        add_path_to_tree(branch, Path(*path.parts[1:]))
 
 
 def generate_auto_docstrings():
@@ -120,30 +180,30 @@ def generate_auto_docstrings():
     rmtree(DOCS_BUILD_DIR, ignore_errors=True)
     DOCS_BUILD_DIR.mkdir()
 
-    modules: set[Path] = set()
+    module_tree: FileTree = {}
 
     # Find all the modules in the library
     for path in DOCS_PREBUILD_DIR.rglob("*.py"):
         # So that files can be grouped, we find all Python files
         module = Path(path.relative_to(DOCS_PREBUILD_DIR))
 
-        # Skip over __init__.py, since it gets covered by parent directories
-        if module.name == "__init__.py":
-            continue
-
         # only include it if it's not part of our modules to skip
         if not any(part in AUTO_DOCSTRINGS_SKIPPED for part in module.parts):
-            modules.add(module)
-
-            # Also add parents, so that we can generate `index.md` files for
-            # them
-            # We skip the very last one since it'll be `.`
-            for parent in module.parents[:-1]:
-                modules.add(parent)
+            # Skip over __init__.py, since it gets covered by parent directories
+            if module.name == "__init__.py":
+                add_path_to_tree(module_tree, module.parent)
+            else:
+                add_path_to_tree(module_tree, module)
 
     # Now generate each module
-    for mod in modules:
-        generate_module(mod)
+    # Place all contents in
+    generate_module_tree(
+        module_tree,
+        Path(""),
+        DOCS_PREBUILD_DIR,
+        # FIXME: Don't hard-code this
+        Path("MIDI Controller Scripting"),
+    )
 
 
 def find_duplicates(src: Path, dest: Path) -> list[Path]:

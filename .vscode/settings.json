@@ -27,6 +27,7 @@
         "launchmap",
         "MIDICC",
         "mkdocs",
+        "mkdocstrings",
         "mypy",
         "pdoc",
         "playhead",
