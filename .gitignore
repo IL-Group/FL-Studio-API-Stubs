@@ -1,5 +1,5 @@
 # Documentation transformation
-transdoc_build/
+build_lib/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

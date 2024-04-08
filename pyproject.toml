@@ -38,28 +38,28 @@ include = ["py.typed"]
 
 packages = [
     # MIDI controller scripting
-    { include = "arrangement", from = "transdoc_build" },
-    { include = "channels", from = "transdoc_build" },
-    { include = "device", from = "transdoc_build" },
-    { include = "general", from = "transdoc_build" },
-    { include = "launchMapPages", from = "transdoc_build" },
-    { include = "mixer", from = "transdoc_build" },
-    { include = "patterns", from = "transdoc_build" },
-    { include = "playlist", from = "transdoc_build" },
-    { include = "plugins", from = "transdoc_build" },
-    { include = "screen", from = "transdoc_build" },
-    { include = "transport", from = "transdoc_build" },
-    { include = "ui", from = "transdoc_build" },
+    { include = "arrangement", from = "build_lib" },
+    { include = "channels", from = "build_lib" },
+    { include = "device", from = "build_lib" },
+    { include = "general", from = "build_lib" },
+    { include = "launchMapPages", from = "build_lib" },
+    { include = "mixer", from = "build_lib" },
+    { include = "patterns", from = "build_lib" },
+    { include = "playlist", from = "build_lib" },
+    { include = "plugins", from = "build_lib" },
+    { include = "screen", from = "build_lib" },
+    { include = "transport", from = "build_lib" },
+    { include = "ui", from = "build_lib" },
     # MIDI controller scripting extra libraries
-    { include = "midi", from = "transdoc_build" },
-    { include = "utils", from = "transdoc_build" },
+    { include = "midi", from = "build_lib" },
+    { include = "utils", from = "build_lib" },
     # API stubs extra modules
-    { include = "fl_classes", from = "transdoc_build" },
-    { include = "fl_model", from = "transdoc_build" },  # deprecated
+    { include = "fl_classes", from = "build_lib" },
+    { include = "fl_model", from = "build_lib" },   # deprecated
     # Edison scripting
-    { include = "enveditor", from = "transdoc_build" },
+    { include = "enveditor", from = "build_lib" },
     # Piano roll scripting
-    { include = "flpianoroll", from = "transdoc_build" },
+    { include = "flpianoroll", from = "build_lib" },
 ]
 
 [tool.poetry.scripts]
@@ -72,7 +72,7 @@ build = "scripts.transform_docstrings:transform_modules"
 
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 jsonschema = "^4.17.3"
 
 [tool.poetry.group.dev.dependencies]
@@ -87,23 +87,18 @@ types-jsonschema = "^4.17.0"
 mkdocs = "^1.4.2"
 mkdocs-gen-files = "^0.4.0"
 mkdocs-material = "^8.5.11"
-mkdocstrings = {version = "^0.20.0", extras = ["python"]}
+mkdocstrings = { version = "^0.20.0", extras = ["python"] }
 autopep8 = "^2.0.2"
-transdoc = "^0.1.0"
+transdoc = "^0.2.1"
 
 [tool.flake8]
-exclude = [
-    '.git',
-    '__pycache__',
-    'old',
-    'build',
-    'dist',
-]
-ignore = [
-    'E501',
-    'W503',
-]
+exclude = ['.git', '__pycache__', 'old', 'build', 'dist']
+ignore = ['E501', 'W503']
+
+[tool.poetry.build]
+generate-setup-file = false
+script = "scripts/build_lib.py"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.0.0", "transdoc>=0.2.0"]
 build-backend = "poetry.core.masonry.api"

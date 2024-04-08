@@ -1,21 +1,8 @@
 """
-# Scripts / transform docstrings
+# Data / Transdoc Rules
 
-Transform docstrings to make them render more nicely inline, and online.
+Rule definitions for transdoc
 """
-from transdoc import transform
-from pathlib import Path
-from shutil import rmtree, copyfile
-import os
-
-
-INPUT_DIR = Path("src")
-OUTPUT_DIR = Path("transdoc_build")
-
-
-# Rule definitions
-###############################################################################
-
 
 BASE_URL = "https://miguelguthridge.github.io/FL-Studio-API-Stubs"
 
@@ -72,46 +59,3 @@ def note(name: str) -> str:
     Insert a note given its name.
     """
     return NOTE_MAPPINGS[name]
-
-
-TRANSDOC_RULES = [
-    docs_url_fn,
-    docs_url_page,
-    fl_manual_anchor,
-    fl_manual_page,
-    note,
-]
-
-
-# The actual script
-###############################################################################
-
-
-def transform_modules():
-    """
-    Go through all code in the src/ directory and transform it
-    """
-
-    try:
-        rmtree(OUTPUT_DIR)
-    except Exception as e:
-        print(e)
-
-    for dirpath, _, filenames in os.walk(INPUT_DIR):
-        # Create directory
-        out_dir = OUTPUT_DIR.joinpath(Path(dirpath).relative_to(INPUT_DIR))
-        out_dir.mkdir()
-        for file in filenames:
-            # If it's not a Python file, just copy it
-            out_file = out_dir.joinpath(file)
-            in_file = Path(dirpath).joinpath(file)
-
-            if not in_file.suffix == ".py":
-                copyfile(in_file, out_file)
-            else:
-                txt = in_file.read_text()
-                out_file.write_text(transform(txt, TRANSDOC_RULES))
-
-
-if __name__ == '__main__':
-    transform_modules()
