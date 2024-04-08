@@ -50,7 +50,7 @@ jobs:
       # Build documentation to ./site/ directory
       - name: Build Documentation
         id: build
-        run: poetry run docs
+        run: poetry run python -m scripts.build_docs
 
       # Upload artifact from the ./site/ directory using the expected format for GitHub Pages
       - name: Upload Artifact
