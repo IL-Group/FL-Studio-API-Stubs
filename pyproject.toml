@@ -78,7 +78,7 @@ transdoc = "^0.2.1"
 # Note build dependencies are also required
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
-mkdocs-gen-files = "^0.4.0"
+mkdocs-gen-files = ">=0.4,<0.6"
 mkdocs-material = "^8.5.11"
 mkdocstrings = { version = "^0.20.0", extras = ["python"] }
 mkdocs-awesome-pages-plugin = "^2.9.2"
