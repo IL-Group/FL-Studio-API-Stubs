@@ -1,8 +1,8 @@
 site_name: FL Studio API Documentation
 site_description: Documentation for the FL Studio API
 repo_name: FL-Studio-API-Stubs
-repo_url: https://github.com/MiguelGuthridge/FL-Studio-API-Stubs
-copyright: API Stub by <a href="https://github.com/MiguelGuthridge">Miguel Guthridge</a>. Online documentation by <a href="https://github.com/abbydiode">Abigail de Joode</a>. Not affiliated with Image-Line.
+repo_url: https://github.com/IL-Group/FL-Studio-API-Stubs
+copyright: (c) 2024 Image Line Software
 
 # Build to a temporary directory
 site_dir: temp_site
@@ -10,12 +10,12 @@ site_dir: temp_site
 theme:
   name: material
   palette:
-    - media: '(prefers-color-scheme: dark)'
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/lightbulb-outline
         name: Switch to light mode
-    - media: '(prefers-color-scheme: light)'
+    - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/lightbulb
@@ -34,9 +34,11 @@ plugins:
       handlers:
         python:
           paths:
-            - transdoc_build
+            - build_lib
           options:
             show_source: false
+  ## Not using mkdocs scripts since we need to do a ton of pre-build stuff
+  ## Maybe I'll try and get this working some point
   # - gen-files:
   #     scripts:
   #       - scripts/generate_pages.py

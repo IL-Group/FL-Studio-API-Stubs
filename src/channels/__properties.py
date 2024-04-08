@@ -4,21 +4,9 @@ channels > properties
 Function definitions for managing channel properties.
 """
 import midi
-import utils
 from typing import overload, Literal
-from fl_model import getState
-from fl_model.decorators import deprecate, since
-from fl_model.consts import oo
-from fl_model.channels import (
-    getChannelsInGroup,
-    groupIndexToGlobalIndex,
-    checkGroupIndex,
-    getGroupedChannelReference,
-)
-from fl_model.util import clamp
 
 
-@since(5)
 def selectedChannel(
     canBeNone: bool = False,
     offset: int = 0,
@@ -54,20 +42,7 @@ def selectedChannel(
 
     Included since API version 5
     """
-    if indexGlobal:
-        return channelNumber(canBeNone, offset)
-    found = 0
-    for i, i_global in enumerate(getChannelsInGroup()):
-        ch = getState().channels.channel_list[i_global]
-        if ch.selected:
-            if found == offset:
-                return i
-            found += 1
-
-    if canBeNone:
-        return -1
-    else:
-        return 0
+    return 0
 
 
 def channelNumber(canBeNone: bool = False, offset: int = 0) -> int:
@@ -94,16 +69,7 @@ def channelNumber(canBeNone: bool = False, offset: int = 0) -> int:
 
     Included since API version 1.
     """
-    found = 0
-    for i in getChannelsInGroup():
-        if getState().channels.channel_list[i].selected:
-            if found == offset:
-                return i
-            found += 1
-    if canBeNone:
-        return -1
-    else:
-        return 0
+    return 0
 
 
 def channelCount(globalCount: bool = False) -> int:
@@ -123,10 +89,7 @@ def channelCount(globalCount: bool = False) -> int:
     Included since API version 1. (updated with optional parameter in API
     version 3).
     """
-    if globalCount:
-        return len(getState().channels.channel_list)
-    else:
-        return len(getChannelsInGroup())
+    return 0
 
 
 def getChannelName(index: int, useGlobalIndex: bool = False) -> str:
@@ -149,8 +112,7 @@ def getChannelName(index: int, useGlobalIndex: bool = False) -> str:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    return getGroupedChannelReference(index).name
+    return ""
 
 
 def setChannelName(
@@ -179,8 +141,6 @@ def setChannelName(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    getGroupedChannelReference(index).name = name
 
 
 def getChannelColor(index: int, useGlobalIndex: bool = False) -> int:
@@ -205,8 +165,7 @@ def getChannelColor(index: int, useGlobalIndex: bool = False) -> int:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    return getGroupedChannelReference(index).color
+    return 0
 
 
 def setChannelColor(
@@ -234,8 +193,6 @@ def setChannelColor(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    getGroupedChannelReference(index).color = color
 
 
 def isChannelMuted(index: int, useGlobalIndex: bool = False) -> bool:
@@ -259,8 +216,7 @@ def isChannelMuted(index: int, useGlobalIndex: bool = False) -> bool:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    return getGroupedChannelReference(index).muted
+    return False
 
 
 def muteChannel(
@@ -286,8 +242,6 @@ def muteChannel(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    getGroupedChannelReference(index).muted = not isChannelMuted(index)
 
 
 def isChannelSolo(index: int, useGlobalIndex: bool = False) -> bool:
@@ -311,11 +265,7 @@ def isChannelSolo(index: int, useGlobalIndex: bool = False) -> bool:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    # Calculate number of enabled channels
-    enabled = sum(map(lambda c: not c.muted, getState().channels.channel_list))
-    # Channel is the only one enabled
-    return enabled == 1 and not isChannelMuted(index)
+    return False
 
 
 def soloChannel(index: int, useGlobalIndex: bool = False) -> None:
@@ -335,13 +285,6 @@ def soloChannel(index: int, useGlobalIndex: bool = False) -> None:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    for i, c in enumerate(getState().channels.channel_list):
-        if index_global == i:
-            c.muted = False
-        else:
-            c.muted = True
 
 
 def getChannelVolume(
@@ -375,15 +318,7 @@ def getChannelVolume(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    volume = getState().channels.channel_list[index_global].volume
-    if mode:
-        if volume == 0.0:
-            return -oo
-        return utils.VolTodB(volume)
-    else:
-        return volume
+    return 0.78125
 
 
 def setChannelVolume(
@@ -415,9 +350,6 @@ def setChannelVolume(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    getState().channels.channel_list[index_global].volume = clamp(volume)
 
 
 def getChannelPan(index: int, useGlobalIndex: bool = False) -> float:
@@ -443,9 +375,7 @@ def getChannelPan(index: int, useGlobalIndex: bool = False) -> float:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    return getState().channels.channel_list[index_global].pan
+    return 0.0
 
 
 def setChannelPan(
@@ -477,9 +407,6 @@ def setChannelPan(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    getState().channels.channel_list[index_global].pan = clamp(pan, min=-1)
 
 
 @overload
@@ -500,7 +427,6 @@ def getChannelPitch(
     ...
 
 
-@since(8)
 def getChannelPitch(
     index: int,
     mode: int = 0,
@@ -542,11 +468,9 @@ def getChannelPitch(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return 0.0
 
 
-@since(8)
 def setChannelPitch(
     index: int,
     value: float,
@@ -587,10 +511,8 @@ def setChannelPitch(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
 
 
-@since(19)
 def getChannelType(index: int, useGlobalIndex: bool = False) -> int:
     """
     Returns the type of instrument loaded into the channel rack at `index`.
@@ -621,9 +543,7 @@ def getChannelType(index: int, useGlobalIndex: bool = False) -> int:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    return getState().channels.channel_list[index_global].ch_type.value
+    return 0
 
 
 def isChannelSelected(index: int, useGlobalIndex: bool = False) -> bool:
@@ -647,12 +567,9 @@ def isChannelSelected(index: int, useGlobalIndex: bool = False) -> bool:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    index_global = getChannelIndex(index)
-    return getState().channels.channel_list[index_global].selected
+    return False
 
 
-@since(8)
 def selectOneChannel(index: int, useGlobalIndex: bool = False) -> None:
     """
     Exclusively select the channel at `index` (deselecting any other selected
@@ -674,10 +591,6 @@ def selectOneChannel(index: int, useGlobalIndex: bool = False) -> None:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    deselectAll()
-    index_global = getChannelIndex(index)
-    getState().channels.channel_list[index_global].selected = True
 
 
 def selectChannel(
@@ -711,13 +624,6 @@ def selectChannel(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    if value == -1:
-        bool_val = not isChannelSelected(index)
-    else:
-        bool_val = bool(value)
-    index_global = getChannelIndex(index)
-    getState().channels.channel_list[index_global].selected = bool_val
 
 
 def selectAll() -> None:
@@ -773,7 +679,6 @@ def getChannelMidiInPort(index: int, useGlobalIndex: bool = False) -> int:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return 0
 
 
@@ -791,8 +696,7 @@ def getChannelIndex(index: int) -> int:
 
     Included since API version 1.
     """
-    checkGroupIndex(index)
-    return groupIndexToGlobalIndex(index)
+    return 0
 
 
 def getTargetFxTrack(index: int, useGlobalIndex: bool = False) -> int:
@@ -816,7 +720,6 @@ def getTargetFxTrack(index: int, useGlobalIndex: bool = False) -> int:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return 0
 
 
@@ -843,7 +746,6 @@ def setTargetFxTrack(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(channelIndex)
 
 
 def getRecEventId(index: int, useGlobalIndex: bool = False) -> int:
@@ -870,7 +772,6 @@ def getRecEventId(index: int, useGlobalIndex: bool = False) -> int:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return 0
 
 
@@ -918,7 +819,6 @@ def incEventValue(eventId: int, step: int, res: float = 1 / 24) -> int:
     return 0
 
 
-@deprecate(7)
 def processRECEvent(eventId: int, value: int, flags: int, /) -> int:
     """
     Processes a recording event.

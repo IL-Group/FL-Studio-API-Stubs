@@ -1,5 +1,0 @@
-{
-  "$schema": "../../src/fl_model/configuration/schema.json",
-  "$comment": "A configuration that targets an old version of the API",
-  "targetApiVersion": 9
-}

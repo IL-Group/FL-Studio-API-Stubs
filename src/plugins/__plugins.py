@@ -1,11 +1,9 @@
 """
 plugins
 """
-from fl_model.decorators import since
 import midi
 
 
-@since(8)
 def isValid(
     index: int,
     slotIndex: int = -1,
@@ -40,7 +38,6 @@ def isValid(
     return False
 
 
-@since(12)
 def getPluginName(
     index: int,
     slotIndex: int = -1,
@@ -80,7 +77,6 @@ def getPluginName(
     return ""
 
 
-@since(8)
 def getParamCount(
     index: int,
     slotIndex: int = -1,
@@ -118,7 +114,6 @@ def getParamCount(
     return 0
 
 
-@since(8)
 def getParamName(
     paramIndex: int,
     index: int,
@@ -153,7 +148,6 @@ def getParamName(
     return ""
 
 
-@since(8)
 def getParamValue(
     paramIndex: int,
     index: int,
@@ -188,7 +182,6 @@ def getParamValue(
     return 0.0
 
 
-@since(8)
 def setParamValue(
     value: float,
     paramIndex: int,
@@ -228,7 +221,6 @@ def setParamValue(
     """
 
 
-@since(8)
 def getParamValueString(
     paramIndex: int,
     index: int,
@@ -269,7 +261,6 @@ def getParamValueString(
     return ""
 
 
-@since(12)
 def getColor(
     index: int,
     slotIndex: int = -1,
@@ -311,7 +302,6 @@ def getColor(
     return 0
 
 
-@since(13)
 def getName(
     index: int,
     slotIndex: int = -1,
@@ -387,7 +377,6 @@ def getName(
     return ""
 
 
-@since(19)
 def getPadInfo(
     chanIndex: int,
     slotIndex: int = -1,
@@ -435,7 +424,6 @@ def getPadInfo(
     return 0
 
 
-@since(15)
 def getPresetCount(
     index: int,
     slotIndex: int = -1,
@@ -462,7 +450,6 @@ def getPresetCount(
     return 0
 
 
-@since(10)
 def nextPreset(
     index: int,
     slotIndex: int = -1,
@@ -488,7 +475,6 @@ def nextPreset(
     """
 
 
-@since(10)
 def prevPreset(
     index: int,
     slotIndex: int = -1,

@@ -3,8 +3,6 @@ channels > sequencer
 
 Function definitions for interacting with the step sequencer
 """
-from fl_model.patterns import getPatternReference
-from fl_model.channels import checkGroupIndex
 
 
 def getGridBit(
@@ -34,8 +32,7 @@ def getGridBit(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    return getPatternReference().track_contents[index][position]
+    return False
 
 
 def getGridBitWithLoop(
@@ -66,7 +63,6 @@ def getGridBitWithLoop(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return False
 
 
@@ -96,8 +92,6 @@ def setGridBit(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
-    getPatternReference().track_contents[index][position] = value
 
 
 def isGridBitAssigned(index: int, useGlobalIndex: bool = False) -> bool:
@@ -224,7 +218,6 @@ def getCurrentStepParam(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return 0
 
 

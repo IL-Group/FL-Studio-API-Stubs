@@ -3,8 +3,6 @@ Playlist > Performance
 
 Functions for interacting with performance mode.
 """
-
-from fl_model.decorators import since
 import midi
 
 
@@ -426,7 +424,6 @@ def getVisTimeStep() -> int:
     return 0
 
 
-@since(21)
 def getPerformanceModeState() -> bool:
     """
     Returns whether FL Studio's performance mode is enabled.

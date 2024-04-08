@@ -3,8 +3,6 @@ channels > ui
 
 Function definitions for managing channel rack UI
 """
-from fl_model.decorators import since
-from fl_model.channels import checkGroupIndex, checkGlobalIndex
 
 
 def isHighLighted() -> bool:
@@ -55,10 +53,6 @@ def showGraphEditor(
 
     * v20: add `useGlobalIndex` flag.
     """
-    if useGlobalIndex:
-        checkGlobalIndex(index)
-    else:
-        checkGroupIndex(index)
 
 
 def isGraphEditorVisible() -> bool:
@@ -96,7 +90,6 @@ def showEditor(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
 
 
 def focusEditor(index: int, useGlobalIndex: bool = False) -> None:
@@ -116,7 +109,6 @@ def focusEditor(index: int, useGlobalIndex: bool = False) -> None:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
 
 
 def showCSForm(
@@ -148,10 +140,8 @@ def showCSForm(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
 
 
-@since(9)
 def getActivityLevel(index: int, useGlobalIndex: bool = False) -> float:
     """Return the note activity level for channel at `index`. Activity level
     refers to how recently a note was played, as well as whether any notes are
@@ -174,5 +164,4 @@ def getActivityLevel(index: int, useGlobalIndex: bool = False) -> float:
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)
     return 0.0

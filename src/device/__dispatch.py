@@ -4,9 +4,6 @@ device > dispatch
 Functions for dispatching MIDI messages between scripts.
 """
 from typing import Optional, overload, Literal
-from fl_model import getState
-from fl_model.decorators import since
-from fl_model.exceptions import FlIndexError
 
 
 @overload
@@ -76,10 +73,6 @@ def dispatch(
 
     Included since API version 1.
     """
-    # Check we're dispatching to the right place
-    if ctrlIndex < 0 or ctrlIndex >= len(getState().device.dispatch_targets):
-        # The API raises a TypeError for this :puke:
-        raise TypeError("Index out of range")
 
 
 def dispatchReceiverCount() -> int:
@@ -92,10 +85,9 @@ def dispatchReceiverCount() -> int:
 
     Included since API version 1.
     """
-    return len(getState().device.dispatch_targets)
+    return 0
 
 
-@since(5)
 def dispatchGetReceiverPortNumber(ctrlIndex: int) -> int:
     """
     Returns the port of the receiver device specified by `ctrlIndex`.
@@ -110,8 +102,4 @@ def dispatchGetReceiverPortNumber(ctrlIndex: int) -> int:
 
     Included since API version 5.
     """
-    t = getState().device.dispatch_targets
-    if ctrlIndex < 0 or ctrlIndex >= len(t):
-        # The API raises a TypeError for this :puke:
-        raise FlIndexError()
-    return t[ctrlIndex]
+    return 0

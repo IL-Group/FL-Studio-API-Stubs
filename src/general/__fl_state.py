@@ -3,8 +3,6 @@ general > __fl_state
 
 Functions to do with the state of FL Studio.
 """
-from fl_model import getState
-from fl_model.decorators import since
 
 
 def getRecPPB() -> int:
@@ -25,7 +23,6 @@ def getRecPPB() -> int:
     return 0
 
 
-@since(8)
 def getRecPPQ() -> int:
     """
     Returns the current timebase (PPQN), which represents the number of ticks
@@ -97,10 +94,9 @@ def getVersion() -> int:
 
     Included since API version 1.
     """
-    return getState().general.api_version
+    return 0
 
 
-@since(7)
 def processRECEvent(eventId: int, value: int, flags: int) -> int:
     """
     Processes a REC event, usually changing an automatable value.
@@ -149,7 +145,6 @@ def processRECEvent(eventId: int, value: int, flags: int) -> int:
     return 0
 
 
-@since(15)
 def dumpScoreLog(time: int, silent: bool = False) -> None:
     """
     Write recently played MIDI to the selected pattern.
@@ -166,7 +161,6 @@ def dumpScoreLog(time: int, silent: bool = False) -> None:
     """
 
 
-@since(15)
 def clearLog() -> None:
     """
     Clear the score log.
@@ -175,7 +169,6 @@ def clearLog() -> None:
     """
 
 
-@since(29)
 def safeToEdit() -> bool:
     """
     Returns whether it is currently safe to perform edit operations in FL

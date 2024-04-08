@@ -3,8 +3,6 @@ channels > notes
 
 Function definitions for managing notes on channels
 """
-from fl_model.decorators import since
-from fl_model.channels import checkGlobalIndex, checkGroupIndex
 
 
 def midiNoteOn(
@@ -40,11 +38,8 @@ def midiNoteOn(
 
     Included since API version 1.
     """
-    checkGlobalIndex(indexGlobal)
-    # TODO: Maintain list of note ons for each channel
 
 
-@since(9)
 def quickQuantize(
     index: int,
     startOnly: int = 1,
@@ -68,4 +63,3 @@ def quickQuantize(
 
     * v33: add `useGlobalIndex` flag.
     """
-    checkGroupIndex(index)

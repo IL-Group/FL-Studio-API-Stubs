@@ -3,10 +3,7 @@ transport > position
 
 Dynamic state of transport
 """
-from fl_model import config
 import midi
-from fl_model import getState
-from fl_model.exceptions import FlCallKeyEchoError
 
 
 def start() -> None:
@@ -15,7 +12,6 @@ def start() -> None:
 
     Included since API version 1.
     """
-    getState().transport.playing = not getState().transport.playing
 
 
 def stop() -> None:
@@ -24,8 +20,6 @@ def stop() -> None:
 
     Included since API version 1.
     """
-    # TODO: Reset playback position
-    getState().transport.playing = False
 
 
 def isPlaying() -> bool:
@@ -38,7 +32,7 @@ def isPlaying() -> bool:
 
     Included since API version 1.
     """
-    return getState().transport.playing
+    return False
 
 
 def record() -> None:
@@ -47,7 +41,6 @@ def record() -> None:
 
     Included since API version 1.
     """
-    getState().transport.recording = not getState().transport.recording
 
 
 def isRecording() -> bool:
@@ -60,7 +53,7 @@ def isRecording() -> bool:
 
     Included since API version 1.
     """
-    return getState().transport.recording
+    return False
 
 
 def getLoopMode() -> int:
@@ -85,15 +78,6 @@ def setLoopMode() -> None:
 
     Included since API version 1.
     """
-
-
-# Set of commands that echo key-presses for globalTransport
-GT_KEY_ECHOES = {
-    *range(40, 44),
-    *range(50, 55),
-    *range(60, 72),
-    *range(80, 84),
-}
 
 
 def globalTransport(
@@ -130,9 +114,4 @@ def globalTransport(
 
     Included since API version 1.
     """
-    if config["disallowKeyEchoes"] and command in GT_KEY_ECHOES:
-        raise FlCallKeyEchoError(
-            "Attempted to call function globalTransport with parameters that "
-            "would lead to a keypress being echoed"
-        )
     return 0

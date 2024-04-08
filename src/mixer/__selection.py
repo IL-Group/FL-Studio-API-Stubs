@@ -3,7 +3,6 @@ Mixer > Selection
 
 Functions for interacting with the mixer selection.
 """
-from fl_model.decorators import since
 
 
 def trackNumber() -> int:
@@ -94,7 +93,6 @@ def deselectAll() -> None:
     """
 
 
-@since(27)
 def setActiveTrack(index: int):
     """
     Exclusively selects the mixer track at index.

@@ -1,6 +1,0 @@
-{
-  "$schema": "../../src/fl_model/configuration/schema.json",
-  "$comment": "Configuration with invalid property",
-
-  "invalid": "this property doesn't exist"
-}

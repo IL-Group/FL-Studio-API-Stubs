@@ -4,8 +4,6 @@ device > device
 Communication with the connected device
 """
 from typing import overload
-from fl_model import getState
-from fl_model.decorators import deprecate, since
 from fl_classes import FlMidiMsg
 
 
@@ -20,7 +18,7 @@ def isAssigned() -> bool:
 
     Included since API version 1.
     """
-    return getState().device.assigned
+    return False
 
 
 def isMidiOutAssigned() -> bool:
@@ -59,10 +57,9 @@ def getPortNumber() -> int:
 
     Included since API version 1.
     """
-    return getState().device.port
+    return 0
 
 
-@since(7)
 def getName() -> str:
     """
     Returns the name of the device.
@@ -73,7 +70,7 @@ def getName() -> str:
 
     Included since API version 7.
     """
-    return getState().device.name
+    return ""
 
 
 @overload
@@ -156,7 +153,6 @@ def midiOutSysex(message: bytes) -> None:
     """
 
 
-@deprecate(9)
 def sendMsgGeneric(
     id: int,
     message: str,
@@ -238,7 +234,6 @@ def stopRepeatMidiEvent() -> None:
     """
 
 
-@since(18)
 def setMasterSync(value: bool) -> None:
     """
     Control the value of the "send master sync" option in FL Studio's MIDI
@@ -256,10 +251,8 @@ def setMasterSync(value: bool) -> None:
 
     Included since API Version 18.
     """
-    getState().device.master_sync = value
 
 
-@since(19)
 def getMasterSync() -> bool:
     """
     Returns the value of the "send master sync" option in FL Studio's MIDI
@@ -276,10 +269,9 @@ def getMasterSync() -> bool:
 
     Included since API Version 19.
     """
-    return getState().device.master_sync
+    return False
 
 
-@since(25)
 def getDeviceID() -> bytes:
     """
     Returns the unique device identifier of the connected device, as determined

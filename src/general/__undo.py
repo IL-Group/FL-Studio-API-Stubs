@@ -3,9 +3,6 @@ general > __undo
 
 Functions for managing undo and redo
 """
-from fl_model.decorators import deprecate
-from fl_model.models.general import UndoItem
-from fl_model import getState
 
 
 def saveUndo(undoName: str, flags: int, update: bool = True) -> None:
@@ -46,14 +43,6 @@ def saveUndo(undoName: str, flags: int, update: bool = True) -> None:
 
     Included since API version 1.
     """
-    undo = getState().general.undo
-    # Slice out any later elements
-    if undo.position != 0:
-        undo.items = undo.items[undo.position:]
-        undo.pos_len = undo.count_len = len(undo.items)
-    undo.items.insert(0, UndoItem(undoName, flags))
-    undo.count_len += 1
-    undo.pos_len += 1
 
 
 def undo() -> int:
@@ -67,10 +56,6 @@ def undo() -> int:
 
     Included since API version 1.
     """
-    if getState().general.undo.position == 0:
-        undoUp()
-    else:
-        undoDown()
     return 0
 
 
@@ -86,7 +71,6 @@ def undoUp() -> int:
 
     Included since API version 1
     """
-    undoUpDown(-1)
     return 0
 
 
@@ -102,7 +86,6 @@ def undoDown() -> int:
 
     Included since API version 1.
     """
-    undoUpDown(1)
     return 0
 
 
@@ -119,12 +102,9 @@ def undoUpDown(value: int) -> int:
 
     Included since API version 1.
     """
-    undo = getState().general.undo
-    undo.position = max(0, min(len(undo.items) - 1, undo.position - value))
     return 0
 
 
-@deprecate(1)
 def restoreUndo() -> int:
     """
     Undo-redo toggle. This behaves in the same way as `undo()`.
@@ -139,7 +119,6 @@ def restoreUndo() -> int:
     return undo()
 
 
-@deprecate(1)
 def restoreUndoLevel(level: int) -> int:
     """
     Undo-redo toggle. This behaves in the same way as `undo()`.
@@ -186,7 +165,7 @@ def getUndoHistoryPos() -> int:
 
     Included since API version 1.
     """
-    return getState().general.undo.pos_len
+    return 0
 
 
 def getUndoHistoryCount() -> int:
@@ -201,7 +180,7 @@ def getUndoHistoryCount() -> int:
 
     Included since API version 1.
     """
-    return getState().general.undo.count_len
+    return 0
 
 
 def getUndoHistoryLast() -> int:
@@ -215,7 +194,7 @@ def getUndoHistoryLast() -> int:
 
     Included since API version 1.
     """
-    return getState().general.undo.position
+    return 0
 
 
 def setUndoHistoryPos(index: int) -> None:
@@ -240,10 +219,6 @@ def setUndoHistoryPos(index: int) -> None:
 
     Included since API version 1.
     """
-    undo = getState().general.undo
-    index = min(max(index, 0), len(undo.items))
-    undo.pos_len = index
-    undo.items = undo.items[-index:]
 
 
 def setUndoHistoryCount(value: int) -> None:
@@ -264,10 +239,6 @@ def setUndoHistoryCount(value: int) -> None:
 
     Included since API version 1.
     """
-    undo = getState().general.undo
-    value = min(max(value, 0), len(undo.items))
-    undo.count_len = value
-    undo.items = undo.items[:value]
 
 
 def setUndoHistoryLast(index: int, /) -> None:
@@ -281,6 +252,3 @@ def setUndoHistoryLast(index: int, /) -> None:
 
     Included since API version 1.
     """
-    undo = getState().general.undo
-    index = min(max(index, 0), len(undo.items))
-    undo.position = index

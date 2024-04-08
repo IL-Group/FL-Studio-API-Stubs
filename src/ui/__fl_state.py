@@ -4,7 +4,6 @@ ui > fl_state
 Code for controlling the state of FL Studio's UI.
 """
 from typing import overload, Literal
-from fl_model.decorators import since
 
 
 def isClosing() -> bool:
@@ -137,7 +136,6 @@ def snapMode(value: int) -> int:
     return 0
 
 
-@since(24)
 def setSnapMode(value: int) -> None:
     """
     Set the snap mode using an absolute value.
@@ -221,7 +219,6 @@ def setHintMsg(msg: str) -> None:
     """
 
 
-@since(20)
 def showNotification(notificationId: int):
     """
     Show a notification to the user, which is chosen from a set of notification
@@ -335,7 +332,6 @@ def getVersion(mode: int = 4) -> 'str | int':
     return 0
 
 
-@since(28)
 def getStepEditMode() -> bool:
     """
     Returns the value of the "step edit mode" within FL Studio.
@@ -349,7 +345,6 @@ def getStepEditMode() -> bool:
     return False
 
 
-@since(28)
 def setStepEditMode(newValue: bool):
     """
     Sets the value of the "step edit mode" within FL Studio.

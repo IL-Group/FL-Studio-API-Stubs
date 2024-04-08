@@ -3,7 +3,6 @@ ui > editors
 
 Code for controlling FL Studio's editor tools.
 """
-from fl_model.decorators import since
 
 
 def launchAudioEditor(
@@ -43,7 +42,6 @@ def launchAudioEditor(
     return 0
 
 
-@since(9)
 def openEventEditor(
     eventId: int,
     mode: int,

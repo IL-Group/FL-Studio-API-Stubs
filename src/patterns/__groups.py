@@ -3,10 +3,8 @@ patterns > groups
 
 Managing pattern groups
 """
-from fl_model.decorators import since
 
 
-@since(28)
 def getActivePatternGroup() -> int:
     """
     Returns the index of the currently-selected pattern group.
@@ -23,7 +21,6 @@ def getActivePatternGroup() -> int:
     return -1
 
 
-@since(28)
 def getPatternGroupCount() -> int:
     """
     Returns the number of user-defined pattern groups.
@@ -39,7 +36,6 @@ def getPatternGroupCount() -> int:
     return 0
 
 
-@since(28)
 def getPatternGroupName(index: int, /) -> str:
     """
     Returns the name of the pattern group at index.
@@ -55,7 +51,6 @@ def getPatternGroupName(index: int, /) -> str:
     return ""
 
 
-@since(28)
 def getPatternsInGroup(index: int, /) -> tuple[int, ...]:
     """
     Returns a tuple containing all the patterns in the group at index.

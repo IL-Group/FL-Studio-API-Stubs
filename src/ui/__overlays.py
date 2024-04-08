@@ -3,7 +3,6 @@ ui > overlays
 
 Functions for displaying overlays on the FL Studio UI.
 """
-from fl_model.decorators import since
 
 
 def crDisplayRect(
@@ -48,7 +47,6 @@ def crDisplayRect(
     """
 
 
-@since(13)
 def miDisplayRect(
     start: int,
     end: int,
@@ -78,7 +76,6 @@ def miDisplayRect(
     """
 
 
-@since(17)
 def miDisplayDockRect(
     start: int,
     length: int,

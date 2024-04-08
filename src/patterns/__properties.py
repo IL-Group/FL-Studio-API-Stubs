@@ -5,11 +5,6 @@ Managing properties of patterns
 """
 
 from typing import Optional
-from fl_model import getState
-from fl_model.decorators import since
-from fl_model.patterns import getPatternReference, isPatternVisible
-from fl_model.consts import PATTERN_COUNT
-from .__helpers import checkIndex
 
 
 def patternNumber() -> int:
@@ -27,7 +22,7 @@ def patternNumber() -> int:
 
     Included since API version 1.
     """
-    return getState().patterns.active_pattern
+    return 0
 
 
 def patternCount() -> int:
@@ -48,10 +43,7 @@ def patternCount() -> int:
 
     Included since API version 1.
     """
-    return sum(map(
-        lambda p: p.hasChanged(),
-        getState().patterns.p[1:]
-    ))
+    return 0
 
 
 def patternMax() -> int:
@@ -65,7 +57,7 @@ def patternMax() -> int:
 
     Included since API version 1.
     """
-    return PATTERN_COUNT - 1
+    return 0
 
 
 def getPatternName(index: int) -> str:
@@ -82,8 +74,7 @@ def getPatternName(index: int) -> str:
 
     Included since API version 1.
     """
-    checkIndex(index)
-    return getPatternReference(index).name
+    return ""
 
 
 def setPatternName(index: int, name: str) -> None:
@@ -101,8 +92,6 @@ def setPatternName(index: int, name: str) -> None:
 
     Included since API version 1.
     """
-    checkIndex(index)
-    getPatternReference(index).name = name
 
 
 def getPatternColor(index: int) -> int:
@@ -121,8 +110,7 @@ def getPatternColor(index: int) -> int:
 
     Included since API version 1.
     """
-    checkIndex(index)
-    return getPatternReference(index).color
+    return 0
 
 
 def setPatternColor(index: int, color: int) -> None:
@@ -139,8 +127,6 @@ def setPatternColor(index: int, color: int) -> None:
 
     Included since API version 1.
     """
-    checkIndex(index)
-    getPatternReference(index).color = color
 
 
 def getPatternLength(index: int) -> int:
@@ -157,7 +143,6 @@ def getPatternLength(index: int) -> int:
 
     Included since API version 1.
     """
-    checkIndex(index)
     return 0
 
 
@@ -179,14 +164,6 @@ def jumpToPattern(index: int) -> None:
 
     Included since API version 1.
     """
-    checkIndex(index)
-    # Can't jump to zeroth pattern
-    if index == 0:
-        index = 1
-    if not getState().patterns.p[index].selected:
-        deselectAll()
-        getState().patterns.p[index].selected = True
-    getState().patterns.active_pattern = index
 
 
 def findFirstNextEmptyPat(flags: int, x: int = -1, y: int = -1) -> None:
@@ -212,7 +189,6 @@ def findFirstNextEmptyPat(flags: int, x: int = -1, y: int = -1) -> None:
     """
 
 
-@since(2)
 def isPatternSelected(index: int) -> bool:
     """
     Returns whether the pattern at `index` is selected.
@@ -227,11 +203,9 @@ def isPatternSelected(index: int) -> bool:
 
     Included since API version 2.
     """
-    checkIndex(index)
-    return getState().patterns.p[index].selected
+    return False
 
 
-@since(2)
 def selectPattern(
     index: int,
     value: int = -1,
@@ -255,32 +229,8 @@ def selectPattern(
 
     Included since API version 2.
     """
-    checkIndex(index)
-    # Can't select invisible tracks
-    if not isPatternVisible(index):
-        return
-    if value == -1:
-        select = not getState().patterns.p[index].selected
-    elif value == 0:
-        select = False
-    elif value == 1:
-        select = True
-    else:
-        raise ValueError(f"Invalid 'value' parameter: {value}")
-    # Select it
-    getState().patterns.p[index].selected = select
-    if select:
-        # Set active pattern to this one
-        getState().patterns.active_pattern = index
-    else:
-        # Set active pattern to first active pattern
-        for i, p in enumerate(getState().patterns.p):
-            if p.selected:
-                getState().patterns.active_pattern = i
-                break
 
 
-@since(2)
 def selectAll() -> None:
     """
     Selects all patterns.
@@ -289,22 +239,16 @@ def selectAll() -> None:
 
     Included since API version 2.
     """
-    for i in range(1, PATTERN_COUNT):
-        selectPattern(i, True)
 
 
-@since(2)
 def deselectAll() -> None:
     """
     Deselects all patterns.
 
     Included since API version 2.
     """
-    for i in range(1, PATTERN_COUNT):
-        selectPattern(i, False)
 
 
-@since(9)
 def burnLoop(index: int, storeUndo: int = 1, updateUi: int = 1) -> None:
     """
     For a pattern where looping of step sequenced channels is enabled, disable
@@ -327,10 +271,8 @@ def burnLoop(index: int, storeUndo: int = 1, updateUi: int = 1) -> None:
 
     Included since API version 9
     """
-    checkIndex(index)
 
 
-@since(23)
 def isPatternDefault(index: int) -> bool:
     """
     Returns whether the pattern at the given index has changed from the default
@@ -346,11 +288,9 @@ def isPatternDefault(index: int) -> bool:
 
     Included since API Version 23
     """
-    checkIndex(index)
-    return not getState().patterns.p[index].hasChanged()
+    return True
 
 
-@since(25)
 def clonePattern(index: Optional[int] = None):
     """
     Clones the pattern at the given index

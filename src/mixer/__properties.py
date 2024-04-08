@@ -5,7 +5,6 @@ Properties of the mixer and other aspects of FL Studio as a whole
 """
 from typing import Optional, overload, Literal
 import midi
-from fl_model.decorators import since
 
 
 def getTrackInfo(mode: int) -> int:
@@ -140,7 +139,6 @@ def getSongTickPos(mode: int = midi.ST_Int) -> 'int | float':
     return 0
 
 
-@since(9)
 def getLastPeakVol(section: int) -> float:
     """
     Returns last peak volume.
@@ -163,7 +161,6 @@ def getLastPeakVol(section: int) -> float:
     return 0.0
 
 
-@since(25)
 def focusEditor(index: int, plugIndex: int):
     """
     Focus the editor the effect plugin at the given location.
@@ -178,7 +175,6 @@ def focusEditor(index: int, plugIndex: int):
     """
 
 
-@since(25)
 def getActiveEffectIndex() -> Optional[tuple[int, int]]:
     """
     Returns the index of the active effects plugin, or None if there isn't one.

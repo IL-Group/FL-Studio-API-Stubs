@@ -4,7 +4,6 @@ device > __fl
 Communication with FL Studio
 """
 import midi
-from fl_model.decorators import since
 from fl_classes import FlMidiMsg
 
 
@@ -20,7 +19,6 @@ def processMIDICC(eventData: FlMidiMsg) -> None:
     """
 
 
-@since(7)
 def forwardMIDICC(message: int, mode: int = 1) -> None:
     """
     Forwards a MIDI CC message to the currently focused plugin.
@@ -89,7 +87,6 @@ def getLinkedValue(eventID: int) -> float:
     return 0.0
 
 
-@since(10)
 def getLinkedValueString(eventID: int) -> str:
     """
     Returns text value of the REC event at `eventID`.
@@ -120,7 +117,6 @@ def getLinkedValueString(eventID: int) -> str:
     return ""
 
 
-@since(10)
 def getLinkedParamName(eventID: int) -> str:
     """
     Returns the parameter name of the REC event at `eventID`.
@@ -172,7 +168,6 @@ def getLinkedInfo(eventID: int) -> int:
     return 0
 
 
-@since(21)
 def linkToLastTweaked(
     controlIndex: int,
     channel: int,
@@ -213,7 +208,6 @@ def linkToLastTweaked(
     return 0
 
 
-@since(27)
 def getLinkedChannel(eventId: int) -> int:
     """
     Returns the MIDI channel associated with a linked control.

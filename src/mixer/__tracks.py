@@ -3,7 +3,6 @@ Mixer > Tracks
 
 Code for managing the properties of mixer tracks
 """
-from fl_model.decorators import since
 import midi
 
 
@@ -241,7 +240,6 @@ def enableTrack(index: int) -> None:
     """
 
 
-@since(2)
 def isTrackMuted(index: int) -> bool:
     """
     Returns whether the track at `index` is muted.
@@ -259,7 +257,6 @@ def isTrackMuted(index: int) -> bool:
     return False
 
 
-@since(2)
 def muteTrack(index: int, value: int = -1) -> None:
     """
     Toggles whether the track at index is muted.
@@ -275,7 +272,6 @@ def muteTrack(index: int, value: int = -1) -> None:
     """
 
 
-@since(13)
 def isTrackMuteLock(index: int) -> bool:
     """
     Returns whether the mute state of the track at `index` is locked.
@@ -384,7 +380,6 @@ def setTrackPan(
     """
 
 
-@since(12)
 def getTrackStereoSep(index: int) -> float:
     """
     Returns the stereo separation of the track at `index`. Stereo separation
@@ -404,7 +399,6 @@ def getTrackStereoSep(index: int) -> float:
     return 0.0
 
 
-@since(12)
 def setTrackStereoSep(
     index: int,
     pan: float,
@@ -548,7 +542,6 @@ def linkTrackToChannel(mode: int) -> None:
     """
 
 
-@since(13)
 def getTrackDockSide(index: int) -> int:
     """
     Returns the dock side of the mixer for track at `index`.
@@ -571,7 +564,6 @@ def getTrackDockSide(index: int) -> int:
     return 0
 
 
-@since(19)
 def isTrackSlotsEnabled(index: int) -> bool:
     """
     Returns whether effects are enabled for a particular track, using the
@@ -590,7 +582,6 @@ def isTrackSlotsEnabled(index: int) -> bool:
     return False
 
 
-@since(19)
 def enableTrackSlots(index: int, value: bool = False) -> None:
     """
     Toggle whether all effects are enabled on a track.
@@ -616,7 +607,6 @@ def enableTrackSlots(index: int, value: bool = False) -> None:
     """
 
 
-@since(19)
 def isTrackRevPolarity(index: int) -> bool:
     """
     Returns whether the polarity is reversed for the track at `index`.
@@ -634,7 +624,6 @@ def isTrackRevPolarity(index: int) -> bool:
     return False
 
 
-@since(19)
 def revTrackPolarity(index: int, value: bool = False) -> None:
     """
     Inverts the polarity for a particular track.
@@ -653,7 +642,6 @@ def revTrackPolarity(index: int, value: bool = False) -> None:
     """
 
 
-@since(19)
 def isTrackSwapChannels(index: int) -> bool:
     """
     Returns whether left and right channels are inverted for a particular
@@ -672,7 +660,6 @@ def isTrackSwapChannels(index: int) -> bool:
     return False
 
 
-@since(19)
 def swapTrackChannels(index: int, value: bool = False) -> None:
     """
     Toggle whether left and right channels are swapped for the mixer track at
@@ -692,7 +679,6 @@ def swapTrackChannels(index: int, value: bool = False) -> None:
     """
 
 
-@since(23)
 def linkChannelToTrack(
     channel: int,
     track: int,

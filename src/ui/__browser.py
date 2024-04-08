@@ -3,10 +3,8 @@ ui > browser
 
 Code for navigating the browser.
 """
-from fl_model.decorators import since
 
 
-@since(22)
 def navigateBrowser(direction: int, shiftHeld: bool) -> str:
     """
     Navigates through the browser. `direction` can be 0 for previous
@@ -70,7 +68,6 @@ def navigateBrowserMenu(direction: int, shiftHeld: bool) -> str:
     return ""
 
 
-@since(22)
 def navigateBrowserTabs(direction: int) -> str:
     """
     Navigates between browser tabs, returning the name of the newly selected
@@ -94,7 +91,6 @@ def navigateBrowserTabs(direction: int) -> str:
     return ""
 
 
-@since(20)
 def previewBrowserMenuItem():
     """
     Preview the highlighted item in the browser.
@@ -105,7 +101,6 @@ def previewBrowserMenuItem():
     """
 
 
-@since(20)
 def selectBrowserMenuItem():
     """
     Selects the currently highlighted browser menu item, which is the
@@ -119,7 +114,6 @@ def selectBrowserMenuItem():
     """
 
 
-@since(20)
 def getFocusedNodeCaption() -> str:
     """
     Returns the filename associated with the currently selected item in the
@@ -134,7 +128,6 @@ def getFocusedNodeCaption() -> str:
     return ""
 
 
-@since(20)
 def getFocusedNodeFileType() -> int:
     """
     Returns a value based on the type of the selected file in the browser.
@@ -151,7 +144,6 @@ def getFocusedNodeFileType() -> int:
     return 0
 
 
-@since(20)
 def isBrowserAutoHide() -> bool:
     """
     Returns whether the browser is set to auto-hide.
@@ -165,7 +157,6 @@ def isBrowserAutoHide() -> bool:
     return False
 
 
-@since(20)
 def setBrowserAutoHide(value: bool):
     """
     Toggle whether the browser is set to auto-hide.

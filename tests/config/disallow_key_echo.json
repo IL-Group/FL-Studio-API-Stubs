@@ -1,6 +1,0 @@
-{
-  "$schema": "../../src/fl_model/configuration/schema.json",
-  "$comment": "A configuration that disallows calling functions that echo key-presses",
-  "disallowKeyEchoes": true,
-  "targetApiVersion": "20.9.2"
-}

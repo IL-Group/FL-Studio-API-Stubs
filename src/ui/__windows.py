@@ -1,4 +1,8 @@
-from fl_model.decorators import keyEchoes, since
+"""
+ui > windows
+
+Functions for window management within FL Studio
+"""
 
 
 def getVisible(index: int) -> bool:
@@ -50,7 +54,6 @@ def showWindow(index: int) -> None:
     """
 
 
-@since(5)
 def hideWindow(index: int) -> None:
     """
     Hides an FL Studio window specified by `index`.
@@ -111,7 +114,6 @@ def getFocused(index: int) -> bool:
     return False
 
 
-@since(2)
 def setFocused(index: int) -> None:
     """
     Sets which FL Studio window should be focused (meaning it is the currently
@@ -153,7 +155,6 @@ def getFocusedFormCaption() -> str:
     return ""
 
 
-@since(13)
 def getFocusedFormID() -> int:
     """
     Returns ID of the focused window.
@@ -177,7 +178,6 @@ def getFocusedFormID() -> int:
     return 0
 
 
-@since(5)
 def getFocusedPluginName() -> str:
     """
     Returns the plugin name for the active window if it is a plugin, otherwise
@@ -192,7 +192,6 @@ def getFocusedPluginName() -> str:
     return ""
 
 
-@since(13)
 def scrollWindow(index: int, value: int, directionFlag: int = 0) -> None:
     """
     Scrolls on the window specified by `index`. Value is index for whatever is
@@ -238,7 +237,6 @@ def nextWindow() -> int:
     return 0
 
 
-@keyEchoes()
 def selectWindow(shift: bool) -> int:
     """
     Switch to the next window, like pressing the `Tab` key. If `shift` is
