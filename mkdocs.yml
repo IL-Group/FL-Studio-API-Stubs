@@ -2,7 +2,7 @@ site_name: FL Studio API Documentation
 site_description: Documentation for the FL Studio API
 repo_name: FL-Studio-API-Stubs
 repo_url: https://github.com/IL-Group/FL-Studio-API-Stubs
-copyright: (c) 2024 Image Line Software
+copyright: (C) 2024 Image Line Software
 
 # Build to a temporary directory
 site_dir: temp_site
@@ -51,4 +51,4 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
-docs_dir: prebuild_docs
+docs_dir: build_docs

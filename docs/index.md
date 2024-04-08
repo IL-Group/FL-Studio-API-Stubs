@@ -40,10 +40,10 @@ If you wish to help contribute to this documentation, you can do so by creating 
 
 ### Edison scripting
 
-* [`enveditor`][enveditor]: a module for interacting with edison, only available through its
+* [`enveditor`](enveditor/index.md): a module for interacting with edison, only available through its
   scripting interface.
 
 ### Piano roll scripting
 
-* [`flpianoroll`][flpianoroll]: a module for interacting with the
+* [`flpianoroll`](flpianoroll/index.md): a module for interacting with the
   piano roll, only available through its scripting interface.
