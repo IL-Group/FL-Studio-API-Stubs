@@ -66,27 +66,49 @@ packages = [
 "Bug Tracker" = "https://github.com/MiguelGuthridge/FL-Studio-Api-Stubs/issues"
 
 
+# Primary dependencies
 [tool.poetry.dependencies]
 python = "^3.10"
 
-[tool.poetry.group.dev.dependencies]
-flapi = "^0.4.0"
-flake8-pyproject = "^1.2.3"
-pytest = "^7.2.2"
-mypy = "^1.1.1"
-flake8 = "^6.0.0"
-typing-extensions = "^4.5.0"
-coverage = "^7.2.2"
+# Build dependencies -- required to build the library
+[tool.poetry.group.build.dependencies]
+transdoc = "^0.2.1"
+
+# Docs depdnencies -- required to build documentation site
+# Note build dependencies are also required
+[tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
 mkdocs-gen-files = "^0.4.0"
 mkdocs-material = "^8.5.11"
 mkdocstrings = { version = "^0.20.0", extras = ["python"] }
+mkdocs-awesome-pages-plugin = "^2.9.2"
+
+# CI dependencies -- required to run continuous integration, including
+# linting, type checking, etc
+[tool.poetry.group.ci.dependencies]
+coverage = "^7.2.2"
 autopep8 = "^2.0.2"
-transdoc = "^0.2.1"
+mypy = "^1.1.1"
+typing-extensions = "^4.5.0"
+flake8 = "^6.0.0"
+flake8-pyproject = "^1.2.3"
+pytest = "^7.2.2"
+flapi = "^1.0.0"
 
 [tool.flake8]
-exclude = ['.git', '__pycache__', 'old', 'build', 'dist']
+exclude = [
+    '.git',
+    '__pycache__',
+    'old',
+    'build',
+    'dist',
+    'prebuild_docs',
+    'build_lib',
+]
 ignore = ['E501', 'W503']
+
+[tool.mypy]
+exclude = ["build/*", "build*/*"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
