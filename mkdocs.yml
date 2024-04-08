@@ -36,7 +36,9 @@ plugins:
       handlers:
         python:
           paths:
-            - prebuild_docs
+            - prebuild_docs/midi_controller_scripting
+            - prebuild_docs/edison_scripting
+            - prebuild_docs/piano_roll_scripting
           options:
             show_source: false
 

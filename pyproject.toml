@@ -59,7 +59,7 @@ packages = [
     # Edison scripting
     { include = "enveditor", from = "build_lib/edison_scripting" },
     # Piano roll scripting
-    { include = "flpianoroll", from = "build_lib/edison_scripting" },
+    { include = "flpianoroll", from = "build_lib/piano_roll_scripting" },
 ]
 
 [tool.poetry.urls]

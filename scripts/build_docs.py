@@ -96,6 +96,7 @@ def py_path_to_md(path: Path) -> Path:
 def generate_module_tree(
     tree: FileTree,
     mod_path: Path,
+    mod_import_path: Path,
     input_base: Path,
 ):
     """
@@ -118,14 +119,16 @@ def generate_module_tree(
     if (input_base / mod_path).is_file():
         output_file = py_path_to_md(mod_path)
         with mkdocs_gen_files.open(output_file, "w") as f:
-            identifier = ".".join(mod_path.with_suffix("").parts)
+            identifier = ".".join(mod_import_path.with_suffix("").parts)
             print(f"::: {identifier}", file=f)
 
     # Otherwise, it's a directory
     else:
+        # Check if it's a module
+        is_module = "__init__.py" in tree
         # Now write the `.pages` and `index.md` files, only if we're in a
         # module
-        if "__init__.py" in tree:
+        if is_module:
             # Create a `.pages` config to manage navigation in this directory
             with mkdocs_gen_files.open(
                 mod_path / ".pages",
@@ -141,19 +144,26 @@ def generate_module_tree(
                 mod_path / "index.md",
                 "w",
             ) as f:
-                identifier = ".".join(mod_path.with_suffix("").parts)
+                identifier = ".".join(mod_import_path.with_suffix("").parts)
                 print(f"::: {identifier}", file=f)
-                # If there are files here, we should exclude function
-                # definitions from the main page, since they'll be in sub-pages
-                if len(tree):
+                # If there are files (other than __init__.py) here, we should
+                # exclude function definitions from the main page, since
+                # they'll be in sub-pages
+                if len(tree) > 1:
                     print("    options:", file=f)
                     print("      members: no", file=f)
 
         # Now write contents for all remaining contents in the directory
         for node, sub_tree in tree.items():
+            # Only adjust the import path if we're in a module
+            if is_module:
+                import_path = mod_import_path / node
+            else:
+                import_path = Path(node)
             generate_module_tree(
                 sub_tree,
                 mod_path / node,
+                import_path,
                 input_base,
             )
 
@@ -197,6 +207,7 @@ def generate_auto_docstrings():
     # Place all contents in
     generate_module_tree(
         module_tree,
+        Path(""),
         Path(""),
         DOCS_PREBUILD_DIR,
     )

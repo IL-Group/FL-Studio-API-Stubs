@@ -42,6 +42,20 @@ NOTE_MAPPINGS = {
 }
 
 
+def module_title(text: str | list[str]) -> str:
+    """
+    Renders a nice-looking Markdown title for the given module, but only if
+    we're not rendering online documentation (since mkdocs adds it for us).
+    """
+    if BUILDING_ONLINE_DOCS:
+        return ""
+
+    if isinstance(text, str):
+        return f"# {text.capitalize()}"
+    else:
+        return "# " + " / ".join(text)
+
+
 def docs_url_page(text: str, location: str) -> str:
     """
     Return a markdown URL for a page in the API documentation.

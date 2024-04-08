@@ -1,4 +1,4 @@
-<h1>FL Studio API Documentation</h1>
+# FL Studio API Documentation
 
 This is user-written documentation for FL Studio's Python API. It contains information on how to use the API to interact with FL Studio. As well as this, it is also available as an [installable package](https://github.com/MiguelGuthridge/FL-Studio-API-Stubs#installation), which allows you to write code for FL Studio with the help of smart suggestions and inline documentation. Both the online documentation and the installable package use the same definitions, meaning that they share the same detailed and helpful information.
 
