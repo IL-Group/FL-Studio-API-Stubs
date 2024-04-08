@@ -37,8 +37,6 @@ If you wish to help contribute to this documentation, you can do so by creating 
 
 * [`fl_classes`][fl_classes]: a non-built-in module that provides definitions for classes
   used by FL Studio. It cannot be imported during runtime.
-* [`fl_model`][fl_model] (deprecated): a non-built-in module that provides an emulation of FL Studio
-  which useful for testing scripts without needing to open FL Studio.
 
 ### Edison scripting
 

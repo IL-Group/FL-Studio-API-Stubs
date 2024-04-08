@@ -13,8 +13,8 @@ OUTPUT = Path("build_lib")
 
 
 def main():
-    transdoc_main(INPUT, RULES, OUTPUT, force=True)
+    return transdoc_main(INPUT, RULES, OUTPUT, force=True)
 
 
 if __name__ == '__main__':
-    main()
+    exit(main())

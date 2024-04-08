@@ -55,7 +55,6 @@ packages = [
     { include = "utils", from = "build_lib" },
     # API stubs extra modules
     { include = "fl_classes", from = "build_lib" },
-    { include = "fl_model", from = "build_lib" },   # deprecated
     # Edison scripting
     { include = "enveditor", from = "build_lib" },
     # Piano roll scripting
@@ -63,8 +62,8 @@ packages = [
 ]
 
 [tool.poetry.scripts]
+build = "scripts.build_lib:main"
 docs = "scripts.build_docs:main"
-build = "scripts.transform_docstrings:transform_modules"
 
 [tool.poetry.urls]
 "Online Documentation" = "https://miguelguthridge.github.io/FL-Studio-API-Stubs/"

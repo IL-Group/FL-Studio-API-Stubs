@@ -34,7 +34,7 @@ plugins:
       handlers:
         python:
           paths:
-            - build_lib
+            - docs_prebuild
           options:
             show_source: false
   ## Not using mkdocs scripts since we need to do a ton of pre-build stuff
@@ -51,4 +51,4 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
-docs_dir: docs_build
+docs_dir: build_docs

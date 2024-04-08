@@ -1,5 +1,15 @@
-# Documentation transformation
+#### Documentation transformation
+
+# Build of Python package
 build_lib/
+# Pre-build of documentation -- Python docstring transformation
+prebuild_docs/
+# Build of documentation -- merging of markdown files in preparation for mkdocs
+build_docs/
+# Final output of mkdocs
+site/
+
+####
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -138,10 +148,6 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
-/docs_build
-
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -162,6 +168,3 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-
-# FL configuration files (used when testing)
-fl_config.json
