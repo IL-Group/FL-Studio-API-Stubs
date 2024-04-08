@@ -11,3 +11,13 @@ div.doc-contents:not(.first) {
     padding-left: 2rem;
     border-left: 0.1rem solid var(--md-typeset-table-color);
 }
+
+/**
+ * Hide edit button and page title
+ *
+ * https: //github.com/squidfunk/mkdocs-material/issues/2163#issuecomment-752916358
+ */
+.md-typeset h1,
+.md-content__button {
+    display: none;
+}
