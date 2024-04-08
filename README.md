@@ -1,59 +1,79 @@
 # FL Studio Python API Stubs
 
-This project contains function definitions to provide intellisense while
-working on scripts for FL Studio's Python API, as well as a partially-complete
-model of FL Studio, which allows for scripts to be tested outside of FL Studio.
+This repository contains stub code for functions and classes used in FL
+Studio's Python API. This includes modules used within:
 
-## Online Reference
+* [MIDI Controller Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/midi_scripting.htm)
+* [Edison Audio Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/pianoroll_scripting_api.htm)
+* [Piano Roll Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/plugins/editortool_run.htm)
 
-The documentation is also available as an
-[online reference](https://miguelguthridge.github.io/FL-Studio-API-Stubs) if
-Image-Line's own documentation isn't up to scratch.
+## Usage
 
-## Installation
+This documentation can be viewed online (TODO: link), or accessed by installing
+the package from Python's package manager Pip.
+
+### Installing the package
 
 To avoid module conflicts with other Python projects, it is recommended that
 you install this script in a virtual environment by following
 [these instructions](https://docs.python.org/3/library/venv.html) in the
 official Python documentation.
 
-After activating the environment in your editor, you can install the stub
-modules by running the command `pip install FL-Studio-API-Stubs` on Windows or
-`pip3 install FL-Studio-API-Stubs` on MacOS or Linux.
+After activating the environment in your terminal, you can install the stub
+modules by running the command `pip install fl-studio-api-stubs` on Windows or
+`pip3 install fl-studio-api-stubs` on MacOS or Linux.
 
-[Video reference for installation instructions](https://youtu.be/6_KdXJIfeoI)
+## Contributing
 
-## The Small Print
+We'd love to have your help maintaining this project.
 
-A couple of notes regarding this repo.
+### Feature requests and bugs
 
-### This Documentation isn't Complete
+If you'd like to report a bug in FL Studio, or get new features added to FL
+Studio's Python API, please create a post on the Image-Line forum. The issues
+tab for this repository should only be used for reporting issues with the
+stub code.
 
-Although the stubs are mostly complete, there are a few functions where I don't
-fully understand how they work. These functions have a `HELP WANTED:` label in
-their documentation. If you happen to know how to use one, I'd love it if you
-helped out by improving the documentation! I may also have incorrect
-definitions for some functions. Please
-[create an issue](https://github.com/MiguelGuthridge/FL-Studio-API-Stubs/issues/new)
-if you find anything incorrect.
+### Issues with the API
 
-### Differences to the Official Implementation
+If you've spotted an issue with the API documentation or stub code, please
+open an issue and we'll get it fixed up as soon as we can. In particular,
+we're on the look out for:
 
-A small number of tweaks have been made to these stubs in order to ease code
-writing. These shouldn't have any functional impact on the behavior of the API
-compared to the implied behavior from the stubs, but should help clarify some
-properties of certain functions.
+* Incorrect type definitions
+* Missing functions or constants
+* Confusing, missing or poorly-formatted documentation
 
-* Functions where parameters or returns are boolean by nature are listed as
-  using a `bool` type, even though the implementation uses the integers `0` and
-  `1`. This change should help to describe the context in which the functions
-  should be called when writing scripts, which in a language like Python is far
-  more important than the actual implementation of the functions.
-
-## Development
+### Setting up a development environment
 
 Dependencies for this project are managed using
 [Poetry](https://python-poetry.org/). You'll need to
-[install Poetry](https://python-poetry.org/docs/#installation) to develop it.
+[install Poetry](https://python-poetry.org/docs/#installation) to contribute to
+the project.
 
-To install the required dependencies, run `poetry install`.
+To install dependencies for the project:
+
+```sh
+# Install dependencies for the project
+poetry install --no-root
+# Run the pre-build script
+poetry run python -m scripts.build_lib
+# Install the library
+poetry install
+```
+
+Whenever you modify documentation, you will need to rerun the pre-build script
+for your changes to be persisted.
+
+### Developing the documentation site
+
+You can trigger a build of the documentation site by running:
+
+```sh
+poetry run python -m scripts.build_docs
+```
+
+If you are using the [VS Code](https://code.visualstudio.com/) text editor,
+we recommend using the [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+to serve the documentation site, since it automatically refreshes the page
+whenever you run the build command.
