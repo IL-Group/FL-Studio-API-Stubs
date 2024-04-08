@@ -6,10 +6,10 @@ Rule definitions for transdoc
 import os
 
 
-BUILDING_ONLINE_DOCS = os.getenv("DOCS_BUILD_ONLINE") is not None
+BUILDING_ONLINE_DOCS = os.getenv("DOCS_BUILD_SITE") is not None
 
 
-BASE_URL = "https://miguelguthridge.github.io/FL-Studio-API-Stubs"
+BASE_URL = "https://il-group.github.io/FL-Studio-API-Stubs"
 
 OLD_MANUAL_URL = "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html"
 
