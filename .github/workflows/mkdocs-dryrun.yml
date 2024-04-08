@@ -16,15 +16,15 @@ jobs:
         with:
           submodules: true
 
-      # Setup Python 3.9
+      # Setup Python
       - name: Setup Python
         id: python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.10'
 
       # Install dependencies using Poetry
-      - uses: Gr1N/setup-poetry@v8
+      - uses: Gr1N/setup-poetry@v9
       - uses: actions/cache@v4
         with:
             path: ~/.cache/pypoetry/virtualenvs
