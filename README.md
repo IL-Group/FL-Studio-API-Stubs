@@ -77,3 +77,25 @@ If you are using the [VS Code](https://code.visualstudio.com/) text editor,
 we recommend using the [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 to serve the documentation site, since it automatically refreshes the page
 whenever you run the build command.
+
+### Understanding the repository layout
+
+In order to ensure that the documentation is of the highest quality, both
+online and in library form, the layout is a little complex.
+
+* `src/` contains the source code for all included modules, divided up based on
+  whether they are a component of MIDI Controller Scripting, Edison Scripting,
+  or Piano Roll Scripting. Each Python file contains function definitions, with
+  [docstrings](https://peps.python.org/pep-0257/) showing their behaviour.
+
+* `docs/` contains Markdown files and other assets used when building the
+  online documentation. This is merged with the layout of `src/` when building
+  documentation, so the resultant site ends up containing the documentation
+  from both directories.
+
+* `scripts/` contains Python scripts for performing common actions such as
+  building the documentation or building the package.
+
+* `data/` contains other assets used by the repository, such as
+  [Transdoc](https://github.com/MiguelGuthridge/transdoc) rule definitions, and
+  docstring templates.
