@@ -1,7 +1,11 @@
 """
-# Scripts / transform docstrings
+# Scripts / Build Lib
 
-Transform docstrings to make them render more nicely inline, and online.
+Transform docstrings as a pre-build step. This uses `transdoc` to rewrite
+docstrings
+
+Author: Miguel Guthridge
+Date: 2024-04-07
 """
 from pathlib import Path
 from transdoc import main as transdoc_main
