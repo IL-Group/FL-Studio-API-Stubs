@@ -4,15 +4,15 @@ Performance mode in FL Studio is a powerful tool for sequencing patterns
 on-the-fly, used to create live performances.
 
 Most of the functions associated with live performance are found in the
-[`playlist`](/playlist) module.
+[`playlist`][playlist] module.
 
 To determine whether performance mode is enabled, use
-[`playlist.getPerformanceModeState`](/playlist#playlist.getPerformanceModeState).
+[`playlist.getPerformanceModeState`][playlist.getPerformanceModeState].
 
 ## Display zone
 
 The display zone is the region that a controller is currently mapping for live
-performance. When set using [`playlist.liveDisplayZone`](/playlist#playlist.liveDisplayZone),
+performance. When set using [`playlist.liveDisplayZone`][playlist.liveDisplayZone],
 FL Studio indicates this region using a red rectangle.
 
 ## Blocks
