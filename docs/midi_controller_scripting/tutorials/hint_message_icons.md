@@ -1,39 +1,41 @@
 # Hint message icons
 
 As well as showing basic strings, scripts can use a variety of icons alongside
-hint messages. This can be done by placing `^c` at the start of the string,
-where `c` is a character from the table below.
+hint messages. This can be done by placing `^c` at the start of the string
+passed to [`ui.setHintMsg`][ui.setHintMsg], where `c` is a character from the
+table below.
 
 | Character | Icon                              |
 |----------:|:----------------------------------|
-|       `b` | record                            |
-|       `c` | yellow smiling face               |
-|       `d` | mouse right click                 |
-|       `e` | red sad face                      |
-|       `f` | orange left-facing triangle       |
-|       `g` | fast-forward icon                 |
-|       `h` | exclamation point in a red circle |
-|       `i` | clock                             |
-|       `j` | rewind icon                       |
-|       `k` | link icon                         |
-|       `l` | midi keyboard                     |
+|       `b` | Record                            |
+|       `c` | Yellow smiling face               |
+|       `d` | Mouse right click                 |
+|       `e` | Red sad face                      |
+|       `f` | Orange left-facing triangle       |
+|       `g` | Fast-forward icon                 |
+|       `h` | Exclamation point in a red circle |
+|       `i` | Clock                             |
+|       `j` | Rewind icon                       |
+|       `k` | Link icon                         |
+|       `l` | MIDI keyboard                     |
 |       `m` | F1 (help) key icon                |
 |       `n` | Image-Line icon                   |
-|       `r` | plugin icon                       |
-|       `s` | file icon                         |
-|       `t` | eye                               |
-|       `u` | tempo tap icon                    |
-|       `v` | left-facing triangle              |
-|       `w` | right-facing triangle             |
-|       `x` | pencil                            |
-|       `y` | slice tool                        |
-|       `z` | brush tool icon                   |
+|       `r` | Plugin icon                       |
+|       `s` | File icon                         |
+|       `t` | Eye                               |
+|       `u` | Tempo tap icon                    |
+|       `v` | Left-facing triangle              |
+|       `w` | Right-facing triangle             |
+|       `x` | Pencil                            |
+|       `y` | Slice tool                        |
+|       `z` | Brush tool                        |
 
 For example, to display a tempo tap message with a relevant icon, the
-following code could be used.
+following code could be used:
 
 ```py
 ui.setHintMsg("^uTap tempo")
 ```
 
-Note that these icon codes are not returned by `ui.getHintMsg()`.
+Note that these icon codes are not returned by
+[`ui.getHintMsg()`][ui.getHintMsg].
