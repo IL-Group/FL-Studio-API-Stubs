@@ -168,3 +168,16 @@ def setBrowserAutoHide(value: bool):
 
     Included since API Version 20.
     """
+
+
+def toggleBrowserNode(value: int = -1) -> None:
+    """
+    Toggle whether the browser node is expanded.
+
+    ## Args
+
+    * `value` (`int`, optional): whether to expand (`1`), collapse (`0`) or
+      toggle (`-1`) the node. Defaults to `-1`.
+
+    Included since API Version 34
+    """

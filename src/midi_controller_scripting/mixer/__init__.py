@@ -79,6 +79,15 @@ from .__events import (
     getAutoSmoothEventValue,
     automateEvent,
 )
+from .__eq import (
+    getEqBandCount,
+    getEqGain,
+    setEqGain,
+    getEqFrequency,
+    setEqFrequency,
+    getEqBandwidth,
+    setEqBandwidth,
+)
 
 
 __all__ = [
@@ -142,4 +151,11 @@ __all__ = [
     'setActiveTrack',
     'focusEditor',
     'getActiveEffectIndex',
+    'getEqBandCount',
+    'getEqGain',
+    'setEqGain',
+    'getEqFrequency',
+    'setEqFrequency',
+    'getEqBandwidth',
+    'setEqBandwidth',
 ]
