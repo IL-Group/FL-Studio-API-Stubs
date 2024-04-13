@@ -26,10 +26,12 @@ theme:
   favicon: assets/logo.png
   icon:
     repo: fontawesome/brands/github
+    code: fontawesome/solid/code
   features:
     - navigation.tracking
     - navigation.instant
     - navigation.instant.prefetch
+    - content.code.copy
 
 plugins:
   - search
@@ -56,6 +58,15 @@ markdown_extensions:
   - toc:
       title: Contents
       toc_depth: 2
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 
 extra_css:
   - stylesheets/extra.css
