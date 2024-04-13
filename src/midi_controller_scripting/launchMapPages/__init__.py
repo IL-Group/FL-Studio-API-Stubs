@@ -223,3 +223,7 @@ def setMapItemTarget(index: int, itemIndex: int, target: int) -> int:
     Included since API version 1.
     """
     return 0
+
+
+# Clean up imports
+del FlMidiMsg

@@ -6,6 +6,7 @@ Studio's library.
 """
 import importlib
 import inspect
+import json
 import flapi
 
 
@@ -54,6 +55,8 @@ def generate_from_fl_studio(modules: list[str]) -> LibraryItems:
     """
     Generate collection of all items in FL Studio
     """
+    return json.load(open('./data/fl_stubs.json'))
+
     # Connect to FL Studio
     if not flapi.enable():
         print("Couldn't connect to FL Studio")
