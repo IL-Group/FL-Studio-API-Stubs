@@ -1,8 +1,8 @@
-site_name: FL Studio API Documentation
-site_description: Documentation for the FL Studio API
-repo_name: FL-Studio-API-Stubs
+site_name: FL Studio API
+site_description: Documentation for the FL Studio Python API
+repo_name: "IL-Group/FL-Studio-API-Stubs"
 repo_url: https://github.com/IL-Group/FL-Studio-API-Stubs
-copyright: (C) 2024 Image Line Software
+copyright: © 2024 Image Line Software
 
 # Build to a temporary directory
 site_dir: temp_site
@@ -12,11 +12,13 @@ theme:
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: orange
       toggle:
         icon: material/lightbulb-outline
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: orange
       toggle:
         icon: material/lightbulb
         name: Switch to dark mode
@@ -26,6 +28,8 @@ theme:
     repo: fontawesome/brands/github
   features:
     - navigation.tracking
+    - navigation.instant
+    - navigation.instant.prefetch
 
 plugins:
   - search
