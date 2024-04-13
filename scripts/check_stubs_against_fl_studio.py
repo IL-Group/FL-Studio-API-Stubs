@@ -6,7 +6,6 @@ Studio's library.
 """
 import importlib
 import inspect
-import json
 import flapi
 
 
@@ -48,7 +47,6 @@ def generate_from_stubs(modules: list[str]) -> 'LibraryItems':
     items = {}
     for mod in modules:
         items[mod] = filter_module_items(dir(importlib.import_module(mod)))
-
     return items
 
 
@@ -56,28 +54,18 @@ def generate_from_fl_studio(modules: list[str]) -> LibraryItems:
     """
     Generate collection of all items in FL Studio
     """
-    # For now, until FL Studio fixes their crashes, just load it from a JSON
-    # file
-    return json.load(open('data/modules.json'))
-
     # Connect to FL Studio
     if not flapi.enable():
-        if not flapi.init():
-            print("Couldn't connect to FL Studio")
-            exit(1)
+        print("Couldn't connect to FL Studio")
+        exit(1)
 
     flapi.fl_exec("import importlib")
     flapi.fl_exec(inspect.getsource(filter_module_items))
     flapi.fl_exec(inspect.getsource(generate_from_stubs))
 
+    flapi.fl_eval(f"generate_from_stubs({modules})")
+
     return flapi.fl_eval(f"generate_from_stubs({modules})")
-
-    items = {}
-    for mod in modules:
-        # flapi.fl_exec(f"import {mod}")
-        items[mod] = filter_module_items(flapi.fl_eval(f"dir({mod})"))
-
-    return items
 
 
 def diff(stubs: LibraryItems, fl: LibraryItems) -> bool:
