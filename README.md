@@ -1,7 +1,7 @@
-# FL Studio Python API Stubs
+# ![FL Studio API Stubs](https://raw.githubusercontent.com/IL-Group/FL-Studio-API-Stubs/main/data/readme-header.png)
 
 This repository contains stub code for functions and classes used in FL
-Studio's Python API. This includes modules used within:
+Studio's Python API. This includes modules used for
 
 * [MIDI Controller Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/midi_scripting.htm)
 * [Edison Audio Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/pianoroll_scripting_api.htm)
@@ -9,8 +9,8 @@ Studio's Python API. This includes modules used within:
 
 ## Usage
 
-This documentation can be viewed online (TODO: link), or accessed by installing
-the package from Python's package manager Pip.
+This documentation can be [viewed online](https://il-group.github.io/FL-Studio-API-Stubs/),
+or accessed by installing the package from Python's package manager Pip.
 
 For instructions, please visit the documentation website.
 
