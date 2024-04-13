@@ -17,7 +17,7 @@ Date: 2024-04-08
 import os
 import sys
 from pathlib import Path
-from shutil import rmtree, copytree, move
+from shutil import rmtree, copytree, copy
 
 from mkdocs.commands.build import build as mkdocs_build
 from mkdocs.config import load_config
@@ -77,6 +77,50 @@ Tree of files.
 
 Leaves (files) have value `None`, and directories are another `FileTree`.
 """
+
+
+def replace_directory(src: Path, dest: Path) -> None:
+    """
+    Replace the contents of `dest` with the contents of `src`.
+
+    We use this in order to copy items from one place to another with minimal
+    disruption to the dest tree.
+
+    ## Args
+
+    * `src` (`Path`): source path
+
+    * `dest` (`Path`): destination path
+    """
+    if not dest.exists():
+        # print("create", src, "->", dest)
+        copytree(src, dest)
+        return
+
+    if src.is_file():
+        # print("replace", src, "->", dest)
+        # Copy it across
+        if dest.is_file():
+            dest.unlink()
+        else:
+            rmtree(dest)
+        copy(src, dest)
+        return
+
+    # For each item in the directory
+    items_in_src = os.listdir(src)
+    items_in_dest = os.listdir(dest)
+    for file in items_in_src:
+        src_file = src / file
+        dest_file = dest / file
+        # print("replace", src_file, "->", dest_file)
+        replace_directory(src_file, dest_file)
+
+    # Clean up excess files from `dest`
+    for file in items_in_dest:
+        if file not in items_in_src:
+            # print("remove", dest / file)
+            rmtree(dest / file)
 
 
 def py_path_to_md(path: Path) -> Path:
@@ -286,11 +330,9 @@ def main():
 
     # If site output doesn't exist, mkdocs probably failed
     assert TEMP_SITE_OUTPUT.is_dir()
-    # FIXME: This sometimes causes a 404 when using the Live Server extension
-    # -- we should consider overwriting the files one by one instead.
     print("Generate final output...")
-    rmtree(FINAL_OUTPUT, ignore_errors=True)
-    move(TEMP_SITE_OUTPUT, FINAL_OUTPUT)
+    replace_directory(TEMP_SITE_OUTPUT, FINAL_OUTPUT)
+    rmtree(TEMP_SITE_OUTPUT)
 
 
 if __name__ == "__main__":
