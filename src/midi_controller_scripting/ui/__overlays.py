@@ -1,7 +1,11 @@
 """
-ui > overlays
-
-Functions for displaying overlays on the FL Studio UI.
+The overlay functions in the `ui` module can be used to produce overlays on
+parts of FL Studio's interface in order to indicate the state of a MIDI
+controller. For example, if a user selected a track on the mixer, a script
+could use {{docs_url_fn[ui.miDisplayRect]}} to highlight nearby tracks and show
+which tracks can be controlled using the MIDI controller. This is especially
+useful if your script changes its links dynamically based on the user's
+selection.
 """
 
 

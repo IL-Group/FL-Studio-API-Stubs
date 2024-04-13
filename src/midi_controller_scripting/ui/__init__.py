@@ -1,14 +1,65 @@
 """
 {{module_title[ui]}}
 
-FL Studio built-in module.
+The `ui` module provides many functions used for interacting with many parts
+of FL Studio's user interface.
 
-Allows you to control and interact with FL Studio's UI.
+* {{docs_url_page("Navigation", "midi_controller_scripting/ui/navigation")}}:
+  perform generic navigation commands. These functions can be used for binding
+  arrow buttons, jog wheels and touch scripts in MIDI Controllers.
 
-## HELP WANTED
+* {{docs_url_page("Windows", "midi_controller_scripting/ui/windows")}}:
+  interact with and control FL Studio's window management, including switching
+  between windows, and determining which windows are visible/active.
 
-* Many functions have undocumented return values. What do they mean?
+* {{docs_url_page("Browser", "midi_controller_scripting/ui/browser")}}:
+  interact with and control FL Studio's content browser window. This allows you
+  to navigate and select items from the browser tree, as well as navigate
+  between browser tabs.
+
+* {{docs_url_page("State", "midi_controller_scripting/ui/state")}}:
+  query the general state of FL Studio and its UI, including the hint panel,
+  time panel, and other properties.
+
+* {{docs_url_page("Keyboard", "midi_controller_scripting/ui/keyboard")}}:
+  interact with FL Studio using keyboard shortcuts. This can be used to perform
+  actions such as copy/paste.
+
+* {{docs_url_page("Overlays", "midi_controller_scripting/ui/overlays")}}:
+  create UI overlays to indicate the state of your script. These functions can
+  show selected regions on the playlist, channel rack and mixer.
+
+* {{docs_url_page("Editors", "midi_controller_scripting/ui/editors")}}:
+  launch editor windows, such as Edison or the event editor.
 """
+from .__navigation import (
+    jog,
+    jog2,
+    strip,
+    stripJog,
+    stripHold,
+    previous,
+    next,
+    moveJog,
+    horZoom,
+    verZoom,
+    isInPopupMenu,
+    closeActivePopupMenu,
+)
+from .__windows import (
+    getVisible,
+    showWindow,
+    hideWindow,
+    getFocused,
+    setFocused,
+    getFocusedFormCaption,
+    getFocusedFormID,
+    getFocusedPluginName,
+    scrollWindow,
+    nextWindow,
+    selectWindow,
+    closeAllMenu,
+)
 from .__browser import (
     navigateBrowser,
     navigateBrowserMenu,
@@ -21,11 +72,7 @@ from .__browser import (
     navigateBrowserTabs,
     toggleBrowserNode,
 )
-from .__editors import (
-    launchAudioEditor,
-    openEventEditor,
-)
-from .__fl_state import (
+from .__state import (
     isClosing,
     isMetronomeEnabled,
     isStartOnInputEnabled,
@@ -61,38 +108,14 @@ from .__keyboard import (
     left,
     right,
 )
-from .__navigation import (
-    jog,
-    jog2,
-    strip,
-    stripJog,
-    stripHold,
-    previous,
-    next,
-    moveJog,
-    horZoom,
-    verZoom,
-    isInPopupMenu,
-    closeActivePopupMenu,
-)
 from .__overlays import (
     crDisplayRect,
     miDisplayRect,
     miDisplayDockRect,
 )
-from .__windows import (
-    getVisible,
-    showWindow,
-    hideWindow,
-    getFocused,
-    setFocused,
-    getFocusedFormCaption,
-    getFocusedFormID,
-    getFocusedPluginName,
-    scrollWindow,
-    nextWindow,
-    selectWindow,
-    closeAllMenu,
+from .__editors import (
+    launchAudioEditor,
+    openEventEditor,
 )
 
 __all__ = [

@@ -1,7 +1,7 @@
 """
-ui > navigation
-
-UI functions for navigating FL Studio
+The navigation functions of the `ui` module are used to perform generic
+navigation within FL Studio. There are bindings for common control surfaces
+such as jog wheels, touch strips, and next/previous buttons.
 """
 
 

@@ -1,7 +1,6 @@
 """
-ui > windows
-
-Functions for window management within FL Studio
+The windows functions of the `ui` module are used to control and interact with
+windows within FL Studio's interface.
 """
 
 

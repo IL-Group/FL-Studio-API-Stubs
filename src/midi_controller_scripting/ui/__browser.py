@@ -1,7 +1,6 @@
 """
-ui > browser
-
-Code for navigating the browser.
+The browser functions within the `ui` modules are used for interacting with and
+controlling the content browser within FL Studio.
 """
 
 

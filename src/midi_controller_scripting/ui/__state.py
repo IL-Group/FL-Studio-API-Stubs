@@ -1,7 +1,6 @@
 """
-ui > fl_state
-
-Code for controlling the state of FL Studio's UI.
+The state functions within the `ui` module are used to query and control the
+state of FL Studio's user interface.
 """
 from typing import overload, Literal
 

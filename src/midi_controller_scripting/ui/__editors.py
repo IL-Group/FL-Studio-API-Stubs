@@ -1,7 +1,6 @@
 """
-ui > editors
-
-Code for controlling FL Studio's editor tools.
+The editor functions of the `ui` module can be used to launch editor windows,
+such as Edison and the event editor.
 """
 
 

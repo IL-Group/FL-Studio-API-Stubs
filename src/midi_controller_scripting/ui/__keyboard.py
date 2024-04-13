@@ -1,7 +1,15 @@
 """
-ui > keyboard
+The keyboard functions within the `ui` module are used for emulating
+key-presses within FL Studio. They can be used to perform common
+keyboard-related actions such as copying and pasting, and dismissing dialog
+boxes.
 
-Functions for emulating key-presses.
+!!! warning
+
+    In versions of FL Studio before FL Studio 21.0, these functions had the
+    capability to interact with applications outside of FL Studio on Windows.
+
+    They now only interact with FL Studio, even if it isn't the active window.
 """
 
 
