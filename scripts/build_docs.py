@@ -92,19 +92,19 @@ def replace_directory(src: Path, dest: Path) -> None:
 
     * `dest` (`Path`): destination path
     """
-    if not dest.exists():
-        # print("create", src, "->", dest)
-        copytree(src, dest)
-        return
-
     if src.is_file():
         # print("replace", src, "->", dest)
         # Copy it across
         if dest.is_file():
             dest.unlink()
         else:
-            rmtree(dest)
+            rmtree(dest, ignore_errors=True)
         copy(src, dest)
+        return
+
+    if not dest.exists():
+        # print("create", src, "->", dest)
+        copytree(src, dest)
         return
 
     # For each item in the directory
