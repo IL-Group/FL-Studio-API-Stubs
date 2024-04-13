@@ -258,6 +258,7 @@ def main():
     """
     Main entrypoint of the build_docs script.
     """
+    print("Compile docstrings with transdoc...")
     # Set the DOCS_BUILD_SITE environment variable, which is detected by our
     # rules in `data/transdoc_rules.py` in order to generate better links for
     # the site
@@ -270,13 +271,16 @@ def main():
         force=True,
     )
 
+    print("Generate auto-docstrings...")
     # Generate auto-docstrings
     generate_auto_docstrings()
 
     # Merge in hand-written documentation
+    print("Merge human-written documentation...")
     merge_human_docs()
 
     # Run mkdocs to generate our HTML site
+    print("Run mkdocs build...")
     config = load_config()
     mkdocs_build(config)
 
@@ -284,6 +288,7 @@ def main():
     assert TEMP_SITE_OUTPUT.is_dir()
     # FIXME: This sometimes causes a 404 when using the Live Server extension
     # -- we should consider overwriting the files one by one instead.
+    print("Generate final output...")
     rmtree(FINAL_OUTPUT, ignore_errors=True)
     move(TEMP_SITE_OUTPUT, FINAL_OUTPUT)
 
