@@ -79,9 +79,9 @@ transdoc = "^0.2.1"
 # Note build dependencies are also required
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
-mkdocs-gen-files = "^0.4.0"
-mkdocs-material = "^8.5.11"
-mkdocstrings = { version = "^0.20.0", extras = ["python"] }
+mkdocs-gen-files = "^0.5.0"
+mkdocs-material = "^9.5.0"
+mkdocstrings = { version = "^0.24.0", extras = ["python"] }
 mkdocs-awesome-pages-plugin = "^2.9.2"
 
 # CI dependencies -- required to run continuous integration, including
@@ -91,7 +91,7 @@ coverage = "^7.2.2"
 autopep8 = "^2.0.2"
 mypy = "^1.1.1"
 typing-extensions = "^4.5.0"
-flake8 = "^6.0.0"
+flake8 = "^7.0.0"
 flake8-pyproject = "^1.2.3"
 pytest = "^7.2.2"
 flapi = "^1.0.0"
