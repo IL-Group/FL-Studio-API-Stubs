@@ -85,6 +85,11 @@ online and in library form, the layout is a little complex.
   documentation, so the resultant site ends up containing the documentation
   from both directories.
 
+    * `.pages` files within the `docs/` directory contain a YAML listing for
+      the navigation of this section of the documentation. They are used to
+      re-order and rename elements within the navigation pane of the
+      documentation site.
+
 * `scripts/` contains Python scripts for performing common actions such as
   building the documentation or building the package.
 

@@ -3,11 +3,12 @@
 
 Script for building the documentation site using mkdocs.
 
-1. Transform docstrings from `src/` to `prebuild_docs/`.
+1. Transform docstrings using `transdoc` from `src/` to `prebuild_docs/`.
 2. Generate template files for `mkdocstrings` to fill in documentation from the
-   Python library.
-3. Copy in human-written documentation from `docs/` so it gets included in the
-   site.
+   Python library in `build_docs/`.
+3. Copy human-written documentation from `docs/` into `build_docs/` so it gets
+   included in the site. If there are any conflicting files, an error is given
+   and the build process aborts.
 4. Run `mkdocs` to create the HTML page
 5. Move the output file into the `site/` directory.
 
@@ -301,12 +302,15 @@ def main():
     # the site
     os.environ["DOCS_BUILD_SITE"] = "TRUE"
     # Run transdoc compilation
-    transdoc_main(
+    ret = transdoc_main(
         TRANSDOC_INPUT,
         TRANSDOC_RULES,
         DOCS_PREBUILD_DIR,
         force=True,
     )
+    if ret:
+        print(f"Transdoc exited with code {ret}!", file=sys.stderr)
+        exit(1)
 
     print("Generate auto-docstrings...")
     # Generate auto-docstrings
