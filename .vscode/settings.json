@@ -44,4 +44,7 @@
         "unsolo"
     ],
     "liveServer.settings.root": "/site",
+    "files.associations": {
+        ".pages": "yaml"
+    },
 }
