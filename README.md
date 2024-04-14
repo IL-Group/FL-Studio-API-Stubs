@@ -67,7 +67,8 @@ poetry run python -m scripts.build_docs
 If you are using the [VS Code](https://code.visualstudio.com/) text editor,
 we recommend using the [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 to serve the documentation site, since it automatically refreshes the page
-whenever you run the build command.
+whenever you run the build command. Additionally, VS Code will automatically
+run this build command when you press `Ctrl+Shift+B`.
 
 ### Understanding the repository layout
 

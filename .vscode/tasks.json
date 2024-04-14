@@ -7,9 +7,15 @@
             "label": "Build documentation",
             "type": "shell",
             "command": "poetry run python -m scripts.build_docs",
+            "icon": {
+                "id": "library"
+            },
+            "runOptions": {
+                "instanceLimit": 1
+            },
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
+                "reveal": "always",
                 "focus": false,
                 "panel": "shared",
                 "showReuseMessage": true,
@@ -25,9 +31,15 @@
             "label": "Build library",
             "type": "shell",
             "command": "poetry run python -m scripts.build_lib",
+            "icon": {
+                "id": "package"
+            },
+            "runOptions": {
+                "instanceLimit": 1
+            },
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
+                "reveal": "always",
                 "focus": false,
                 "panel": "shared",
                 "showReuseMessage": true,
