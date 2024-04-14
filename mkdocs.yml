@@ -48,6 +48,8 @@ plugins:
             - prebuild_docs/piano_roll_scripting
           options:
             show_source: false
+            show_signature_annotations: true
+            separate_signature: true
 
   ## Not using mkdocs scripts since we need to do a ton of pre-build stuff
   ## Maybe I'll try and get this working some point
