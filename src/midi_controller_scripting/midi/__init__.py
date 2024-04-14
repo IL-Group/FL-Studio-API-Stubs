@@ -13,7 +13,19 @@ not the creation of the repository authors, and no credit is claimed.
 # flake8: noqa
 from .__encode import EncodeRemoteControlID
 
-from .__miscellaneous import MaxInt
+from .__miscellaneous import (
+    MaxInt,
+    GPN_GetCurrentPreset,
+    TranzPort_OffOnT,
+    TranzPort_OffBlinkT,
+    TranzPort_OffOnBlinkT,
+    FromMIDI_Max,
+    FromMIDI_Half,
+    EKRes,
+    TrackNum_Master,
+    SM_Pat,
+    SM_Song,
+)
 
 from .__midi_codes import (
     MIDI_NOTEON,
@@ -270,131 +282,103 @@ from .__rec_events import (
 )
 
 # Global transport commnads
-FPT_Jog = 0
-FPT_Jog2 = 1
-FPT_Strip = 2
-FPT_StripJog = 3
-FPT_StripHold = 4
-FPT_Previous = 5
-FPT_Next = 6
-FPT_PreviousNext = 7
-FPT_MoveJog = 8
-FPT_Play = 10
-FPT_Stop = 11
-FPT_Record = 12
-FPT_Rewind = 13
-FPT_FastForward = 14
-FPT_Loop = 15
-FPT_Mute = 16
-FPT_Mode = 17
-FPT_Undo = 20
-FPT_UndoUp = 21
-FPT_UndoJog = 22
-FPT_Punch = 30
-FPT_PunchIn = 31
-FPT_PunchOut = 32
-FPT_AddMarker = 33
-FPT_AddAltMarker = 34
-FPT_MarkerJumpJog = 35
-FPT_MarkerSelJog = 36
+from .__global_transport_commands import (
+    FPT_Jog,
+    FPT_Jog2,
+    FPT_Strip,
+    FPT_StripJog,
+    FPT_StripHold,
+    FPT_Previous,
+    FPT_Next,
+    FPT_PreviousNext,
+    FPT_MoveJog,
+    FPT_Play,
+    FPT_Stop,
+    FPT_Record,
+    FPT_Rewind,
+    FPT_FastForward,
+    FPT_Loop,
+    FPT_Mute,
+    FPT_Mode,
+    FPT_Undo,
+    FPT_UndoUp,
+    FPT_UndoJog,
+    FPT_Punch,
+    FPT_PunchIn,
+    FPT_PunchOut,
+    FPT_AddMarker,
+    FPT_AddAltMarker,
+    FPT_MarkerJumpJog,
+    FPT_MarkerSelJog,
+    FPT_Up,
+    FPT_Down,
+    FPT_Left,
+    FPT_Right,
+    FPT_HZoomJog,
+    FPT_VZoomJog,
+    FPT_Snap,
+    FPT_SnapMode,
+    FPT_Cut,
+    FPT_Copy,
+    FPT_Paste,
+    FPT_Insert,
+    FPT_Delete,
+    FPT_NextWindow,
+    FPT_WindowJog,
+    FPT_F1,
+    FPT_F2,
+    FPT_F3,
+    FPT_F4,
+    FPT_F5,
+    FPT_F6,
+    FPT_F7,
+    FPT_F8,
+    FPT_F9,
+    FPT_F10,
+    FPT_F11,
+    FPT_F12,
+    FPT_Enter,
+    FPT_Escape,
+    FPT_Yes,
+    FPT_No,
+    FPT_Menu,
+    FPT_ItemMenu,
+    FPT_Save,
+    FPT_SaveNew,
+    FPT_PatternJog,
+    FPT_TrackJog,
+    FPT_ChannelJog,
+    FPT_TempoJog,
+    FPT_TapTempo,
+    FPT_NudgeMinus,
+    FPT_NudgePlus,
+    FPT_Metronome,
+    FPT_WaitForInput,
+    FPT_Overdub,
+    FPT_LoopRecord,
+    FPT_StepEdit,
+    FPT_CountDown,
+    FPT_NextMixerWindow,
+    FPT_MixerWindowJog,
+    FPT_ShuffleJog,
+    FPT_ArrangementJog,
+)
+from .__global_transport_flags import (
+    GT_Cannot,
+    GT_None,
+    GT_Plugin,
+    GT_Form,
+    GT_Menu,
+    GT_Global,
+    GT_All,
+)
 
-FPT_Up = 40
-FPT_Down = 41
-FPT_Left = 42
-FPT_Right = 43
-FPT_HZoomJog = 44
-FPT_VZoomJog = 45
-FPT_Snap = 48
-FPT_SnapMode = 49
+from .__pickup_modes import (
+    PIM_None,
+    PIM_AlwaysPickup,
+    PIM_FollowGlobal,
+)
 
-FPT_Cut = 50
-FPT_Copy = 51
-FPT_Paste = 52
-FPT_Insert = 53
-FPT_Delete = 54
-FPT_NextWindow = 58
-FPT_WindowJog = 59
-
-FPT_F1 = 60
-FPT_F2 = 61
-FPT_F3 = 62
-FPT_F4 = 63
-FPT_F5 = 64
-FPT_F6 = 65
-FPT_F7 = 66
-FPT_F8 = 67
-FPT_F9 = 68
-FPT_F10 = 69
-FPT_F11 = 70
-FPT_F12 = 71
-
-FPT_Enter = 80
-FPT_Escape = 81
-FPT_Yes = 82
-FPT_No = 83
-
-FPT_Menu = 90
-FPT_ItemMenu = 91
-FPT_Save = 92
-FPT_SaveNew = 93
-
-FPT_PatternJog = 100
-FPT_TrackJog = 101
-FPT_ChannelJog = 102
-
-FPT_TempoJog = 105
-FPT_TapTempo = 106
-FPT_NudgeMinus = 107
-FPT_NudgePlus = 108
-
-FPT_Metronome = 110
-FPT_WaitForInput = 111
-FPT_Overdub = 112
-FPT_LoopRecord = 113
-FPT_StepEdit = 114
-FPT_CountDown = 115
-
-FPT_NextMixerWindow = 120
-FPT_MixerWindowJog = 121
-FPT_ShuffleJog = 122
-
-FPT_ArrangementJog = 123
-
-# Global transport flags
-GT_Cannot = -1
-GT_None = 0
-GT_Plugin = 1
-GT_Form = 2
-GT_Menu = 4
-GT_Global = 8
-GT_All = GT_Plugin | GT_Form | GT_Menu | GT_Global
-
-
-# Pickup modes
-PIM_None = 0
-PIM_AlwaysPickup = 1
-PIM_FollowGlobal = 2
-
-# FPN_Preset flags
-GPN_GetCurrentPreset = -1
-
-#
-TranzPort_OffOnT = [MIDI_NOTEON, MIDI_NOTEON + (0x7F << 16)]
-TranzPort_OffBlinkT = [MIDI_NOTEON, MIDI_NOTEON + (1 << 16)]
-TranzPort_OffOnBlinkT = [MIDI_NOTEON, MIDI_NOTEON +
-                         (0x7F << 16), MIDI_NOTEON + (1 << 16)]
-
-FromMIDI_Max = 1073741824
-FromMIDI_Half = FromMIDI_Max >> 1
-
-# resolution of endless knobs is assumed to be 24 ticks per revolution
-EKRes = 1 / 24
-
-
-TrackNum_Master = 0
-
-SM_Pat = 0
-SM_Song = 1
 
 # show ui
 widMixer = 0
@@ -416,8 +400,6 @@ fxSoloSetOff = 0
 fxSoloSetOn = 1
 fxSoloToggle = 2
 fxSoloGetValue = 3
-
-EKRes = 1 / 24
 
 # get peaks mode
 PEAK_L = 0
