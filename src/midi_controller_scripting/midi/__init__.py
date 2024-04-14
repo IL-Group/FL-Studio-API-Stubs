@@ -13,7 +13,7 @@ not the creation of the repository authors, and no credit is claimed.
 # flake8: noqa
 from .__encode import EncodeRemoteControlID
 
-MaxInt = 2147483647
+from .__miscellaneous import MaxInt
 
 from .__midi_codes import (
     MIDI_NOTEON,
@@ -107,265 +107,167 @@ from .__on_refresh_flags import (
     HW_ChannelEvent,
 )
 
-# song time flags
-SONGLENGTH_MS = 0
-SONGLENGTH_S = 1
-SONGLENGTH_ABSTICKS = 2
-SONGLENGTH_BARS = 3
-SONGLENGTH_STEPS = 4
-SONGLENGTH_TICKS = 5
+from .__song_time import (
+    SONGLENGTH_MS,
+    SONGLENGTH_S,
+    SONGLENGTH_ABSTICKS,
+    SONGLENGTH_BARS,
+    SONGLENGTH_STEPS,
+    SONGLENGTH_TICKS,
+)
 
-# TEventIDInfo
-Event_CantInterpolate = 0x00
-Event_Float = 0x02
-Event_Centered = 0x04
+from .__linked_info_constants import (
+    Event_CantInterpolate,
+    Event_Float,
+    Event_Centered,
+)
 
-# rec events
-REC_ItemRange = 0x10000
-REC_TrackRange = 0x10
-REC_EnvRange = 0x100
-REC_PluginBase = 0x8000
-REC_PluginRange = 0x8000
-REC_ItemMask = 0xFFFF
-
-REC_MaxChan = 0x1000
-REC_MaxPat = 0x1000
-REC_GlobalChan = REC_MaxChan - 1
-
-REC_GlobalPlugTrack = 128 - 1
-REC_GlobalPlug = (0x2000 >> 6) + REC_GlobalPlugTrack
-REC_MixerMask = 0x3FFFFF
-
-# event ID's     channels (up to 4096)
-REC_Chan_First = 0
-REC_Chan_Last = REC_MaxChan * REC_ItemRange - 1
-REC_Chan_Vol = REC_Chan_First
-REC_Chan_Pan = REC_Chan_First + 1
-REC_Chan_FCut = REC_Chan_First + 2
-REC_Chan_FRes = REC_Chan_First + 3
-REC_Chan_Pitch = REC_Chan_First + 4
-REC_Chan_FType = REC_Chan_First + 5
-REC_Chan_PortaTime = REC_Chan_First + 6
-REC_Chan_Mute = REC_Chan_First + 7
-REC_Chan_FXTrack = REC_Chan_First + 8
-REC_Chan_GateTime = REC_Chan_First + 9
-REC_Chan_Crossfade = REC_Chan_First + 10
-REC_Chan_TimeOfs = REC_Chan_First + 11
-REC_Chan_SwingMix = REC_Chan_First + 12
-REC_Chan_SmpOfs = REC_Chan_First + 13
-REC_Chan_StretchTime = REC_Chan_First + 14
-
-REC_Chan_OfsPan = REC_Chan_First + 16
-REC_Chan_OfsVol = REC_Chan_First + 17
-REC_Chan_OfsPitch = REC_Chan_First + 18
-REC_Chan_OfsFCut = REC_Chan_First + 19
-REC_Chan_OfsFRes = REC_Chan_First + 20
-
-# TS404
-REC_Chan_TS404_First = REC_Chan_First + 0x100  # same order as the 404 params
-REC_Chan_TS404_FCut = REC_Chan_TS404_First + 18
-REC_Chan_TS404_FRes = REC_Chan_TS404_First + 19
-REC_Chan_TS404_Env_First = REC_Chan_TS404_First + 31
-REC_Chan_TS404_Env_Last = REC_Chan_TS404_Env_First + 4
-REC_Chan_TS404_Last = REC_Chan_TS404_First + 0x100 - 1
-REC_Chan_TS404_Valid_First = 259
-REC_Chan_TS404_Valid_Last = 293
-
-# delay
-REC_Chan_Delay_First = REC_Chan_First + 0x200
-REC_Chan_Delay_Last = REC_Chan_Delay_First + 0x100 - 1
-REC_Chan_Delay_Time = REC_Chan_Delay_First + 4
-
-# arpeggiator
-REC_Chan_Arp_First = REC_Chan_First + 0x300
-REC_Chan_Arp_Last = REC_Chan_Arp_First + 0x100 - 1
-REC_Chan_Arp_Chord = REC_Chan_Arp_First + 2
-REC_Chan_Arp_Time = REC_Chan_Arp_First + 3
-REC_Chan_Arp_Gate = REC_Chan_Arp_First + 4
-REC_Chan_Arp_Repeat = REC_Chan_Arp_First + 5
-
-# misc
-REC_Chan_Misc = REC_Chan_First + 0x400
-
-# tracking
-REC_Chan_Track_First = REC_Chan_First + 0x500
-REC_Chan_Track_PLast = REC_Chan_Track_First + 2
-REC_Chan_Track_Last = REC_Chan_Track_First + 0x100 - 1
-
-# automation articulator
-REC_Chan_AC_First = REC_Chan_First + 0x600
-REC_Chan_AC_Last = REC_Chan_AC_First + 0x100 - 1
-
-# envelope
-REC_Chan_Env_First = REC_Chan_First + 0x1000
-REC_Chan_Env_LFO_First = REC_Chan_Env_First + 9
-REC_Chan_Env_MA = REC_Chan_Env_First + 8
-REC_Chan_Env_LFOA = REC_Chan_Env_First + 11
-REC_Chan_Env_Hole = REC_Chan_Env_LFOA + 2
-REC_Chan_Env_PLast = REC_Chan_Env_Hole + 3
-REC_Chan_Env_Last = REC_Chan_Env_First + 0x800 - 1
-
-# note events
-REC_Chan_Note_First = REC_Chan_First + 0x4000
-REC_Chan_Note_Num = 0x20
-REC_Chan_Note_Last = REC_Chan_Note_First + REC_Chan_Note_Num
-
-REC_Chan_NoteOn = REC_Chan_Note_First
-REC_Chan_NoteMask = 0xFFFFFFF0
-# slides
-REC_Chan_NoteSlideMask = 8
-REC_Chan_NoteSlide = REC_Chan_NoteOn + REC_Chan_NoteSlideMask
-REC_Chan_NoteSlideTo = REC_Chan_NoteSlide
-REC_Chan_NoteSlideOfs = REC_Chan_NoteSlide + 1
-# misc
-REC_Chan_NoteOff = REC_Chan_NoteOn + 0x20
-REC_Chan_PianoRoll = REC_Chan_NoteOn
-
-REC_Chan_Clip = REC_Chan_First + 0x5000
-
-# linked plugin (>0x8000)
-REC_Chan_Plugin_First = REC_Chan_First + REC_PluginBase
-REC_Chan_Plugin_Last = REC_Chan_Plugin_First + REC_PluginRange - 1
-
-# *** effect plugins (up to 128 mixer tracks*64 plugins)
-# designed not to overlap with REC_Chan events, so that they can be merged later
-REC_Plug_First = 0x2000 * REC_ItemRange
-REC_Plug_Last = REC_Plug_First + 0x2000 * REC_ItemRange - 1
-
-# plugin common properties (up to 256)
-REC_Plug_General_First = REC_Plug_First + 0x2000 - 0x100
-REC_Plug_General_Last = REC_Plug_General_First + 0x40 - 1
-REC_Plug_Mute = REC_Plug_General_First  # mute
-REC_Plug_MixLevel = REC_Plug_General_First + 1  # mix level
-
-# mixer track properties
-REC_Mixer_First = REC_Plug_General_First + 0x40
-REC_Mixer_Last = REC_Mixer_First + 0x800 - 1
-REC_Mixer_Send_First = REC_Mixer_First  # sends (up to 128)
-REC_Mixer_Send_Last = REC_Mixer_Send_First + 0x80 - 1
-REC_Mixer_Vol = REC_Mixer_Send_Last + 1  # volume
-REC_Mixer_Pan = REC_Mixer_Vol + 1  # pan
-REC_Mixer_SS = REC_Mixer_Vol + 2  # stereo separation
-
-# EQ (up to 8 bands)
-REC_Mixer_EQ_First = REC_Mixer_Vol + 0x10
-REC_Mixer_EQ_Last = REC_Mixer_EQ_First + 8 * 3 - 1
-REC_Mixer_EQ_Gain = REC_Mixer_EQ_First
-REC_Mixer_EQ_Freq = REC_Mixer_EQ_First + 8
-REC_Mixer_EQ_Q = REC_Mixer_EQ_First + 8 * 2
-REC_Mixer_EQ_Type = REC_Mixer_EQ_First + 8 * 3
-
-# linked plugin (>0x8000)
-REC_Plug_Plugin_First = REC_Plug_First + REC_PluginBase
-REC_Plug_Plugin_Last = REC_Plug_Plugin_First + REC_PluginRange - 1
-
-# global
-REC_Global_First = 0x4000 * REC_ItemRange
-REC_Global_Last = REC_Global_First + REC_ItemRange
-REC_MainVol = REC_Global_First
-REC_MainShuffle = REC_Global_First + 1
-REC_MainPitch = REC_Global_First + 2
-REC_MainFRes = REC_Global_First + 3  # obsolete
-REC_MainFCut = REC_Global_First + 4  # obsolete
-REC_Tempo = REC_Global_First + 5
-
-REC_TS404Delay_First = REC_Global_First + 0x100  # obsolete
-REC_TS404Delay_Feed = REC_TS404Delay_First
-REC_TS404Delay_Pan = REC_TS404Delay_First + 1
-REC_TS404Delay_Vol = REC_TS404Delay_First + 2
-REC_TS404Delay_Time = REC_TS404Delay_First + 3
-
-# playlist
-REC_Playlist_First = 0x5000 * REC_ItemRange
-REC_Playlist_Last = REC_Playlist_First + 0x2000 * REC_ItemRange - 1
-
-# patterns (up to 4096)
-REC_Pat_First = REC_Playlist_First
-REC_Pat_Last = REC_Pat_First + 0x1000 * REC_ItemRange - 1
-REC_Pat_Clip = REC_Pat_First + 0x5000  # clip item
-
-# all clips
-# this is not a typo, it includes channel and pattern clips
-REC_PLClip_First = REC_Chan_First
-REC_PLClip_Last = REC_Pat_Last
-
-# pattern instances at the top of the playlist
-REC_Playlist_Old = REC_Playlist_First  # obsolete
-# pattern block, but shouldn't happen anymore?
-REC_Pat_Block = REC_Playlist_First + 0x1000 * REC_ItemRange
-REC_Playlist = REC_Playlist_Old
-
-# playlist tracks (up to 4096)
-REC_PLTrack_First = 0x6000 * REC_ItemRange
-REC_PLTrack_Last = REC_PLTrack_First + 0x1000 * REC_ItemRange - 1
-
-# reserved for future use
-REC_Reserved = 0x80000000
-
-# special commands
-# for remote control by external apps
-REC_Special = -1
-REC_StartStop = REC_Special  # 0=Stop, 1=Start
-REC_SongPosition = REC_Special - 1  # get/set song position (in bars)
-REC_SongLength = REC_Special - 2  # get song length (in bars)
-# last tweaked
-REC_LastTweakedFirst = -32
-REC_LastTweakedLast = REC_LastTweakedFirst + 1
-# for the project browser
-REC_Proj_First = REC_Special - 0x100
-
-# process flags
-REC_UpdateValue = 1 << 0
-REC_GetValue = 1 << 1
-REC_ShowHint = 1 << 2
-REC_UpdatePlugLabel = 1 << 3
-REC_UpdateControl = 1 << 4
-REC_FromMIDI = 1 << 5
-REC_Store = 1 << 6
-REC_SetChanged = 1 << 7
-REC_SetTouched = 1 << 8
-REC_Init = 1 << 9
-REC_NoLink = 1 << 10
-REC_InternalCtrl = 1 << 11
-REC_PlugReserved = 1 << 12
-REC_Smoothed = 1 << 13
-REC_NoLastTweaked = 1 << 14
-REC_NoSaveUndo = 1 << 15
-
-# combo's
-REC_InitStore = REC_Init | REC_Store
-REC_Control = REC_UpdateValue | REC_UpdateControl | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_SetTouched  # called by a control
-# called by a MIDI controller from midi
-REC_MIDIController = REC_Control | REC_FromMIDI
-REC_Controller = REC_Control  # for compatibility only, wrong name used
-
-# called externally
-REC_SetAll = REC_UpdateValue | REC_UpdateControl | REC_InitStore | REC_SetChanged | REC_SetTouched
-# called by the param's control
-REC_Control = REC_UpdateValue | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_UpdatePlugLabel | REC_SetTouched
-REC_Visual = REC_GetValue | REC_UpdateControl | REC_UpdatePlugLabel  # refresh visually
-REC_FromMixThread = REC_UpdateValue  # change the value only
-REC_PlugCallback = REC_InitStore | REC_SetChanged | REC_SetTouched
-# let's not prevent automation & internal controllers at the same time
-REC_FromInternalCtrl = REC_UpdateValue | REC_FromMIDI | REC_InternalCtrl
-REC_AnyInternalCtrl = REC_InternalCtrl | REC_Smoothed
-
-# ProcessRECEvent returns this when the ID is invalid
-REC_InvalidID = MaxInt
-
-# used when filtering events that have no ID's
-REC_None = MaxInt
-
-# Remote_FindEventID returns this when a generic link could be found, but it's not related to the focused window
-REC_SomeGeneric = REC_None - 1
-
-# Default mapping for the wrapper (to support mod wheel and aftertouch in VSTs)
-REC_WrapperModWheel = 0x0FFF9001
-REC_WrapperAfterTouch = 0x0FFF9080
-
-# recording flags for ProcessMIDIEvent
-PME_RECFlagsT = [REC_UpdateValue | REC_UpdateControl |
-                 REC_FromMIDI | REC_SetChanged | REC_SetTouched, REC_MIDIController]
+from .__rec_events import (
+    REC_ItemRange,
+    REC_TrackRange,
+    REC_EnvRange,
+    REC_PluginBase,
+    REC_PluginRange,
+    REC_ItemMask,
+    REC_MaxChan,
+    REC_MaxPat,
+    REC_GlobalChan,
+    REC_GlobalPlugTrack,
+    REC_GlobalPlug,
+    REC_MixerMask,
+    REC_Chan_First,
+    REC_Chan_Last,
+    REC_Global_First,
+    REC_Global_Last,
+    REC_Chan_Vol,
+    REC_Chan_Pan,
+    REC_Chan_FCut,
+    REC_Chan_FRes,
+    REC_Chan_Pitch,
+    REC_Chan_FType,
+    REC_Chan_PortaTime,
+    REC_Chan_Mute,
+    REC_Chan_FXTrack,
+    REC_Chan_GateTime,
+    REC_Chan_Crossfade,
+    REC_Chan_TimeOfs,
+    REC_Chan_SwingMix,
+    REC_Chan_SmpOfs,
+    REC_Chan_StretchTime,
+    REC_Chan_OfsPan,
+    REC_Chan_OfsVol,
+    REC_Chan_OfsPitch,
+    REC_Chan_OfsFCut,
+    REC_Chan_OfsFRes,
+    REC_Chan_TS404_First,
+    REC_Chan_TS404_FCut,
+    REC_Chan_TS404_FRes,
+    REC_Chan_TS404_Env_First,
+    REC_Chan_TS404_Env_Last,
+    REC_Chan_TS404_Last,
+    REC_Chan_TS404_Valid_First,
+    REC_Chan_TS404_Valid_Last,
+    REC_TS404Delay_First,
+    REC_TS404Delay_Feed,
+    REC_TS404Delay_Pan,
+    REC_TS404Delay_Vol,
+    REC_TS404Delay_Time,
+    REC_Chan_Delay_First,
+    REC_Chan_Delay_Last,
+    REC_Chan_Delay_Time,
+    REC_Chan_Arp_First,
+    REC_Chan_Arp_Last,
+    REC_Chan_Arp_Chord,
+    REC_Chan_Arp_Time,
+    REC_Chan_Arp_Gate,
+    REC_Chan_Arp_Repeat,
+    REC_Chan_Misc,
+    REC_Chan_Track_First,
+    REC_Chan_Track_PLast,
+    REC_Chan_Track_Last,
+    REC_Chan_AC_First,
+    REC_Chan_AC_Last,
+    REC_Chan_Env_First,
+    REC_Chan_Env_LFO_First,
+    REC_Chan_Env_MA,
+    REC_Chan_Env_LFOA,
+    REC_Chan_Env_Hole,
+    REC_Chan_Env_PLast,
+    REC_Chan_Env_Last,
+    REC_Chan_Note_First,
+    REC_Chan_Note_Num,
+    REC_Chan_Note_Last,
+    REC_Chan_NoteOn,
+    REC_Chan_NoteMask,
+    REC_Chan_NoteSlideMask,
+    REC_Chan_NoteSlide,
+    REC_Chan_NoteSlideTo,
+    REC_Chan_NoteSlideOfs,
+    REC_Chan_NoteOff,
+    REC_Chan_PianoRoll,
+    REC_Chan_Clip,
+    REC_Chan_Plugin_First,
+    REC_Chan_Plugin_Last,
+    REC_MainVol,
+    REC_MainShuffle,
+    REC_MainPitch,
+    REC_MainFRes,
+    REC_MainFCut,
+    REC_Tempo,
+    REC_Playlist_First,
+    REC_Playlist_Last,
+    REC_Pat_First,
+    REC_Pat_Last,
+    REC_Pat_Clip,
+    REC_PLClip_First,
+    REC_PLClip_Last,
+    REC_Playlist_Old,
+    REC_Pat_Block,
+    REC_Playlist,
+    REC_PLTrack_First,
+    REC_PLTrack_Last,
+    REC_Reserved,
+    REC_Special,
+    REC_StartStop,
+    REC_SongPosition,
+    REC_SongLength,
+    REC_LastTweakedFirst,
+    REC_LastTweakedLast,
+    REC_Proj_First,
+    REC_UpdateValue,
+    REC_GetValue,
+    REC_ShowHint,
+    REC_UpdatePlugLabel,
+    REC_UpdateControl,
+    REC_FromMIDI,
+    REC_Store,
+    REC_SetChanged,
+    REC_SetTouched,
+    REC_Init,
+    REC_NoLink,
+    REC_InternalCtrl,
+    REC_PlugReserved,
+    REC_Smoothed,
+    REC_NoLastTweaked,
+    REC_NoSaveUndo,
+    REC_InitStore,
+    REC_Control,
+    REC_MIDIController,
+    REC_Controller,
+    REC_SetAll,
+    REC_Control,
+    REC_Visual,
+    REC_FromMixThread,
+    REC_PlugCallback,
+    REC_FromInternalCtrl,
+    REC_AnyInternalCtrl,
+    REC_InvalidID,
+    REC_None,
+    REC_SomeGeneric,
+    REC_WrapperModWheel,
+    REC_WrapperAfterTouch,
+    PME_RECFlagsT,
+)
 
 # Global transport commnads
 FPT_Jog = 0

@@ -1,0 +1,8 @@
+nav:
+  - index.md
+  - Rec events: __rec_events
+  - MIDI codes: midi codes.md
+  - OnRefresh flags: on refresh flags.md
+  - PME flags: pme flags.md
+  - triggerLiveClip flags: trigger live clip flags.md
+  - ...

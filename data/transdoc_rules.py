@@ -27,7 +27,7 @@ def docs_url_mod(module: str) -> str:
         return f"[{module}]({BASE_URL}/{module})"
 
 
-def docs_url_fn(function: str, suffix: str = "") -> str:
+def docs_url_fn(function: str, suffix: str = "()") -> str:
     """
     Return a markdown URL for a function within the API documentation, given
     its name.
@@ -45,6 +45,27 @@ def docs_url_fn(function: str, suffix: str = "") -> str:
     else:
         # FIXME: These won't link correctly due to new documentation structure
         module, fn = function.rsplit(".", 1)
+        return f"[{module}.{fn}{suffix}]({BASE_URL}/{module}/#{module}.{fn})"
+
+
+def docs_url_attr(attribute: str, suffix: str = "") -> str:
+    """
+    Return a markdown URL for an attribute within the API documentation, given
+    its name.
+
+    ## Args
+
+    * `attribute` (`str`): attribute to link to
+
+    * `suffix` (`str`, optional): suffix to use in the text representation.
+    """
+    if BUILDING_ONLINE_DOCS:
+        module, fn = attribute.rsplit(".", 1)
+        # Use mkdocs internal link
+        return f"[`{module}.{fn}{suffix}`][{module}.{fn}]"
+    else:
+        # FIXME: These won't link correctly due to new documentation structure
+        module, fn = attribute.rsplit(".", 1)
         return f"[{module}.{fn}{suffix}]({BASE_URL}/{module}/#{module}.{fn})"
 
 

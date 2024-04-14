@@ -1,7 +1,6 @@
 """
-Overlay flags are used by functions such as
-{{docs_url_fn("ui.crDisplayRect", suffix="()")}} to control options for
-displaying the overlay.
+Overlay flags are used by functions such as {{docs_url_fn[ui.crDisplayRect]}}
+to control options for displaying the overlay.
 
 For example, to make FL Studio highlight channel names and mute buttons, and
 scroll to the selected channels:

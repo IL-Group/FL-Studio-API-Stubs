@@ -1,5 +1,5 @@
 """
-These flags are used for {{docs_url_fn("playlist.triggerLiveClip", suffix="()")}},
+These flags are used for {{docs_url_fn[playlist.triggerLiveClip]}},
 allowing you to specify options for how live clips should be triggered.
 """
 
