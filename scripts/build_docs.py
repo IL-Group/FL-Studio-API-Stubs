@@ -170,18 +170,11 @@ def generate_module_tree(
     else:
         # Check if it's a module
         is_module = "__init__.py" in tree
-        # Now write the `.pages` and `index.md` files, only if we're in a
-        # module
+        # Now write the `index.md` file, only if we're in a module
         if is_module:
-            # Create a `.pages` config to manage navigation in this directory
-            with mkdocs_gen_files.open(
-                mod_path / ".pages",
-                "w",
-            ) as f:
-                print("nav:", file=f)
-                # Put index.md at the top
-                print(f"  - {mod_path.name.capitalize()}: index.md", file=f)
-                print("  - ...", file=f)
+            # .pages files are defined within `docs`, and get copied across
+            # That way we can get better control of them by writing them
+            # manually.
 
             # index.md
             with mkdocs_gen_files.open(

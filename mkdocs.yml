@@ -37,6 +37,7 @@ plugins:
   - search
   - awesome-pages:
       collapse_single_pages: true
+  - section-index
   - autorefs
   - mkdocstrings:
       handlers:

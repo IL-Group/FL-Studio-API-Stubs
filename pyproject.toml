@@ -67,26 +67,27 @@ packages = [
 "Online Documentation" = "https://il-group.github.io/FL-Studio-API-Stubs/"
 
 
-# Primary dependencies
 [tool.poetry.dependencies]
+# Primary dependencies
 python = "^3.10"
 
-# Build dependencies -- required to build the library
 [tool.poetry.group.build.dependencies]
+# Build dependencies -- required to build the library
 transdoc = "^0.2.1"
 
+[tool.poetry.group.docs.dependencies]
 # Docs depdnencies -- required to build documentation site
 # Note build dependencies are also required
-[tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
 mkdocs-gen-files = "^0.5.0"
 mkdocs-material = "^9.5.0"
 mkdocstrings = { version = "^0.24.0", extras = ["python"] }
 mkdocs-awesome-pages-plugin = "^2.9.2"
+mkdocs-section-index = "^0.3.8"
 
+[tool.poetry.group.ci.dependencies]
 # CI dependencies -- required to run continuous integration, including
 # linting, type checking, etc
-[tool.poetry.group.ci.dependencies]
 coverage = "^7.2.2"
 autopep8 = "^2.0.2"
 mypy = "^1.1.1"
