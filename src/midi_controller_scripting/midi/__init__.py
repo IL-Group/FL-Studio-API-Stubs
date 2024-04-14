@@ -15,93 +15,97 @@ from .__encode import EncodeRemoteControlID
 
 MaxInt = 2147483647
 
-# midi codes
-MIDI_NOTEON = 0x90
-MIDI_NOTEOFF = 0x80
-MIDI_KEYAFTERTOUCH = 0xA0
-MIDI_CONTROLCHANGE = 0xB0
-MIDI_PROGRAMCHANGE = 0xC0
-MIDI_CHANAFTERTOUCH = 0xD0
-MIDI_PITCHBEND = 0xE0
-MIDI_SYSTEMMESSAGE = 0xF0
-MIDI_BEGINSYSEX = 0xF0
-MIDI_MTCQUARTERFRAME = 0xF1
-MIDI_SONGPOSPTR = 0xF2
-MIDI_SONGSELECT = 0xF3
-MIDI_ENDSYSEX = 0xF7
-MIDI_TIMINGCLOCK = 0xF8
-MIDI_START = 0xFA
-MIDI_CONTINUE = 0xFB
-MIDI_STOP = 0xFC
-MIDI_ACTIVESENSING = 0xFE
-MIDI_SYSTEMRESET = 0xFF
+from .__midi_codes import (
+    MIDI_NOTEON,
+    MIDI_NOTEOFF,
+    MIDI_KEYAFTERTOUCH,
+    MIDI_CONTROLCHANGE,
+    MIDI_PROGRAMCHANGE,
+    MIDI_CHANAFTERTOUCH,
+    MIDI_PITCHBEND,
+    MIDI_SYSTEMMESSAGE,
+    MIDI_BEGINSYSEX,
+    MIDI_MTCQUARTERFRAME,
+    MIDI_SONGPOSPTR,
+    MIDI_SONGSELECT,
+    MIDI_ENDSYSEX,
+    MIDI_TIMINGCLOCK,
+    MIDI_START,
+    MIDI_CONTINUE,
+    MIDI_STOP,
+    MIDI_ACTIVESENSING,
+    MIDI_SYSTEMRESET,
+    EventNameT,
+)
 
-# processMIDIEvent flags
-PME_LiveInput = 1
-PME_System = 1 << 1
-PME_System_Safe = 1 << 2
-PME_PreviewNote = 1 << 3
-PME_FromHost = 1 << 4
-PME_FromMIDI = 1 << 5
-PME_FromScript = 1 << 6
+from .__pme_flags import (
+    PME_LiveInput,
+    PME_System,
+    PME_System_Safe,
+    PME_PreviewNote,
+    PME_FromHost,
+    PME_FromMIDI,
+    PME_FromScript,
+)
 
-# crDisplayRect flags
-CR_HighlightChannels = 1
-CR_ScrollToView = 1 << 1
-CR_HighlightChannelMute = 1 << 2
-CR_HighlightChannelPanVol = 1 << 3
-CR_HighlightChannelTrack = 1 << 4
-CR_HighlightChannelName = 1 << 5
-CR_HighlightChannelSelect = 1 << 6
+from .__overlay_flags import (
+    # crDisplayRect flags
+    CR_HighlightChannels,
+    CR_ScrollToView,
+    CR_HighlightChannelMute,
+    CR_HighlightChannelPanVol,
+    CR_HighlightChannelTrack,
+    CR_HighlightChannelName,
+    CR_HighlightChannelSelect,
+    # miDisplayRect flags
+    MI_ScrollToView,
+)
 
-# miDisplayRect flags
-MI_ScrollToView = 1 << 1
 
-# playlist.triggerLiveClip flags
-TLC_MuteOthers = 1
-TLC_Fill = 1 << 1
-TLC_Queue = 1 << 2
-TLC_Release = 1 << 5
-TLC_NoPlayCheck = 1 << 6
-TLC_NoHardwareUpdate = 1 << 30
-TLC_SecondPass = 1 << 31  # system
+from .__trigger_live_clip_flags import (
+    TLC_MuteOthers,
+    TLC_Fill,
+    TLC_Queue,
+    TLC_Release,
+    TLC_NoPlayCheck,
+    TLC_NoHardwareUpdate,
+    TLC_SecondPass,
+    TLC_ColumnMode,
+    TLC_WeakColumnMode,
+    TLC_TriggerCheckColumnMode,
+    TLC_TrackSnap,
+    TLC_GlobalSnap,
+    TLC_NoSnap,
+    TLC_SubNum_Normal,
+    TLC_SubNum_ClipPos,
+    TLC_SubNum_GroupNum,
+    TLC_SubNum_Read,
+    TLC_SubNum_Leave,
+)
 
-TLC_ColumnMode = 1 << 7  # scene
-TLC_WeakColumnMode = 1 << 8  # +scene
-TLC_TriggerCheckColumnMode = 1 << 9  # same press mode
+from .__play_modes import (
+    PM_Stopped,
+    PM_Playing,
+    PM_Precount,
+)
 
-TLC_TrackSnap = 0 << 3
-TLC_GlobalSnap = 1 << 3
-TLC_NoSnap = 2 << 3
-
-TLC_SubNum_Normal = 0 << 16
-TLC_SubNum_ClipPos = 1 << 16
-TLC_SubNum_GroupNum = 2 << 16
-TLC_SubNum_Read = 3 << 16
-TLC_SubNum_Leave = 4 << 16
-
-# playing modes
-PM_Stopped = 0
-PM_Playing = 1
-PM_Precount = 2
-
-# hardware dirty flags
-HW_Dirty_Mixer_Sel = 1
-HW_Dirty_Mixer_Display = 2
-HW_Dirty_Mixer_Controls = 4
-HW_Dirty_RemoteLinks = 16  # links have changed
-HW_Dirty_FocusedWindow = 32  # needed for controllers that reflect generic links
-# performance layout (not playing state!) has changed
-HW_Dirty_Performance = 64
-HW_Dirty_LEDs = 256
-HW_Dirty_RemoteLinkValues = 512
-HW_Dirty_Patterns = 1024  # selected pattern is changed or pattern self is changed
-HW_Dirty_Tracks = 2048  # tracks changes
-HW_Dirty_ControlValues = 4096
-HW_Dirty_Colors = 8192
-HW_Dirty_Names = 16384
-HW_Dirty_ChannelRackGroup = 32768
-HW_ChannelEvent = 65536
+from .__on_refresh_flags import (
+    HW_Dirty_Mixer_Sel,
+    HW_Dirty_Mixer_Display,
+    HW_Dirty_Mixer_Controls,
+    HW_Dirty_RemoteLinks,
+    HW_Dirty_FocusedWindow,
+    HW_Dirty_Performance,
+    HW_Dirty_LEDs,
+    HW_Dirty_RemoteLinkValues,
+    HW_Dirty_Patterns,
+    HW_Dirty_Tracks,
+    HW_Dirty_ControlValues,
+    HW_Dirty_Colors,
+    HW_Dirty_Names,
+    HW_Dirty_ChannelRackGroup,
+    HW_ChannelEvent,
+)
 
 # song time flags
 SONGLENGTH_MS = 0
@@ -707,7 +711,6 @@ CT_Layer = 3
 CT_AudioClip = 4
 CT_AutoClip = 5
 
-EventNameT = ['Note Off', 'Note On ', 'Key Aftertouch', 'Control Change',
-              'Program Change',  'Channel Aftertouch', 'Pitch Bend', 'System Message']
+
 ChannelDefaultVolume = 1000 / 1280
 TackDefaultVolume = 800 / 1000

@@ -1,4 +1,18 @@
 nav:
     - index.md
     - Tutorials: tutorials
-    - ...
+    - arrangement
+    - channels
+    - device
+    - FL Classes: fl_classes
+    - general
+    - launchMapPages
+    - MIDI: midi
+    - mixer
+    - patterns
+    - playlist
+    - plugins
+    - screen
+    - transport
+    - UI: ui
+    - utils

@@ -14,18 +14,38 @@ BASE_URL = "https://il-group.github.io/FL-Studio-API-Stubs"
 OLD_MANUAL_URL = "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html"
 
 
-def docs_url_fn(function: str) -> str:
+def docs_url_mod(module: str) -> str:
+    """
+    Return a markdown URL for a module within the API documentation, given its
+    name.
+    """
+    if BUILDING_ONLINE_DOCS:
+        # Use mkdocs internal link
+        return f"[`{module}`][{module}]"
+    else:
+        # FIXME: These won't link correctly due to new documentation structure
+        return f"[{module}]({BASE_URL}/{module})"
+
+
+def docs_url_fn(function: str, suffix: str = "") -> str:
     """
     Return a markdown URL for a function within the API documentation, given
     its name.
+
+    ## Args
+
+    * `function` (`str`): function to link to
+
+    * `suffix` (`str`, optional): suffix to use in the text representation.
     """
     if BUILDING_ONLINE_DOCS:
         module, fn = function.rsplit(".", 1)
         # Use mkdocs internal link
-        return f"[`{module}.{fn}()`][{module}.{fn}]"
+        return f"[`{module}.{fn}{suffix}`][{module}.{fn}]"
     else:
+        # FIXME: These won't link correctly due to new documentation structure
         module, fn = function.rsplit(".", 1)
-        return f"[{module}.{fn}()]({BASE_URL}/{module}/#{module}.{fn})"
+        return f"[{module}.{fn}{suffix}]({BASE_URL}/{module}/#{module}.{fn})"
 
 
 NOTE_MAPPINGS = {

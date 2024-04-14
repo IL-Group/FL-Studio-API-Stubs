@@ -524,24 +524,9 @@ class FlMidiMsg:
         ## Flag analysis
 
         The flags can be analyzed by performing bitwise operations to determine
-        the current permissions of the script.
-
-        * `0b000010` (`PME_System`) System operations allowed (play/pause,
-          etc).
-
-        * `0b000100` (`PME_System_Safe`) Critical operations allowed (add
-          markers, etc). Things that can't be done when a modal dialog is
-          showing.
-
-        * `0b001000` (`PME_PreviewNote`) Note events will trigger a preview.
-
-        * `0x010000` (`PME_FromHost`) FL Studio is being hosted as a VSTi
-          (meaning it's probably a bad idea to do anything meaningful as it
-          could interfere with the behavior of other DAWs). In my testing,
-          using MIDI scripts in the FL Studio VST causes a crash anyway, so I
-          suppose it isn't that important either way.
-
-        * `0x100000` This event was triggered by a MIDI event.
+        the current permissions of the script. You can use the
+        {{docs_url_page("PME Flags", "midi_controller_scripting/midi/pme flags")}}
+        constants from the {{docs_url_mod[midi]}} module to analyse the flags.
 
         ## Alternate to flag analysis
 
