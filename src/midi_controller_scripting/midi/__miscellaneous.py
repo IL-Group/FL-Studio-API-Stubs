@@ -12,8 +12,11 @@ TranzPort_OffOnT = [MIDI_NOTEON, MIDI_NOTEON + (0x7F << 16)]
 """???"""
 TranzPort_OffBlinkT = [MIDI_NOTEON, MIDI_NOTEON + (1 << 16)]
 """???"""
-TranzPort_OffOnBlinkT = [MIDI_NOTEON, MIDI_NOTEON +
-                         (0x7F << 16), MIDI_NOTEON + (1 << 16)]
+TranzPort_OffOnBlinkT = [
+    MIDI_NOTEON,
+    MIDI_NOTEON + (0x7F << 16),
+    MIDI_NOTEON + (1 << 16),
+]
 """???"""
 
 FromMIDI_Max = 1073741824

@@ -184,7 +184,6 @@ from .process_flags import (
     REC_MIDIController,
     REC_Controller,
     REC_SetAll,
-    REC_Control,
     REC_Visual,
     REC_FromMixThread,
     REC_PlugCallback,

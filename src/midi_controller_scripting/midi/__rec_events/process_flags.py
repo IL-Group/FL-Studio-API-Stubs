@@ -165,8 +165,14 @@ Default aftertouch mapping for the wrapper (to support mod aftertouch in VSTs).
 """
 
 
-PME_RECFlagsT = [REC_UpdateValue | REC_UpdateControl |
-                 REC_FromMIDI | REC_SetChanged | REC_SetTouched, REC_MIDIController]
+PME_RECFlagsT = [
+    (REC_UpdateValue
+        | REC_UpdateControl
+        | REC_FromMIDI
+        | REC_SetChanged
+        | REC_SetTouched),
+    REC_MIDIController,
+]
 """
 Recording flags for ProcessMIDIEvent.
 """
