@@ -500,27 +500,32 @@ from .__scale_indexes import (
     HARMONICSCALE_LAST,
 )
 
-FFNEP_FindFirst = 0
-FFNEP_DontPromptName = 1 << 1
+from .__ffnep_flags import (
+    FFNEP_FindFirst,
+    FFNEP_DontPromptName,
+)
 
-pPitch = 0
-pVelocity = 1
-pRelease = 2
-pFinePitch = 3
-pPan = 4
-pModX = 5
-pModY = 6
-pShift = 7
+from .__step_params import (
+    pPitch,
+    pVelocity,
+    pRelease,
+    pFinePitch,
+    pPan,
+    pModX,
+    pModY,
+    pShift,
+)
 
-CT_Sampler = 0
-CT_TS404 = 1
-CT_GenPlug = 2
-CT_Layer = 3
-CT_AudioClip = 4
-CT_AutoClip = 5
-
-CT_ColorT = (0x565148 + 0x141414, 0x868178,
-             0x514F61, 0x474440, 0x787168, 0x787168)
+from .__channel_types import (
+    CT_Sampler,
+    CT_Hybrid,
+    CT_TS404,
+    CT_GenPlug,
+    CT_Layer,
+    CT_AudioClip,
+    CT_AutoClip,
+    CT_ColorT,
+)
 
 # event editor modes
 EE_EE = 0
@@ -640,14 +645,6 @@ CE_Delete = 1
 CE_Replace = 2
 CE_Rename = 3
 CE_Select = 4
-
-# getChannelType return values
-CT_Sampler = 0
-CT_Hybrid = 1
-CT_GenPlug = 2
-CT_Layer = 3
-CT_AudioClip = 4
-CT_AutoClip = 5
 
 
 ChannelDefaultVolume = 1000 / 1280
