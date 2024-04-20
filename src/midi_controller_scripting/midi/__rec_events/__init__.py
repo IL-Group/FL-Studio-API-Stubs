@@ -7,6 +7,24 @@ For more information, check out the {{docs_url_page(
     "tutorial on event mapping",
     "midi_controller_scripting/tutorials/event_mapping"
 )}}.
+
+## Table of contents
+
+* [Process flags](./process flags)
+
+* [Ranges](./ranges)
+
+* [Global properties](./global properties)
+
+* [Channel properties](./channel properties)
+
+* [Mixer properties](./mixer properties)
+
+* [Playlist properties](./playlist properties)
+
+* [Special properties](./special)
+
+* [TS404 (deprecated)](./ts404)
 """
 
 from .ranges import (
@@ -136,7 +154,7 @@ from .global_properties import (
     REC_Tempo,
 )
 
-from .playlist import (
+from .playlist_properties import (
     REC_Playlist_First,
     REC_Playlist_Last,
     REC_Pat_First,

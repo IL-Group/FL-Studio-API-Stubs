@@ -1,0 +1,11 @@
+nav:
+  - index.md
+  - Process flags: process flags.md
+  - Ranges: ranges.md
+  - Global properties: global properties.md
+  - Channel properties: channel properties.md
+  - Mixer properties: mixer properties.md
+  - Playlist properties: playlist properties.md
+  - Special properties: special.md
+  - TS404: ts404.md
+  - ...
