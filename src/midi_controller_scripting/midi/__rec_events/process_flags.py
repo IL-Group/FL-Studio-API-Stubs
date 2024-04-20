@@ -174,5 +174,5 @@ PME_RECFlagsT = [
     REC_MIDIController,
 ]
 """
-Recording flags for ProcessMIDIEvent.
+Recording flags for ProcessMIDIEvent?
 """

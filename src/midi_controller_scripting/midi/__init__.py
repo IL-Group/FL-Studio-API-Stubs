@@ -1,17 +1,53 @@
 """
 {{module_title[midi]}}
 
-Included in FL Studio Python lib folder
+The `midi` modules contains helpful constants, which are often used as flags
+when interacting with the FL Studio API.
 
-Contains useful constants for working with MIDI events, and with FL Studio API
-flags.
+## Table of contents
 
-NOTE: This code is taken from FL Studio's Python lib folder and included in
-this package in the hope that it will be useful for script developers. It is
-not the creation of the repository authors, and no credit is claimed.
+* {{docs_url_page("Miscellaneous", "midi_controller_scripting/midi/miscellaneous")}}:
+  miscellaneous constants and functions.
+
+* {{docs_url_page("REC events", "midi_controller_scripting/midi/__rec_events")}}:
+  constants used for creating and processing REC events.
+
+* {{docs_url_page("MIDI codes", "midi_controller_scripting/midi/midi codes")}}:
+  constants useful for handling MIDI events.
+
+* {{docs_url_page("`OnRefresh` flags", "midi_controller_scripting/midi/on refresh flags")}}:
+  constants used by the `OnRefresh` callback.
+
+* {{docs_url_page("PME flags", "midi_controller_scripting/midi/pme flags")}}:
+  flags used when processing MIDI events to determine
+  the availability of various features in FL Studio.
+
+* {{docs_url_page("`triggerLiveClip` flags", "midi_controller_scripting/midi/tlc flags")}}:
+  flags passed to the {{docs_url_fn[playlist.triggerLiveClip]}} function.
+
+* {{docs_url_page("`globalTransport` commands", "midi_controller_scripting/midi/gt commands")}}:
+  command flags passed to {{docs_url_fn[transport.globalTransport]}}.
+
+* {{docs_url_page("`globalTransport` flags", "midi_controller_scripting/midi/gt flags")}}:
+  response flags returned by {{docs_url_fn[transport.globalTransport]}}.
+
+* {{docs_url_page("Linked event flags", "midi_controller_scripting/midi/linked event flags")}}:
+  response flags returned by {{docs_url_fn[device.getLinkedInfo]}}.
+
+* {{docs_url_page("Overlay flags", "midi_controller_scripting/midi/overlay flags")}}:
+  flags passed to UI overlay functions.
+
+* {{docs_url_page("Pickup modes", "midi_controller_scripting/midi/pickup modes")}}:
+  flags used to control pickup modes in various functions.
+
+* {{docs_url_page("Play modes", "midi_controller_scripting/midi/play modes")}}:
+  ??? undocumented
+
+* {{docs_url_page("Song time flags", "midi_controller_scripting/midi/song time")}}:
+  flags used to access particular units of time when getting/setting
+  time-related properties.
 """
 # flake8: noqa
-from .__encode import EncodeRemoteControlID
 
 from .__miscellaneous import (
     MaxInt,
@@ -25,6 +61,7 @@ from .__miscellaneous import (
     TrackNum_Master,
     SM_Pat,
     SM_Song,
+    EncodeRemoteControlID,
 )
 
 from .__midi_codes import (
@@ -74,7 +111,7 @@ from .__overlay_flags import (
 )
 
 
-from .__trigger_live_clip_flags import (
+from .__tlc_flags import (
     TLC_MuteOthers,
     TLC_Fill,
     TLC_Queue,
@@ -128,7 +165,7 @@ from .__song_time import (
     SONGLENGTH_TICKS,
 )
 
-from .__linked_info_constants import (
+from .__linked_event_flags import (
     Event_CantInterpolate,
     Event_Float,
     Event_Centered,
@@ -282,7 +319,7 @@ from .__rec_events import (
 )
 
 # Global transport commnads
-from .__global_transport_commands import (
+from .__gt_commands import (
     FPT_Jog,
     FPT_Jog2,
     FPT_Strip,
@@ -363,7 +400,7 @@ from .__global_transport_commands import (
     FPT_ShuffleJog,
     FPT_ArrangementJog,
 )
-from .__global_transport_flags import (
+from .__gt_flags import (
     GT_Cannot,
     GT_None,
     GT_Plugin,

@@ -1,8 +1,11 @@
 nav:
   - index.md
+  - miscellaneous.md
   - Rec events: __rec_events
   - MIDI codes: midi codes.md
   - OnRefresh flags: on refresh flags.md
   - PME flags: pme flags.md
   - triggerLiveClip flags: trigger live clip flags.md
+  - globalTransport commands: gt commands.md
+  - globalTransport flags: gt flags.md
   - ...
