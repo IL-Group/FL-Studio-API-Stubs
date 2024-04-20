@@ -31,8 +31,15 @@ when interacting with the FL Studio API.
 * {{docs_url_page("`globalTransport` flags", "midi_controller_scripting/midi/gt flags")}}:
   response flags returned by {{docs_url_fn[transport.globalTransport]}}.
 
+* {{docs_url_page("`mixer.setTrackNumber` flags", "midi_controller_scripting/midi/mixer setTrackNumber flags")}}:
+  flags passed to {{docs_url_fn[mixer.setTrackNumber]}} to control selection
+  behavior.
+
 * {{docs_url_page("Linked event flags", "midi_controller_scripting/midi/linked event flags")}}:
   response flags returned by {{docs_url_fn[device.getLinkedInfo]}}.
+
+* {{docs_url_page("`mixer.soloTrack` flags", "midi_controller_scripting/midi/mixer solo flags")}}:
+  flags passed to {{docs_url_fn[mixer.soloTrack]}} to control solo behavior.
 
 * {{docs_url_page("Overlay flags", "midi_controller_scripting/midi/overlay flags")}}:
   flags passed to UI overlay functions.
@@ -53,6 +60,7 @@ when interacting with the FL Studio API.
 # flake8: noqa
 
 from .__miscellaneous import (
+    EncodeRemoteControlID,
     MaxInt,
     GPN_GetCurrentPreset,
     TranzPort_OffOnT,
@@ -64,7 +72,12 @@ from .__miscellaneous import (
     TrackNum_Master,
     SM_Pat,
     SM_Song,
-    EncodeRemoteControlID,
+    MiddleNote_Default,
+    FineTune_Default,
+    DotVol_Default,
+    DotPan_Default,
+    DotVol_Max,
+    DotNote_Default,
 )
 
 from .__midi_codes import (
@@ -431,64 +444,61 @@ from .__window_indexes import (
     widPluginGenerator,
 )
 
-curfxScrollToMakeVisible = 1
-StartcurfxCancelSmoothing = 1 << 1
-curfxNoDeselectAll = 1 << 2
-curfxMinimalLatencyUpdate = 1 << 3
+from .__mixer_setTrackNumber_flags import (
+    curfxScrollToMakeVisible,
+    StartcurfxCancelSmoothing,
+    curfxNoDeselectAll,
+    curfxMinimalLatencyUpdate,
+)
 
-fxSoloModeWithSourceTracks = 1
-fxSoloModeWithDestTracks = 1 << 1
-fxSoloModeIgnorePrevious = 1 << 2
+from .__mixer_solo_flags import (
+    fxSoloModeWithSourceTracks,
+    fxSoloModeWithDestTracks,
+    fxSoloModeIgnorePrevious,
+    fxSoloSetOff,
+    fxSoloSetOn,
+    fxSoloToggle,
+    fxSoloGetValue,
+)
 
-fxSoloSetOff = 0
-fxSoloSetOn = 1
-fxSoloToggle = 2
-fxSoloGetValue = 3
+from .__mixer_peaks_mode import (
+    PEAK_L,
+    PEAK_R,
+    PEAK_LR,
+    PEAK_LR_INV,
+)
 
-# get peaks mode
-PEAK_L = 0
-PEAK_R = 1
-PEAK_LR = 2
-PEAK_LR_INV = 3
+from .__mixer_link_channel_mode import (
+    ROUTE_ToThis,
+    ROUTE_StartingFromThis,
+)
 
-# routing mode
-ROUTE_ToThis = 0
-ROUTE_StartingFromThis = 1
-
-# scales
-HARMONICSCALE_MAJOR = 0
-HARMONICSCALE_HARMONICMINOR = 1
-HARMONICSCALE_MELODICMINOR = 2
-HARMONICSCALE_WHOLETONE = 3
-HARMONICSCALE_DIMINISHED = 4
-HARMONICSCALE_MAJORPENTATONIC = 5
-HARMONICSCALE_MINORPENTATONIC = 6
-HARMONICSCALE_JAPINSEN = 7
-HARMONICSCALE_MAJORBEBOP = 8
-HARMONICSCALE_DOMINANTBEBOP = 9
-HARMONICSCALE_BLUES = 10
-HARMONICSCALE_ARABIC = 11
-HARMONICSCALE_ENIGMATIC = 12
-HARMONICSCALE_NEAPOLITAN = 13
-HARMONICSCALE_NEAPOLITANMINOR = 14
-HARMONICSCALE_HUNGARIANMINOR = 15
-HARMONICSCALE_DORIAN = 16
-HARMONICSCALE_PHRYGIAN = 17
-HARMONICSCALE_LYDIAN = 18
-HARMONICSCALE_MIXOLYDIAN = 19
-HARMONICSCALE_AEOLIAN = 20
-HARMONICSCALE_LOCRIAN = 21
-HARMONICSCALE_CHROMATIC = 22
-
-HARMONICSCALE_LAST = 22
-
-MiddleNote_Default = 60
-FineTune_Default = 0
-
-DotVol_Default = 100
-DotPan_Default = 64
-DotVol_Max = 128
-DotNote_Default = MiddleNote_Default
+from .__scale_indexes import (
+    HARMONICSCALE_MAJOR,
+    HARMONICSCALE_HARMONICMINOR,
+    HARMONICSCALE_MELODICMINOR,
+    HARMONICSCALE_WHOLETONE,
+    HARMONICSCALE_DIMINISHED,
+    HARMONICSCALE_MAJORPENTATONIC,
+    HARMONICSCALE_MINORPENTATONIC,
+    HARMONICSCALE_JAPINSEN,
+    HARMONICSCALE_MAJORBEBOP,
+    HARMONICSCALE_DOMINANTBEBOP,
+    HARMONICSCALE_BLUES,
+    HARMONICSCALE_ARABIC,
+    HARMONICSCALE_ENIGMATIC,
+    HARMONICSCALE_NEAPOLITAN,
+    HARMONICSCALE_NEAPOLITANMINOR,
+    HARMONICSCALE_HUNGARIANMINOR,
+    HARMONICSCALE_DORIAN,
+    HARMONICSCALE_PHRYGIAN,
+    HARMONICSCALE_LYDIAN,
+    HARMONICSCALE_MIXOLYDIAN,
+    HARMONICSCALE_AEOLIAN,
+    HARMONICSCALE_LOCRIAN,
+    HARMONICSCALE_CHROMATIC,
+    HARMONICSCALE_LAST,
+)
 
 FFNEP_FindFirst = 0
 FFNEP_DontPromptName = 1 << 1

@@ -8,4 +8,5 @@ nav:
   - triggerLiveClip flags: tlc flags.md
   - globalTransport commands: gt commands.md
   - globalTransport flags: gt flags.md
+  - Mixer setTrackNumber flags: mixer setTrackNumber flags.md
   - ...

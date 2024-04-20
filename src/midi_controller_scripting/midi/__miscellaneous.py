@@ -71,3 +71,19 @@ SM_Song = 1
 """
 Song loop mode.
 """
+
+
+MiddleNote_Default = 60
+"""
+Default middle note's MIDI index. This refers to middle c.
+"""
+
+FineTune_Default = 0
+"""
+Default value for fine-tuning.
+"""
+
+DotVol_Default = 100
+DotPan_Default = 64
+DotVol_Max = 128
+DotNote_Default = MiddleNote_Default
