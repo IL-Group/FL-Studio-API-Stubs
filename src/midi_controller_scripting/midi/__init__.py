@@ -46,6 +46,9 @@ when interacting with the FL Studio API.
 * {{docs_url_page("Song time flags", "midi_controller_scripting/midi/song time")}}:
   flags used to access particular units of time when getting/setting
   time-related properties.
+
+* {{docs_url_page("Window indexes", "midi_controller_scripting/midi/window indexes")}}:
+  index numbers used to refer to primary windows within FL Studio.
 """
 # flake8: noqa
 
@@ -418,11 +421,15 @@ from .__pickup_modes import (
 
 
 # show ui
-widMixer = 0
-widChannelRack = 1
-widPlaylist = 2
-widPianoRoll = 3
-widBrowser = 4
+from .__window_indexes import (
+    widMixer,
+    widChannelRack,
+    widPlaylist,
+    widPianoRoll,
+    widBrowser,
+    widPluginEffect,
+    widPluginGenerator,
+)
 
 curfxScrollToMakeVisible = 1
 StartcurfxCancelSmoothing = 1 << 1
