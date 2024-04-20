@@ -34,7 +34,6 @@ theme:
     - content.code.copy
 
 plugins:
-  - search
   - awesome-pages:
       collapse_single_pages: true
   - section-index
@@ -50,6 +49,7 @@ plugins:
             show_source: false
             show_signature_annotations: true
             separate_signature: true
+  - search
 
   ## Not using mkdocs scripts since we need to do a ton of pre-build stuff
   ## Maybe I'll try and get this working some point
