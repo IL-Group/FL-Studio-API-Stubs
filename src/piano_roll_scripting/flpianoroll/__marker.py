@@ -1,7 +1,6 @@
 """
-flpianoroll > marker
-
-Marker class definition
+Markers are used to mark times and control piano roll behavior (such as time
+signatures and scale highlighting).
 """
 
 

@@ -1,16 +1,24 @@
 """
 {{module_title[flpianoroll]}}
 
-FL Studio built-in module.
-
 This module provides editing tools for interacting with notes and markers on
 the FL Studio piano roll, using its piano roll scripting functionality.
 
-Main script files should use the `.pyscript` file extension, with additional
-modules using standard `.py` files.
-
 Note that this module is not accessible in MIDI Controller Scripts, it can only
 be used in scripts that run in FL Studio's piano roll.
+
+## Table of contents
+
+* {{docs_url_attr[enveditor.ScriptDialog]}}: create, show and get responses
+  from dialog windows.
+* {{docs_url_attr[flpianoroll.Score]}}: access and manipulate the piano roll
+  contents.
+* {{docs_url_attr[flpianoroll.Note]}}: a class to represent notes in the piano
+  roll.
+* {{docs_url_attr[flpianoroll.Marker]}}: a class to represent markers in the
+  piano roll.
+* {{docs_url_attr[enveditor.Utils]}}: a collection of useful functions for
+  interacting with the piano roll.
 """
 from enveditor import ScriptDialog, Utils
 from .__note import Note

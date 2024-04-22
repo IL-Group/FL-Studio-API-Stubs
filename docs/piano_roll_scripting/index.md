@@ -1,20 +1,24 @@
-# FL Piano Roll
+# Piano roll scripting
 
-FL Studio built-in module.
+Piano roll scripting allows you to interact with and modify notes and markers
+on the FL Studio piano roll.
 
-This module provides editing tools for interacting with notes and markers on
-the FL Studio piano roll, using its piano roll scripting functionality.
+For support and to share your work, check out the
+[Piano roll scripting forum](https://forum.image-line.com/viewforum.php?f=2008).
 
-Main script files should use the .pyscript file extension, with additional
-modules using standard .py files.
+Scripts should be placed in the `Image-Line/FL Studio/Settings/Piano roll scripts`
+directory.
 
-Note that this module is not accessible in MIDI Controller Scripts, it can only
-be used in scripts that run in FL Studio's piano roll.
+Main script files should use the `.pyscript` file extension, with additional
+modules using standard `.py` files.
 
-## Contents
+Additional scripts are located in the following directories:
 
-* [`Score`](score.md): manipulation of the piano roll score.
-* [`Note`](note.md): class representing a note on the piano roll score.
-* [`Marker`](marker.md): class representing a marker on the piano roll score.
-* [`ScriptDialog`](script_dialog.md): creation of interfaces for scripts.
-* [`Utils`](utils.md): utility functions.
+* `Image-Line/Downloads/Piano roll scripts`: browser script downloads.
+
+* `FL Studio 21/Contents/Resources/FL/System/Config/Piano roll scripts`:
+  built-in scripts.
+
+## Module reference
+
+* [`flpianoroll`](flpianoroll): main module for piano roll scripting.

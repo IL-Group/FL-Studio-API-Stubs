@@ -1,7 +1,5 @@
 """
-flpianoroll > note
-
-Note class definition
+Notes in the piano roll trigger sounds in instruments.
 """
 
 

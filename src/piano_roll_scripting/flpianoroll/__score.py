@@ -1,7 +1,6 @@
 """
-flpianoroll > score
-
-Class representing the FL Studio piano roll score.
+The `flpianoroll.score` object is used to represent the state of the piano
+roll.
 """
 from .__note import Note
 from .__marker import Marker
