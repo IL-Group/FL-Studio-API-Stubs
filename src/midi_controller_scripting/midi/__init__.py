@@ -600,10 +600,11 @@ from .__song_tick_modes import (
     ST_PGB,
 )
 
-# Live block status
-LB_Status_Default = 0
-LB_Status_Simple = 1
-LB_Status_Simplest = 2
+from .__live_block_status import (
+    LB_Status_Default,
+    LB_Status_Simple,
+    LB_Status_Simplest,
+)
 
 # channel looping settings for a given pattern (see TChannelLoopInfo)
 ssLoopOff = 0

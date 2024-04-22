@@ -124,3 +124,33 @@ def note(name: str) -> str:
     Insert a note into the documentation given its name.
     """
     return NOTE_MAPPINGS[name]
+
+
+def md_table(table: list[list[str]]) -> str:
+    """
+    Generate a markdown table if rendering HTML documentation. Otherwise,
+    generate bullet points, since VS Code doesn't render markdown tables
+    nicely.
+    """
+    header = table.pop(0)
+
+    # # Tables don't actually render nicely for the online docs either :(
+    # if BUILDING_ONLINE_DOCS:
+    #     output = f"|{'|'.join(header)}|\n|{'===|' * len(header)}\n"
+    #
+    #     for line in table:
+    #         output += f"|{'|'.join(line)}|\n"
+    #
+    #     return output
+    #
+    # else:
+    output = ""
+
+    for line in table:
+        output_line = ""
+        for i, item in enumerate(line):
+            output_line += f"{header[i]}: {item}, "
+
+        output += f"* {output_line.removesuffix(', ')}\n"
+
+    return output
