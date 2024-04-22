@@ -274,6 +274,13 @@ def getSongPosHint() -> str:
 
     This applies to both pattern mode and song mode.
 
+    Note that unlike FL Studio's time panel, this function won't return
+    positions past the end of a song or pattern, instead returning the position
+    of the last tick within the song/pattern. If you want to emulate the
+    behavior of the time panel, consider using
+    {{docs_url_fn[playlist.getVisTimeBar]}}, {{docs_url_fn[playlist.getVisTimeStep]}}
+    and {{docs_url_fn[playlist.getVisTimeTick]}} instead.
+
     ## Returns
 
     * `str`: song position.
