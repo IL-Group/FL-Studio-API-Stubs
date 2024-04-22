@@ -527,76 +527,78 @@ from .__channel_types import (
     CT_ColorT,
 )
 
-# event editor modes
-EE_EE = 0
-EE_PR = 1
-EE_PL = 2
+from .__event_editor_modes import (
+    EE_EE,
+    EE_PR,
+    EE_PL,
+)
 
-# snap modes
-Snap_Default = -2
-Snap_Line = 0
-Snap_Cell = 1
-Snap_None = 3
-Snap_SixthStep = 4
-Snap_FourthStep = 5
-Snap_ThirdStep = 6
-Snap_HalfStep = 7
-Snap_Step = 8
-Snap_SixthBeat = 9
-Snap_FourthBeat = 10
-Snap_ThirdBeat = 11
-Snap_HalfBeat = 12
-Snap_Beat = 13
+from .__snap_modes import (
+    Snap_Default,
+    Snap_Line,
+    Snap_Cell,
+    Snap_None,
+    Snap_SixthStep,
+    Snap_FourthStep,
+    Snap_ThirdStep,
+    Snap_HalfStep,
+    Snap_Step,
+    Snap_SixthBeat,
+    Snap_FourthBeat,
+    Snap_ThirdBeat,
+    Snap_HalfBeat,
+    Snap_Beat,
+    Snap_SixthBar,
+    Snap_FourthBar,
+    Snap_ThirdBar,
+    Snap_HalfBar,
+    Snap_Bar,
+    Snap_Events,
+    Snap_Markers,
+    Snap_ForceCell,
+    Snap_AltNone,
+    Snap_FlagsMask,
+)
 
-Snap_SixthBar = 14
-Snap_FourthBar = 15
-Snap_ThirdBar = 16
-Snap_HalfBar = 17
+from .__track_info_flags import (
+    TN_Master,
+    TN_FirstIns,
+    TN_LastIns,
+    TN_Sel,
+)
 
-Snap_Bar = 14
-Snap_Events = 16
-Snap_Markers = 17
+from .__undo_flags import (
+    UF_None,
+    UF_EE,
+    UF_PR,
+    UF_PL,
+    UF_EEPR,
+    UF_Knob,
+    UF_SS,
+    UF_AudioRec,
+    UF_AutoClip,
+    UF_PRMarker,
+    UF_PLMarker,
+    UF_Plugin,
+    UF_SSLooping,
+)
 
-Snap_ForceCell = 1 << 8
-Snap_AltNone = 2 << 8
-Snap_FlagsMask = 0xFF
+from .__cc_flags import (
+    CC_Normal,
+    CC_Special,
+    CC_PitchBend,
+    CC_KeyAfterTouch,
+    CC_ChanAfterTouch,
+    CC_Note,
+    CC_Free,
+    CC_PLTrack,
+)
 
-#
-TN_Master = 0
-TN_FirstIns = 1
-TN_LastIns = 2
-TN_Sel = 3
-
-# undo
-UF_None = 0
-
-UF_EE = 1
-UF_PR = 2
-UF_PL = 4
-UF_EEPR = UF_EE | UF_PR
-
-UF_Knob = 1 << 5
-UF_SS = UF_PR
-UF_AudioRec = 1 << 8
-UF_AutoClip = 1 << 9
-UF_PRMarker = 1 << 10
-UF_PLMarker = 1 << 11
-UF_Plugin = 1 << 12
-UF_SSLooping = 1 << 13
-
-CC_Normal = 0  # standard CC
-CC_Special = 128  # non-CC are mapped to CC after 128
-CC_PitchBend = 255
-CC_KeyAfterTouch = 254
-CC_ChanAfterTouch = 253
-CC_Note = 256  # when notes are linked to parameters
-CC_Free = 256 + 128
-CC_PLTrack = CC_Free  # playlist track XY control (performance mode)
-
-# song tick options
-ST_Int = 0
-ST_Beat = 1
-ST_PGB = 2
+from .__song_tick_modes import (
+    ST_Int,
+    ST_Beat,
+    ST_PGB,
+)
 
 # Live block status
 LB_Status_Default = 0
