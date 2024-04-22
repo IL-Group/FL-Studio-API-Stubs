@@ -1,7 +1,40 @@
 """
-channels > sequencer
+Function definitions for interacting with the step sequencer.
 
-Function definitions for interacting with the step sequencer
+## Examples
+
+Count the number of active steps on the first channel:
+
+```py
+import channels
+
+count = 0
+# Assuming pattern length of 16 steps
+for i in range(16):
+    if channels.getGridBit(0, i):
+        count += 1
+print(f"There are {count} steps active")
+```
+
+Make a basic rock beat in the step sequencer:
+
+```py
+import channels
+
+def fill_channel(idx: int, interval: int, offset: int):
+    for i in range(16):
+        if (i - offset) % interval == 0:
+            channels.setGridBit(idx, i, True)
+
+# Kick
+fill_channel(0, 4, 0)
+# Clap
+fill_channel(1, 8, 4)
+# Hi-hat
+fill_channel(2, 2, 0)
+# Snare
+fill_channel(3, 8, 4)
+```
 """
 
 

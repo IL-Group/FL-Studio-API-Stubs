@@ -1,7 +1,17 @@
 """
-channels > properties
-
 Function definitions for managing channel properties.
+
+## Examples
+
+Make all of the selected channels purple
+
+```py
+import channels
+
+for i in range(channels.channelCount()):
+    if channels.isChannelSelected(i):
+        channels.setChannelColor(i, 0x9648aa)
+```
 """
 import midi
 from typing import overload, Literal

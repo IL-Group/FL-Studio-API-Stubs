@@ -1,7 +1,32 @@
 """
-channels > notes
+Function definitions for triggering and managing notes on channels.
 
-Function definitions for managing notes on channels
+## Examples
+
+Play a C major chord in the first instrument
+
+```py
+import channels
+
+MIDDLE_C = 60
+
+channels.midiNoteOn(0, MIDDLE_C, 100)
+channels.midiNoteOn(0, MIDDLE_C + 4, 100)
+channels.midiNoteOn(0, MIDDLE_C + 4 + 3, 100)
+```
+
+Stop the infinitely long notes from the previous example
+
+```py
+import channels
+
+MIDDLE_C = 60
+
+# A velocity of zero is considered a note off
+channels.midiNoteOn(0, MIDDLE_C, 0)
+channels.midiNoteOn(0, MIDDLE_C + 4, 0)
+channels.midiNoteOn(0, MIDDLE_C + 4 + 3, 0)
+```
 """
 
 

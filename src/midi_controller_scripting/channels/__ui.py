@@ -1,7 +1,15 @@
 """
-channels > ui
+Functions for managing the channel rack UI.
 
-Function definitions for managing channel rack UI
+## Examples
+
+Open the plugin window for the selected channel.
+
+```py
+import channels
+
+channels.focusEditor(channels.channelNumber())
+```
 """
 
 
