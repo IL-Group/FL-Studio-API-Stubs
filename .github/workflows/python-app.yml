@@ -47,4 +47,4 @@ jobs:
     - run: poetry install --no-root
     - name: Lint with mypy
       run: |
-        poetry run mypy .
+        poetry run mypy

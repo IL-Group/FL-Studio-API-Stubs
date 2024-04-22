@@ -110,7 +110,8 @@ exclude = [
 ignore = ['E501', 'W503']
 
 [tool.mypy]
-exclude = ["build/*", "build*/*"]
+check_untyped_defs = true
+files = ["src", "scripts", "data"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
