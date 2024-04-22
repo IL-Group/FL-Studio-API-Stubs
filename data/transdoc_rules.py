@@ -153,4 +153,4 @@ def md_table(table: list[list[str]]) -> str:
 
         output += f"* {output_line.removesuffix(', ')}\n"
 
-    return output
+    return output.strip()
