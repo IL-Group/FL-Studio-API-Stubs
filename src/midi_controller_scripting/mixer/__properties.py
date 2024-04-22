@@ -127,8 +127,8 @@ def getSongTickPos(mode: int = midi.ST_Int) -> 'int | float':
 
     ## Args
 
-    * `mode` (`int`, optional): the format to return the tick position in.
-      See the {{fl_manual_anchor[SongTickPosFlags]}}.
+    * `mode` (`int`, optional): the format to return the tick position in. See
+      {{docs_url_page("the documentation", "midi_controller_scripting/midi/song tick modes")}}.
 
     ## Returns
 
