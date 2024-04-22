@@ -51,7 +51,7 @@ Directory where documentation markdown is generated, built by merging
 human-written content with the generated files.
 """
 
-AUTO_DOCSTRINGS_SKIPPED = [
+AUTO_DOCSTRINGS_SKIPPED: list[str] = [
     # "enveditor",
     # "flpianoroll",
 ]

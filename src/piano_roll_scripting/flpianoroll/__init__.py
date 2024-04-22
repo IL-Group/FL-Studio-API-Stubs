@@ -9,7 +9,7 @@ be used in scripts that run in FL Studio's piano roll.
 
 ## Table of contents
 
-* {{docs_url_attr[enveditor.ScriptDialog]}}: create, show and get responses
+* {{docs_url_attr[flpianoroll.ScriptDialog]}}: create, show and get responses
   from dialog windows.
 * {{docs_url_attr[flpianoroll.score]}}: access and manipulate the piano roll
   contents.
@@ -17,7 +17,7 @@ be used in scripts that run in FL Studio's piano roll.
   roll.
 * {{docs_url_attr[flpianoroll.Marker]}}: a class to represent markers in the
   piano roll.
-* {{docs_url_attr[enveditor.Utils]}}: a collection of useful functions for
+* {{docs_url_attr[flpianoroll.Utils]}}: a collection of useful functions for
   interacting with the piano roll.
 """
 from enveditor import ScriptDialog, Utils
