@@ -295,8 +295,9 @@ def getChannelVolume(
     """
     Returns the normalized volume of the channel at `index`, where `0.0` is the
     minimum value, and `1.0` is the maximum value. Note that the default volume
-    for channels is `0.78125`. By setting the `mode` flag to `True`, the volume
-    is returned in decibels.
+    for channels is defined in {{docs_url_attr[midi.ChannelDefaultVolume]}}.
+
+    By setting the `mode` flag to `True`, the volume is returned in decibels.
 
     ## Args
 
@@ -330,7 +331,8 @@ def setChannelVolume(
     """
     Sets the normalized volume of the channel at `index`, where `0.0` is the
     minimum value, and `1.0` is the maximum value. Note that the default volume
-    for channels is `0.78125`. Use the pickup mode flag to set pickup options.
+    for channels is defined in {{docs_url_attr[midi.ChannelDefaultVolume]}}.
+    Use the pickup mode flag to set pickup options.
 
     ## Args
 
@@ -339,7 +341,7 @@ def setChannelVolume(
     * `volume` (`float`): channel volume.
 
     * `pickupMode` (`int`, optional): define the pickup behavior. Refer to
-      the {{fl_manual_anchor[pickupModes]}}.
+      the {{docs_url_page("pickup modes documentation", "midi_controller_scripting/midi/pickup modes")}}.
 
     * `useGlobalIndex` (`bool`, optional): whether to use the global channel
       index when setting channel volume.
@@ -396,7 +398,7 @@ def setChannelPan(
     * `pan` (`float`): channel pan.
 
     * `pickupMode` (`int`, optional): define the pickup behavior. Refer to
-      the {{fl_manual_anchor[pickupModes]}}.
+      the {{docs_url_page("pickup modes documentation", "midi_controller_scripting/midi/pickup modes")}}.
 
     * `useGlobalIndex` (`bool`, optional): whether to use the global channel
       index when setting channel pan.
@@ -500,7 +502,7 @@ def setChannelPitch(
             This will desynchronize the reported range from what is visible in the UI.
 
     * `pickupMode` (`int`, optional): define the pickup behavior. Refer to
-      the {{fl_manual_anchor[pickupModes]}}.
+      the {{docs_url_page("pickup modes documentation", "midi_controller_scripting/midi/pickup modes")}}.
 
     * `useGlobalIndex` (`bool`, optional): whether to use the global channel
       index when setting channel pitch.

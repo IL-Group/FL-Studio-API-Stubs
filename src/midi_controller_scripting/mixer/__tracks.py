@@ -331,7 +331,7 @@ def setTrackVolume(
     * `volume` (`float`): volume of track.
 
     * `pickupMode` (`int`, optional): define the pickup behavior. Refer to
-      the {{fl_manual_anchor[pickupModes]}}.
+      the {{docs_url_page("pickup modes documentation", "midi_controller_scripting/midi/pickup modes")}}.
 
     Included since API version 1.
     """
@@ -373,7 +373,7 @@ def setTrackPan(
     * `pan` (`float`): pan of track.
 
     * `pickupMode` (`int`, optional): define the pickup behavior. Refer to
-      the {{fl_manual_anchor[pickupModes]}}.
+      the {{docs_url_page("pickup modes documentation", "midi_controller_scripting/midi/pickup modes")}}.
 
 
     Included since API version 1.
@@ -417,7 +417,7 @@ def setTrackStereoSep(
     * `sep` (`float`): stereo separation of track.
 
     * `pickupMode` (`int`, optional): define the pickup behavior. Refer to
-      the {{fl_manual_anchor[pickupModes]}}.
+      the {{docs_url_page("pickup modes documentation", "midi_controller_scripting/midi/pickup modes")}}.
 
     Included since API version 12.
     """
