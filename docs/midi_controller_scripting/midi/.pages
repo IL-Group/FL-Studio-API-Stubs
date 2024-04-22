@@ -4,9 +4,15 @@ nav:
   - Rec events: __rec_events
   - MIDI codes: midi codes.md
   - OnRefresh flags: on refresh flags.md
+  - OnDirtyChannel flags: on dirty channel flags.md
   - PME flags: pme flags.md
   - triggerLiveClip flags: tlc flags.md
   - globalTransport commands: gt commands.md
   - globalTransport flags: gt flags.md
   - Mixer setTrackNumber flags: mixer setTrackNumber flags.md
+  - FFNEP flags: ffnep flags.md
+  - getColor flags: get color flags.md
+  - getVersion flags: get version flags.md
+  - plugins.getName flags: plugin get name flags.md
+  - CC flags: cc flags.md
   - ...

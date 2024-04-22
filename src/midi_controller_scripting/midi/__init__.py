@@ -78,6 +78,8 @@ from .__miscellaneous import (
     DotPan_Default,
     DotVol_Max,
     DotNote_Default,
+    ChannelDefaultVolume,
+    TackDefaultVolume,
 )
 
 from .__midi_codes import (
@@ -606,49 +608,51 @@ from .__live_block_status import (
     LB_Status_Simplest,
 )
 
-# channel looping settings for a given pattern (see TChannelLoopInfo)
-ssLoopOff = 0
-ssLoopNextStep = -1
-ssLoopNextBeat = -2
-ssLoopNextBar = -3
+from .__step_sequencer_loop import (
+    ssLoopOff,
+    ssLoopNextStep,
+    ssLoopNextBeat,
+    ssLoopNextBar,
+)
 
-# FPD_GetColor flags
-GC_BackgroundColor = 0
-GC_Semitone = 1
+from .__get_color_flags import (
+    GC_BackgroundColor,
+    GC_Semitone,
+)
 
-# GetVersion flags
-VER_Major = 0
-VER_Minor = 1
-VER_Release = 2
-VER_Build = 3
-VER_VersionAndEdition = 4
-VER_FullVersionAndEdition = 5
-VER_ArchAndBuild = 6
+from .__get_version_flags import (
+    VER_Major,
+    VER_Minor,
+    VER_Release,
+    VER_Build,
+    VER_VersionAndEdition,
+    VER_FullVersionAndEdition,
+    VER_ArchAndBuild,
+)
 
-# GetParamName flags
-FPN_Param = 0
-FPN_ParamValue = 1
-FPN_Semitone = 2
-FPN_Patch = 3
-FPN_VoiceLevel = 4
-FPN_VoiceLevelHint = 5
-FPN_Preset = 6
-FPN_OutCtrl = 7
-FPN_VoiceColor = 8
-FPN_OutVoice = 9
+from .__plugin_get_name_flags import (
+    FPN_Param,
+    FPN_ParamValue,
+    FPN_Semitone,
+    FPN_Patch,
+    FPN_VoiceLevel,
+    FPN_VoiceLevelHint,
+    FPN_Preset,
+    FPN_OutCtrl,
+    FPN_VoiceColor,
+    FPN_OutVoice,
+)
 
-# OnProjectLoad status
-PL_Start = 0
-PL_LoadOk = 100
-PL_LoadError = 101
+from .__project_load_status import (
+    PL_Start,
+    PL_LoadOk,
+    PL_LoadError,
+)
 
-# OnDirtyChannelFlag flags
-CE_New = 0
-CE_Delete = 1
-CE_Replace = 2
-CE_Rename = 3
-CE_Select = 4
-
-
-ChannelDefaultVolume = 1000 / 1280
-TackDefaultVolume = 800 / 1000
+from .__on_dirty_channel_flags import (
+    CE_New,
+    CE_Delete,
+    CE_Replace,
+    CE_Rename,
+    CE_Select,
+)

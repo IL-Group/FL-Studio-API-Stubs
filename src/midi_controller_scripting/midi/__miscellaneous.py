@@ -87,3 +87,13 @@ DotVol_Default = 100
 DotPan_Default = 64
 DotVol_Max = 128
 DotNote_Default = MiddleNote_Default
+
+ChannelDefaultVolume = 1000 / 1280
+"""
+Default volume of new channels on the channel rack.
+"""
+
+TackDefaultVolume = 800 / 1000
+"""
+Default volume of new tracks on the mixer. The name has a typo.
+"""

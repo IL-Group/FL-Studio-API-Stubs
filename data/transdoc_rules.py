@@ -69,6 +69,18 @@ def docs_url_attr(attribute: str, suffix: str = "") -> str:
         return f"[{module}.{fn}{suffix}]({BASE_URL}/{module}/#{module}.{fn})"
 
 
+def docs_url_callback(callback: str) -> str:
+    """
+    Returns a markdown URL for a callback function within the API
+    documentation, given its name.
+
+    ## Args
+
+    * `callback` (`str`): callback function to link to.
+    """
+    return f"`{callback}`"
+
+
 NOTE_MAPPINGS = {
     # Commonly repeated info about colors
     "colors": f"""Note that colors can be split into or built from components using the
