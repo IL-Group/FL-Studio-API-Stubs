@@ -11,7 +11,7 @@ be used in scripts that run in FL Studio's piano roll.
 
 * {{docs_url_attr[enveditor.ScriptDialog]}}: create, show and get responses
   from dialog windows.
-* {{docs_url_attr[flpianoroll.Score]}}: access and manipulate the piano roll
+* {{docs_url_attr[flpianoroll.score]}}: access and manipulate the piano roll
   contents.
 * {{docs_url_attr[flpianoroll.Note]}}: a class to represent notes in the piano
   roll.
