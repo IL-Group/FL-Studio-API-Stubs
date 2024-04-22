@@ -8,7 +8,7 @@ Author: Miguel Guthridge
 Date: 2024-04-07
 """
 from pathlib import Path
-from transdoc import main as transdoc_main
+import transdoc
 
 
 INPUT = Path("src")
@@ -17,7 +17,7 @@ OUTPUT = Path("build_lib")
 
 
 def main():
-    return transdoc_main(INPUT, RULES, OUTPUT, force=True)
+    return transdoc.main(INPUT, RULES, OUTPUT, force=True)
 
 
 if __name__ == '__main__':
