@@ -12,7 +12,7 @@ your controller's communication interface and your imagination.
 There is no need to install anything to run scripts in FL Studio, as it has a
 Python interpreter built-in. However, if you want to benefit from advanced code
 editor features when writing your scripts, you may wish to follow the
-[installation instructions](../installation.md) to access this documentation
+[installation instructions](../library.md) to access this documentation
 as you write code.
 
 * **Script hierarchy** - As FL Studio natively handles many MIDI functions and
