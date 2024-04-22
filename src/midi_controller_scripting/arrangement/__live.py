@@ -1,9 +1,6 @@
 """
-# Arrangement / Live
-
-Functions for interacting with performance mode selection.
-
-???
+These functions allow for you to access information about the live (performance
+mode) selection for an arrangement.
 """
 
 

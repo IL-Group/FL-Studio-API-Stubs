@@ -32,7 +32,7 @@ def currentTimeHint(
     isLength: int = 0,
 ) -> str:
     """
-    Returns a hint string for the given time, formatted as: `"Bar:Beat?:Tick"`.
+    Returns a hint string for the given time, formatted as: `"Bar:Step:Tick"`.
 
     ## Args
 
