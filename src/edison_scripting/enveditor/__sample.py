@@ -1,7 +1,6 @@
 """
-# Env editor / Sample
-
-Contains the definition for the Sample class
+The classes and functions documented here are used to manipulate and interact
+with samples within the Edison editor.
 """
 from typing import Literal
 

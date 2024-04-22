@@ -1,19 +1,14 @@
-# Env Editor
+# Edison scripting
 
-FL Studio built-in module.
+Edison audio scripting can be used to analyze, manipulate and generate audio
+within the [Edison audio editor](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/plugins/Edison.htm).
 
-This module provides editing tools for interacting with audio clips in the
-Edison editor, using its integrated scripts functionality.
+Edison scripts can be placed within the
+`Image-Line/FL Studio/Settings/Audio scripts` directory.
 
 Main script files should use the `.pyscript` file extension, with additional
 modules using standard `.py` files.
 
-Note that this module is not accessible in MIDI Controller Scripts, it can only
-be used in scripts that run in Edison's editor.
+## Module reference
 
-## Contents
-
-* [`Editor`](editor.md): manipulation of the Edison editor.
-* [`Sample`](sample.md): manipulation of samples.
-* [`ScriptDialog`](script_dialog.md): creation of interfaces for scripts.
-* [`Utils`](utils.md): utility functions.
+* [`enveditor`](./enveditor): edit waveforms in Edison.

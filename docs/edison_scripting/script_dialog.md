@@ -1,3 +1,0 @@
-# `ScriptDialog`
-
-::: flpianoroll.ScriptDialog

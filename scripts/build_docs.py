@@ -52,8 +52,8 @@ human-written content with the generated files.
 """
 
 AUTO_DOCSTRINGS_SKIPPED = [
-    "enveditor",
-    "flpianoroll",
+    # "enveditor",
+    # "flpianoroll",
 ]
 """
 Modules to skip when generating auto-docstrings

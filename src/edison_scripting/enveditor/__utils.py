@@ -1,7 +1,5 @@
 """
-# Env Editor / Utils
-
-Contains utility functions used within Edison scripts
+Contains utility functions used within Edison scripts.
 """
 
 

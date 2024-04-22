@@ -1,7 +1,6 @@
 """
-# Env editor / Script dialog
-
-Code representing the Script dialog class.
+The `ScriptDialog` class is used to create and control dialog windows when
+running audio scripts.
 """
 
 
