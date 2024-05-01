@@ -94,7 +94,7 @@ mypy = "^1.1.1"
 typing-extensions = "^4.5.0"
 flake8 = "^7.0.0"
 flake8-pyproject = "^1.2.3"
-pytest = "^7.2.2"
+pytest = ">=7.2.2,<9.0.0"
 flapi = "^1.0.1"
 
 [tool.flake8]
