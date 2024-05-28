@@ -1,6 +1,7 @@
 nav:
     - index.md
     - Tutorials: tutorials
+    - Callbacks: callbacks
     - arrangement
     - channels
     - device

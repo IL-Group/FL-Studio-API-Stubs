@@ -1,6 +1,6 @@
 """
 These flags are given as an argument to the
-{{docs_url_callback[OnDirtyChannel]}} callback.
+{{docs_url_fn[callbacks.OnDirtyChannel]}} callback.
 """
 
 CE_New = 0

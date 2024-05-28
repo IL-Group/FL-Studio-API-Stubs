@@ -1,6 +1,5 @@
 """
-These values are given as an argument to the
-{{docs_url_callback[OnProjectLoad]}} callback.
+These values are given as an argument to the {{docs_url_fn[callbacks.OnProjectLoad]}} callback.
 """
 
 
