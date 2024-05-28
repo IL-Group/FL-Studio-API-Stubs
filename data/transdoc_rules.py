@@ -4,8 +4,9 @@
 Rule definitions for transdoc.
 """
 import os
-from typing import Any
+from typing import Any, cast
 import griffe
+from griffe.dataclasses import Kind
 from scripts.consts import MODULES, PATHS_TO_MODULES
 
 
@@ -32,15 +33,19 @@ def get_item_docs_url(module: str, name: str) -> Any:
 
     for item in mod_info["members"]:
         if item["name"] == name:
-            if item["kind"] == "alias":
-                path: str = item["target_path"]
+            if item["kind"] == Kind.ALIAS:
+                path: list[str] = []
+                for dir in cast(str, item["target_path"].split('.')[:-1]):
+                    path.append(dir.removeprefix('__'))
+                anchor = item["target_path"]
             else:
                 # It's probably at the top of the module
-                path = f"{module}.{name}"
+                path = [module]
+                anchor = f"{module}.{name}"
             return (
                 f"{BASE_URL}/{PATHS_TO_MODULES[module]}"
-                f"/{path.replace('.', '/')}"
-                f"#{module}.{name}"
+                f"/{'/'.join(path)}"
+                f"#{anchor}"
             )
 
     raise NameError(f"Griffe definition not found: '{module}.{name}'")

@@ -44,8 +44,8 @@ def midiNoteOn(
     Note that triggering notes using this function rather than allowing FL
     Studio to process them may result in users' manual note mappings won't be
     respected. Developers should be sure to check
-    `channels.getChannelMidiInPort` on all channels to ensure that no channels
-    receive MIDI events from this script.
+    {{docs_url_fn[channels.getChannelMidiInPort]}} on all channels to ensure
+    that no channels receive MIDI events from this script.
 
     ## Note
 
