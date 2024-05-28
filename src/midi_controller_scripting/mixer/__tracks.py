@@ -423,7 +423,7 @@ def setTrackStereoSep(
     """
 
 
-def setRouteTo(index: int, destIndex: int, value: int) -> None:
+def setRouteTo(index: int, destIndex: int, value: bool) -> None:
     """
     Route the track at `index` to the track at `destIndex`.
 
@@ -436,7 +436,13 @@ def setRouteTo(index: int, destIndex: int, value: int) -> None:
 
     * `destIndex` (`int`): destination track index
 
-    * `value` (`int`): whether to enable the route (`1`) or disable it (`0`)
+    * `value` (`bool`): whether to enable the route (`true`) or disable it
+      (`false`)
+
+    * `updateUI` (`bool`, optional): whether to update the UI after this change
+      (same as calling {{docs_url_fn[mixer.afterRoutingChanged]}}). This should
+      be `false` when performing bulk changes to the mixer routing to avoid
+      performance issues.
 
     Included since API version 1
     """

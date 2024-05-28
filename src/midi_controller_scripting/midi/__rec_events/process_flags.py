@@ -100,7 +100,7 @@ Used for control automation recording. Initialize control with the previous
 value then store this value.
 """
 
-REC_Control = REC_UpdateValue | REC_UpdateControl | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_SetTouched
+REC_Control = REC_UpdateValue | REC_ShowHint | REC_InitStore | REC_SetChanged | REC_UpdatePlugLabel | REC_SetTouched
 """
 Used for changing values from a MIDI controller, but where the value is already
 in the right units.
