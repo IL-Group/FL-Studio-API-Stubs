@@ -3,11 +3,20 @@
 
 Rule definitions for transdoc.
 """
+import sys
 import os
 from typing import Any, cast
 import griffe
 from griffe.dataclasses import Kind
 from scripts.consts import MODULES, PATHS_TO_MODULES
+
+
+# Add `src/*` to PATH so that building doesn't fail
+sys.path.extend([
+    'src/edison_scripting',
+    'src/midi_controller_scripting',
+    'src/piano_roll_scripting',
+])
 
 
 # Load griffe definitions for all modules
