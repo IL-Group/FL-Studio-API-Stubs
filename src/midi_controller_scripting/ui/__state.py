@@ -268,7 +268,7 @@ def getHintValue(value: int, max: int) -> str:
 
     Included since API version 1.
     """
-    return f"{value/max:.0%}"
+    return f"{value / max:.0%}"
 
 
 def getProgTitle() -> str:
