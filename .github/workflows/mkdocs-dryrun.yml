@@ -3,6 +3,9 @@ on:
   # Documentation can be either manually updated or is automatically updated when pushed to main branch
   workflow_dispatch:
   push:
+    branches:
+      - '*'
+      - '!main'
 
 jobs:
   deploy:
