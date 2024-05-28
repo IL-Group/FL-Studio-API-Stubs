@@ -1,10 +1,24 @@
 """
 {{module_title[device]}}
 
-FL Studio built-in module.
+The `device` module is used to handle communication with FL Studio's MIDI
+interface. This includes sending messages to the connected device, as well as
+to other scripts.
 
-Handles the way that devices connect to FL Studio's MIDI interface, and how
-scripts communicate with each other.
+## Contents
+
+* {{docs_url_page("Device", "midi_controller_scripting/device/device")}}:
+  communicate with the connected MIDI controller.
+
+* {{docs_url_page("Dispatch", "midi_controller_scripting/device/dispatch")}}:
+  communicate with the other MIDI scripts running within FL Studio.
+
+* {{docs_url_page("FL", "midi_controller_scripting/device/fl")}}:
+  communicate with low-level FL Studio features such as control ID links.
+
+* {{docs_url_page("Utilities", "midi_controller_scripting/device/util")}}:
+  various utility functions for controlling script interaction with the
+  connected device.
 """
 
 __all__ = [

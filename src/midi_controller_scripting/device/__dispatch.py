@@ -1,7 +1,5 @@
 """
-device > dispatch
-
-Functions for dispatching MIDI messages between scripts.
+Functions for communicating with other MIDI scripts.
 """
 from typing import Optional, overload, Literal
 

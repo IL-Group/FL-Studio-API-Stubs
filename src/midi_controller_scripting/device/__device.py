@@ -1,7 +1,27 @@
 """
-device > device
+Functions for communicating with the attached MIDI hardware controller.
 
-Communication with the connected device
+## Example usage
+
+Check that a device is assigned, and display its name and port number.
+
+```py
+import device
+
+if device.isAssigned():
+    port_num = device.getPortNumber()
+    name = device.getName()
+    print(f"The device '{name}' is connected on port {port_num}")
+```
+
+Send a note-on event to the device
+
+```py
+import device
+
+# Middle C on channel 0, at velocity 100
+device.midiOutMsg(0x9, 0x0, 60, 100)
+```
 """
 from typing import overload
 from fl_classes import FlMidiMsg

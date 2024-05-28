@@ -1,7 +1,5 @@
 """
-# device > util
-
-Utility functions in device module
+Utility functions in device module.
 """
 
 

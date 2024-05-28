@@ -1,7 +1,5 @@
 """
-device > __fl
-
-Communication with FL Studio
+Functions for communicating with FL Studio.
 """
 import midi
 from fl_classes import FlMidiMsg
