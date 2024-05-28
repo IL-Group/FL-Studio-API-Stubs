@@ -8,24 +8,7 @@ import importlib
 import inspect
 import json
 import flapi
-
-
-MODULES = [
-    "arrangement",
-    "channels",
-    "device",
-    "general",
-    "launchMapPages",
-    # "midi",
-    "mixer",
-    "patterns",
-    "playlist",
-    "plugins",
-    "screen",
-    "transport",
-    "ui",
-    # "utils",
-]
+from .consts import MODULES
 
 
 LibraryItems = dict[str, list[str]]

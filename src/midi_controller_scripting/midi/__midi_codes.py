@@ -1,6 +1,6 @@
 """
 These constants can be used to match against status codes for MIDI messages,
-accessed from {{docs_url_attr[fl_classes.FlMidiMsg.status]}}.
+accessed from {{docs_url_attr("fl_classes.FlMidiMsg", ".status")}}.
 
 ```py
 import midi

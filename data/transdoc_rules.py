@@ -1,9 +1,19 @@
 """
 # Data / Transdoc Rules
 
-Rule definitions for transdoc
+Rule definitions for transdoc.
 """
 import os
+from typing import Any
+import griffe
+from scripts.consts import MODULES, PATHS_TO_MODULES
+
+
+# Load griffe definitions for all modules
+module_info: dict[str, dict[str, Any]] = {}
+for mod in MODULES:
+    loaded_mod = griffe.load(mod, resolve_aliases=True, resolve_external=True)
+    module_info[mod] = loaded_mod.as_dict()
 
 
 BUILDING_ONLINE_DOCS = os.getenv("DOCS_BUILD_SITE") is not None
@@ -12,6 +22,28 @@ BUILDING_ONLINE_DOCS = os.getenv("DOCS_BUILD_SITE") is not None
 BASE_URL = "https://il-group.github.io/FL-Studio-API-Stubs"
 
 OLD_MANUAL_URL = "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html"
+
+
+def get_item_docs_url(module: str, name: str) -> Any:
+    """
+    Use Griffe to find the documentation URL for the given item.
+    """
+    mod_info = module_info[module]
+
+    for item in mod_info["members"]:
+        if item["name"] == name:
+            if item["kind"] == "alias":
+                path: str = item["target_path"]
+            else:
+                # It's probably at the top of the module
+                path = f"{module}.{name}"
+            return (
+                f"{BASE_URL}/{PATHS_TO_MODULES[module]}"
+                f"/{path.replace('.', '/')}"
+                f"#{module}.{name}"
+            )
+
+    raise NameError(f"Griffe definition not found: '{module}.{name}'")
 
 
 def docs_url_mod(module: str) -> str:
@@ -23,8 +55,7 @@ def docs_url_mod(module: str) -> str:
         # Use mkdocs internal link
         return f"[`{module}`][{module}]"
     else:
-        # FIXME: These won't link correctly due to new documentation structure
-        return f"[{module}]({BASE_URL}/{module})"
+        return f"[{module}]({BASE_URL}/{PATHS_TO_MODULES[module]}/{module})"
 
 
 def docs_url_fn(function: str, suffix: str = "()") -> str:
@@ -43,9 +74,8 @@ def docs_url_fn(function: str, suffix: str = "()") -> str:
         # Use mkdocs internal link
         return f"[`{module}.{fn}{suffix}`][{module}.{fn}]"
     else:
-        # FIXME: These won't link correctly due to new documentation structure
         module, fn = function.rsplit(".", 1)
-        return f"[{module}.{fn}{suffix}]({BASE_URL}/{module}/#{module}.{fn})"
+        return f"[{module}.{fn}{suffix}]({get_item_docs_url(module, fn)})"
 
 
 def docs_url_attr(attribute: str, suffix: str = "") -> str:
@@ -64,9 +94,8 @@ def docs_url_attr(attribute: str, suffix: str = "") -> str:
         # Use mkdocs internal link
         return f"[`{module}.{fn}{suffix}`][{module}.{fn}]"
     else:
-        # FIXME: These won't link correctly due to new documentation structure
         module, fn = attribute.rsplit(".", 1)
-        return f"[{module}.{fn}{suffix}]({BASE_URL}/{module}/#{module}.{fn})"
+        return f"[{module}.{fn}{suffix}]({get_item_docs_url(module, fn)})"
 
 
 def docs_url_callback(callback: str) -> str:
@@ -84,7 +113,7 @@ def docs_url_callback(callback: str) -> str:
 NOTE_MAPPINGS = {
     # Commonly repeated info about colors
     "colors": f"""Note that colors can be split into or built from components using the
-    functions provided in the [utils]({BASE_URL}/utils/) module.
+    functions provided in the {docs_url_mod("utils")} module.
 
     * {docs_url_fn("utils.ColorToRGB")}
 

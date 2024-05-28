@@ -64,15 +64,14 @@ FPT_Rewind = 13
 """
 Rewind button.
 
-Use {{docs_url_attr[midi.SS_Start]}} to begin rewind, and
-{{docs_url_attr[midi.SS_Stop]}} to stop rewind.
+Use `midi.SS_Start` to begin rewind, and `midi.SS_Stop` to stop rewind.
 """
 FPT_FastForward = 14
 """
 Fast-forward button.
 
-Use {{docs_url_attr[midi.SS_Start]}} to begin fast-forward, and
-{{docs_url_attr[midi.SS_Stop]}} to stop fast-forward.
+Use `midi.SS_Start` to begin fast-forward, and `midi.SS_Stop` to stop
+fast-forward.
 """
 
 FPT_Loop = 15
