@@ -22,24 +22,10 @@ from typing_extensions import TypeGuard
 
 class FlMidiMsg:
     """
-    A shadow of FL Studio's `FlMidiMsg` object. Note that although creating
-    these is possible, it should be avoided during runtime as FL Studio's API
-    won't accept it as an argument for any of its functions. It can be used
-    within a testing environment, however.
-
-    Note that two sub-types are also included, which allow for type narrowing
-    by separating standard MIDI events and Sysex MIDI events. These will work
-    for FL Studio's types as well.
-
-    * `isMidiMsgStandard()`
-
-    * `isMidiMsgSysex()`
-
-    Basic type checking is performed when accessing properties of `FlMidiMsg`
-    objects, to ensure that incorrect properties aren't accessed (for example
-    accessing `data1` for a sysex event). These checks won't be performed
-    during runtime for your script, but can help to add more certainty to your
-    tests.
+    Represents an incoming MIDI message. Properties of this object can be
+    accessed, and some properties can be modified, which will change how FL
+    Studio "sees" the event (meaning that scripts can make an event appear to
+    be a different event).
     """
 
     @overload
@@ -66,10 +52,8 @@ class FlMidiMsg:
         pmeFlags: int = 0b101110,
     ) -> None:
         """
-        Create an `FlMidiMsg` object.
-
-        Note that this object will be incompatible with FL Studio's API, and so
-        cannot be used as a parameter for any API functions during runtime.
+        Create an `FlMidiMsg` object. Note that this constructor is inaccessible
+        at runtime.
 
         ### Args:
         * `status_sysex` (`int | list[int] | bytes`): status byte or sysex data

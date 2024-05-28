@@ -1,7 +1,5 @@
 """
-general > __undo
-
-Functions for managing undo and redo
+Functions for managing undo/redo actions.
 """
 
 

@@ -1,7 +1,5 @@
 """
-general > __fl_state
-
-Functions to do with the state of FL Studio.
+Functions to access information about the state of FL Studio.
 """
 
 

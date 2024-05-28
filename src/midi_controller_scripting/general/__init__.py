@@ -1,9 +1,16 @@
 """
 {{module_title[general]}}
 
-FL Studio built-in module.
+The `general` module contains miscellaneous functions to handle general
+interaction with FL Studio.
 
-Handles general interactions with FL Studio.
+## Contents
+
+* {{docs_url_page("FL State", "midi_controller_scripting/general/fl state")}}:
+  access information about the general state of FL Studio.
+
+* {{docs_url_page("Undo", "midi_controller_scripting/general/undo")}}:
+  perform undo and redo actions.
 """
 __all__ = [
     'saveUndo',
