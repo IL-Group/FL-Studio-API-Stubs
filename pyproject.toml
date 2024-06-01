@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fl-studio-api-stubs"
-version = "36.0.1"
+version = "36.1.0"
 
 description = "Stub code, type definitions and documentation for the FL Studio Python API"
 readme = "README.md"
