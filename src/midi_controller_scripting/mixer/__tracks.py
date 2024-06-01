@@ -433,7 +433,8 @@ def setRouteTo(
     Route the track at `index` to the track at `destIndex`.
 
     Ensure that after all routing changes are made, the `afterRoutingChanged()`
-    function is called to allow the UI to update correctly.
+    function is called to allow the UI to update correctly, or specify
+    `updateUI=True`.
 
     ## Args
 
@@ -453,6 +454,49 @@ def setRouteTo(
     """
 
 
+def setRouteToLevel(index: int, destIndex: int, level: float) -> None:
+    """
+    Route the track at `index` to the track at `destIndex`, with the level
+    `level`.
+
+    Note that in order to set a route level, the route must have already been
+    created using {{docs_url_fn[mixer.setRouteTo]}}.
+
+    ## Args
+
+    * `index` (`int`): track index to route from.
+
+    * `destIndex` (`int`): track index to route to.
+
+    * `level` (`float`): level, within the range `0` - `1`. For the default
+      volume, use `0.8`.
+
+    Included since API Version 36
+    """
+
+
+def getRouteToLevel(index: int, destIndex: int) -> float:
+    """
+    Get the send level for the route between `index` and `destIndex`.
+
+    Note that in order to get a route level, the route must have already been
+    created using {{docs_url_fn[mixer.setRouteTo]}}.
+
+    ## Args
+
+    * `index` (`int`): track index to route from.
+
+    * `destIndex` (`int`): track index to route to.
+
+    ## Returns
+
+    * `float`: level, within the range `0` - `1`. The default volume is `0.8`.
+
+    Included since API Version 36
+    """
+    return 0.0
+
+
 def getRouteSendActive(index: int, destIndex: int) -> bool:
     """
     Return whether the track at `index` is routed to the track at `destIndex`
@@ -465,7 +509,7 @@ def getRouteSendActive(index: int, destIndex: int) -> bool:
 
     ## Returns
 
-    * `bool`: whether the tracks are routed
+    * `bool`: whether `index` is routed to `destIndex`
 
     Included since API version 1
     """
