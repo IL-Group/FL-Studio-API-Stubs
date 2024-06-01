@@ -423,7 +423,12 @@ def setTrackStereoSep(
     """
 
 
-def setRouteTo(index: int, destIndex: int, value: bool) -> None:
+def setRouteTo(
+    index: int,
+    destIndex: int,
+    value: bool,
+    updateUI: bool = False,
+) -> None:
     """
     Route the track at `index` to the track at `destIndex`.
 
