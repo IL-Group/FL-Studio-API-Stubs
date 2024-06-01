@@ -74,41 +74,9 @@ def getSnapMode() -> int:
     """
     Returns the current snap mode.
 
-    Although the official documentation states that this takes an argument
-    `value`, it does not. This stub reflects the actual behavior.
-
     ## Returns
 
-    * `int`: index in the snap mode list:
-          * `0`: Line
-
-          * `1`: Cell
-
-          * `2`: Unused (separator)
-
-          * `3`: None
-
-          * `4`: 1/6 step
-
-          * `5`: 1/4 step
-
-          * `6`: 1/3 step
-
-          * `7`: 1/2 step
-
-          * `8`: Step
-
-          * `9`: 1/6 beat
-
-          * `10`: 1/4 beat
-
-          * `11`: 1/3 beat
-
-          * `12`: 1/2 beat
-
-          * `13`: Beat
-
-          * `14`: bar
+    * `int`: a snap mode from {{docs_url_page("this list", "midi_controller_scripting/midi/snap modes")}}
 
     Included since API version 1.
     """
@@ -120,11 +88,11 @@ def snapMode(value: int) -> int:
     Changes the snap mode, by shifting it by `value` in the list of modes.
 
     This can be used by controls such as jog wheels or arrow buttons to select
-    a snapping mode. To select a value directly, use `setSnapMode`.
+    a snapping mode. To select a value directly, use {{docs_url_fn[ui.setSnapMode]}}.
 
     ## Args
 
-    * `value` (`int`): increment (`1` for next, `-1` for previous).
+    * `value` (`int`): delta (`1` for next, `-1` for previous).
 
     ## Returns
 
@@ -140,11 +108,13 @@ def setSnapMode(value: int) -> None:
     Set the snap mode using an absolute value.
 
     This can be used on a controller to have different buttons map to different
-    modes. To increment or decrement the value, use `snapMode`.
+    modes. To increment or decrement the value, use {{docs_url_fn[ui.snapMode]}}.
 
     ## Args
 
-    * `value` (`int`): new mode - one of the values listed in `getSnapMode()`.
+    * `value` (`int`): a snap mode from {{docs_url_page("this list", "midi_controller_scripting/midi/snap modes")}}
+
+    Included since API version 24.
     """
     curr_mode = getSnapMode()
     if value < 2 and curr_mode > 2:
