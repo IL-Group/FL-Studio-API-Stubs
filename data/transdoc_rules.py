@@ -115,11 +115,11 @@ def docs_url_attr(attribute: str, suffix: str = "") -> str:
 NOTE_MAPPINGS = {
     # Commonly repeated info about colors
     "colors": f"""Note that colors can be split into or built from components using the
-    functions provided in the {docs_url_mod("utils")} module.
+functions provided in the {docs_url_mod("utils")} module.
 
-    * {docs_url_fn("utils.ColorToRGB")}
+* {docs_url_fn("utils.ColorToRGB")}
 
-    * {docs_url_fn("utils.RGBToColor")}""",
+* {docs_url_fn("utils.RGBToColor")}""",
 
     # Note about playlist indexing
     "playlist_indexes": "Note that playlist track indexes start at 1.",
