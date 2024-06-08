@@ -6,18 +6,17 @@ instrument channels.
 
 ## Contents
 
+* {{docs_url_page("Properties", "midi_controller_scripting/channels/properties")}}:
+  functions for accessing properties of generator plugins and channels.
+
+* {{docs_url_page("UI", "midi_controller_scripting/channels/ui")}}: functions
+  for interacting with the UI of the channel rack, and with generator plugins.
+
 * {{docs_url_page("Notes", "midi_controller_scripting/channels/notes")}}:
   control notes in channels.
 
-* {{docs_url_page("Properties", "midi_controller_scripting/channels/properties")}}:
-  functions for accessing properties of generator plugins (channels).
-
 * {{docs_url_page("Sequencers", "midi_controller_scripting/channels/sequencers")}}:
   functions for interacting with the step sequencer.
-
-* {{docs_url_page("UI", "midi_controller_scripting/channels/ui")}}: functions
-  for interacting with the UI of the channel rack, as well as generator
-  plugins.
 
 ## Note
 
