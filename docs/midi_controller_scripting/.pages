@@ -1,6 +1,7 @@
 nav:
     - index.md
     - Tutorials: tutorials
+    - Script metadata: script_metadata.md
     - Callbacks: callbacks
     - arrangement
     - channels
