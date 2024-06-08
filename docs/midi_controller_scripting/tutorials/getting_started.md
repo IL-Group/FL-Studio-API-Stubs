@@ -19,8 +19,9 @@ Launchkey Mini Mk3, but the steps should apply for any MIDI controller.
 Before you get started, there are a couple of things you should do to get
 yourself set up.
 
-* Check the [Image-Line forums](https://forum.image-line.com/viewtopic.php?t=228179)
-  to see if your controller is already supported by an existing script.
+* Check the [working script list](https://forum.image-line.com/viewtopic.php?t=228179)
+  on the [Image-Line forums](https://forum.image-line.com/) to see if your
+  controller is already supported by an existing script.
 
 * If you're planning on sharing your script with others, consider resetting
   your controller to its factory defaults or exporting its settings to a file
@@ -40,12 +41,17 @@ yourself set up.
 Open up your MIDI Controller Scripts folder. This can be found within your
 Image-Line data directory at `Image-Line/FL Studio/Settings/Hardware`. From
 there, create a new folder based on the name of your script. For example, I
-called my one `Novation Launchkey Mini Mk3`.
+called my one `Demo device`.
+
+| Platform | Example |
+|----------|---------|
+| Windows  | ![A screenshot of the Windows file explorer, showing a new "Demo device" folder](./getting_started/script_folder.png) |
+| MacOS    | ***TODO*** |
 
 ## Starter code
 
 Open your new folder in your text editor of choice. In VS Code, you can use
-`File > Open Folder` then select your folder.
+`File > Open Folder` then select the folder you created.
 
 From there, create a new Python file with the name of your device, based on
 this template: `device_[name].py`. For example, I named my file
