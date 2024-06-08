@@ -1,7 +1,20 @@
 """
-patterns > groups
+Function definitions for managing [pattern groups](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/playlist.htm#Playlist_picker_panel).
 
-Managing pattern groups
+## Examples
+
+Print the names of all patterns in the active pattern group
+
+```py
+import patterns
+
+active_group = patterns.getActivePatternGroup()
+
+print(f"Active group: '{patterns.getPatternGroupName(active_group)}'")
+print("Entries:")
+for pat_idx in patterns.getPatternsInGroup(active_group):
+    print("-", patterns.getPatternName(pat_idx))
+```
 """
 
 

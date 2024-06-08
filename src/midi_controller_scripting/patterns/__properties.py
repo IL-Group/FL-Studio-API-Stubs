@@ -1,7 +1,17 @@
 """
-patterns > properties
+Functions for getting and setting the properties of patterns.
 
-Managing properties of patterns
+## Examples
+
+Rename the active pattern to `ACTIVE`
+
+```py
+import patterns
+
+active_pattern = patterns.patternNumber()
+
+patterns.setPatternName(active_pattern, "ACTIVE")
+```
 """
 
 from typing import Optional

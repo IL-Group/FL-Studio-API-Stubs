@@ -1,7 +1,5 @@
 """
-patterns > performance
-
-Contains functions for working with performance mode
+Functions for interacting with performance mode.
 """
 
 

@@ -18,6 +18,10 @@ Allows you to control and interact with FL Studio Patterns.
 
 * Patterns are 1-indexed, with a range from `1` - `999`, meaning that the
   1000th pattern cannot be created.
+
+* Multiple patterns can be selected, but only one pattern is considered to be
+  the active pattern (indicated by an arrow to the left of its entry in the
+  pattern picker).
 """
 from .__properties import (
     patternNumber,
