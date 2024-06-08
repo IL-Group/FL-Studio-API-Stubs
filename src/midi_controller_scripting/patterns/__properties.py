@@ -186,10 +186,7 @@ def findFirstNextEmptyPat(flags: int, x: int = -1, y: int = -1) -> None:
 
     ## Args
 
-    * `flags` (`int`):
-          * `FFNEP_FindFirst` (`0`): Find first pattern.
-
-          * `FFNEP_DontPromptName` (`2`): Don't prompt pattern name.
+    * `flags` (`int`): one of the {{docs_url_page("available flags", "midi_controller_scripting/midi/ffnep flags/")}}
 
     * `x` (`int`, optional): ???. Defaults to -1.
 

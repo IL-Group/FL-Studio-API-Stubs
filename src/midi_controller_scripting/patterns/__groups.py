@@ -1,5 +1,6 @@
 """
-Function definitions for managing [pattern groups](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/playlist.htm#Playlist_picker_panel).
+Function definitions for managing
+{{fl_manual_page("playlist.htm#Playlist_picker_panel", "pattern groups")}}.
 
 ## Examples
 
