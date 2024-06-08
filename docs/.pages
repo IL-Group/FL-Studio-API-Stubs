@@ -1,6 +1,7 @@
 nav:
     - Home: index.md
     - Library: library.md
+    - General information: general.md
     - MIDI Controller Scripting: midi_controller_scripting
     - Edison Audio Scripting: edison_scripting
     - Piano Roll Scripting: piano_roll_scripting

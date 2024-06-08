@@ -3,18 +3,20 @@ nav:
     - Tutorials: tutorials
     - Script metadata: script_metadata.md
     - Callbacks: callbacks
-    - arrangement
-    - channels
-    - device
-    - FL Classes: fl_classes
-    - general
-    - launchMapPages
-    - MIDI: midi
-    - mixer
-    - patterns
-    - playlist
-    - plugins
-    - screen
-    - transport
-    - UI: ui
-    - utils
+    - Scripting objects: fl_classes
+    - API modules:
+        - arrangement
+        - channels
+        - device
+        - general
+        - launchMapPages
+        - mixer
+        - patterns
+        - playlist
+        - plugins
+        - screen
+        - transport
+        - UI: ui
+    - Extra modules:
+        - MIDI: midi
+        - utils

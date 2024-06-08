@@ -4,7 +4,8 @@
 This module contains definitions for FL Studio's built-in types, which can be
 used to assist with type hinting in your project.
 
-NOTE: This module is not included in FL Studio's runtime.
+NOTE: This module is not included in FL Studio's runtime. If you wish to use
+these definitions for type checking, you should use the following code snippet.
 
 ```py
 try:

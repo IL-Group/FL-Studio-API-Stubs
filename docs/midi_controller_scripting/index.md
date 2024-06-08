@@ -35,43 +35,52 @@ FL Studio customers can access the
 [MIDI Controller Scripting forum](https://support.image-line.com/redirect/midi_scripting_forum)
 to discuss scripting, share scripts, make feature requests and report issues.
 
-## Script locations and file names
-
-FL Studio will check the following locations for MIDI Scripts and related
-files:
-
-* **Script files** - Script files are located within the
-  [user data folder](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/envsettings_files.htm#userdata)
-  under `.../Image-Line/FL Studio/Settings/Hardware/[script_name]/device_[script_name].py`.
-
-    * `[script_name]` - this folder can have any unique name. Normally, you would
-      use the name of the MIDI controller you are scripting for.
-
-    * `device_[script_name].py` - this Python file is the entry-point for your
-      script. It can have any content, but must begin with `device_` and end with
-      `.py`.
-
-    * You can have additional files and directories within your script folder.
-      Any additional code you place here can be `import`ed from within your
-      script.
-
-* **Launchmap pages** (optional) - Files are located in
-  `Image-Line/FL Studio/Settings/Hardware/devicename/Page[number].scr`.
-
-    * **Launchmap files** - Launchmaps are custom files that provide different
-      behavior for a controller depending on what mode it is launched in.
-      See the MIDI Controller reference post on
-      [Custom controller layouts](https://forum.image-line.com/viewtopic.php?f=1914&t=92193)
-      as well as the [`launchMapPages` module][launchMapPages].
-
-* **Shared modules** - FL Studio locates custom modules within its installation
-  files. It is not recommended to modify this data, as it will be reverted
-  with each update to FL Studio.
-
-    * **Windows** - `C:\Program Files\Image-Line\FL Studio [version]\Shared\Python\Lib`
-
-    * **MacOS** - `/Library/Application support/Image-line/Shared/Python/Lib`
-
 ## Getting started
 
 Check out the [getting started tutorial](./tutorials/getting_started.md).
+
+## Basic information
+
+* [Script locations and file names](./script_files.md)
+
+* [Script metadata](./script_metadata.md)
+
+* [Callbacks](./callbacks/)
+
+* [Objects used within MIDI Controller Scripting](./fl_classes/)
+
+## API modules
+
+These are Python modules that are built into FL Studio.
+
+* [`arrangement`][arrangement]
+
+* [`channels`][channels]
+
+* [`device`][device]
+
+* [`general`][general]
+
+* [`launchMapPages`][launchMapPages]
+
+* [`mixer`][mixer]
+
+* [`patterns`][patterns]
+
+* [`playlist`][playlist]
+
+* [`plugins`][plugins]
+
+* [`screen`][screen]
+
+* [`transport`][transport]
+
+* [`ui`][ui]
+
+## Extra modules
+
+These are Python files stored within FL Studio's Python library directory.
+
+* [`midi`][midi]
+
+* [`utils`][utils]

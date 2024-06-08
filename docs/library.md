@@ -1,4 +1,4 @@
-# Using the FL Studio API Stubs as a library
+# Using the FL Studio Python API Stubs as a library
 
 This documentation can be accessed from your development environment by
 installing it as a Python package. Doing this will allow your IDE to provide
@@ -17,7 +17,7 @@ your projects to be statically analyzed using type-checking tools such as
 ## MacOS
 
 1. Ensure you have the Pip package manager installed by running
-   `python -m ensurepip --upgrade`
+   `python3 -m ensurepip --upgrade`
 
 2. Install the FL Studio API Stubs by running
    `pip3 install fl-studio-api-stubs`

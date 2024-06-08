@@ -1,4 +1,4 @@
-# FL Studio API Documentation
+# ![FL Studio API Stubs](https://raw.githubusercontent.com/IL-Group/FL-Studio-API-Stubs/main/data/readme-header.png)
 
 This website contains documentation for functions and classes used in FL
 Studio's Python API. This includes modules used within:

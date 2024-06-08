@@ -3,9 +3,9 @@
 This repository contains stub code for functions and classes used in FL
 Studio's Python API. This includes modules used for
 
-* [MIDI Controller Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/midi_scripting.htm)
-* [Edison Audio Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/pianoroll_scripting_api.htm)
-* [Piano Roll Scripting](https://www.image-line.com/fl-studio-learning/fl-studio-beta-online-manual/html/plugins/editortool_run.htm)
+* [MIDI Controller Scripting](https://il-group.github.io/FL-Studio-API-Stubs/midi_controller_scripting/)
+* [Edison Audio Scripting](https://il-group.github.io/FL-Studio-API-Stubs/edison_scripting/)
+* [Piano Roll Scripting](https://il-group.github.io/FL-Studio-API-Stubs/piano_roll_scripting/)
 
 ## Usage
 

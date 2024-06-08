@@ -1,16 +1,17 @@
 """
 {{module_title[launchMapPages]}}
 
-FL Studio built-in module.
+Launchmaps are custom files that provide different behavior for a controller
+depending on what page it is currently set to display. See the MIDI Controller
+reference post on
+[Custom controller layouts](https://forum.image-line.com/viewtopic.php?f=1914&t=92193).
+for more information.
 
-Handles custom controller layouts for certain controllers.
+Each page should be placed in a `Page[number].scr` file in the top directory of
+the script. For example, if a script has 2 pages, it would have two files:
 
-Refer to [reference](https://forum.image-line.com/viewtopic.php?f=1914&t=92193).
-
-## HELP WANTED
-
-* More detailed explanations would be good, since it's not very well
-  explained by the manual.
+* `Page1.scr`
+* `Page2.scr`
 """
 from fl_classes import FlMidiMsg
 

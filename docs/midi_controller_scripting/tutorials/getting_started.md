@@ -44,9 +44,9 @@ yourself set up.
 ## Creating a device folder
 
 Open up your MIDI Controller Scripts folder. This can be found within your
-Image-Line data directory at `Image-Line/FL Studio/Settings/Hardware`. From
-there, create a new folder based on the name of your script. For example, I
-called my one `Demo device`.
+[Image-Line data directory](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/envsettings_files.htm#userdata)
+at `Image-Line/FL Studio/Settings/Hardware`. From there, create a new folder
+based on the name of your script. For example, I called my one `Demo device`.
 
 | Platform | Example |
 |----------|---------|
