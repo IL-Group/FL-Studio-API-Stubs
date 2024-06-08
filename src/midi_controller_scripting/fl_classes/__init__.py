@@ -5,7 +5,8 @@ This module contains definitions for FL Studio's built-in types, which can be
 used to assist with type hinting in your project.
 
 NOTE: This module is not included in FL Studio's runtime. If you wish to use
-these definitions for type checking, you should use the following code snippet.
+these definitions for type checking, you should use the following code snippet
+to import it safely:
 
 ```py
 try:
@@ -23,11 +24,28 @@ from typing_extensions import TypeGuard
 
 class FlMidiMsg:
     """
-    Represents an incoming MIDI message. Properties of this object can be
-    accessed, and some properties can be modified, which will change how FL
-    Studio "sees" the event (meaning that scripts can make an event appear to
-    be a different event).
+    Represents an incoming MIDI message.
+
+    ## Changing FL Studio's event handling
+
+    Properties of this object can be accessed, and some properties can be
+    modified, which will change how FL Studio processes the event.
+
+    For example, if we received a system-exclusive event
+    `FlMidiMsg([0xF0, 0x10, 0x20, 0x30, 0xF7])`, but wanted FL Studio to
+    process it as a mod wheel, we could adjust it as follows:
+
+    ```py
+    import midi
+
+    def change_msg(msg: FlMidiMsg):
+        velocity = msg.sysex[3]  # 0x30
+        msg.status = midi.MIDI_CONTROLCHANGE
+        msg.data1 = 0x01
+        msg.data2 = velocity
+    ```
     """
+    # TODO: Tidy up and remove code that does stuff
 
     @overload
     def __init__(
@@ -53,8 +71,8 @@ class FlMidiMsg:
         pmeFlags: int = 0b101110,
     ) -> None:
         """
-        Create an `FlMidiMsg` object. Note that this constructor is inaccessible
-        at runtime.
+        Create an `FlMidiMsg` object. Note that this constructor is
+        inaccessible at runtime.
 
         ### Args:
         * `status_sysex` (`int | list[int] | bytes`): status byte or sysex data
