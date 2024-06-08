@@ -246,7 +246,7 @@ def OnMidiIn(event):
     # ... rest of the code
 ```
 
-!!! warning
+!!! warning "Careful"
 
     Be sure to add a colon `:` at the end of your `if` statement, and to use a
     `==` (double equals) operator to check if the values match.
@@ -507,6 +507,9 @@ are some ideas:
   functions you could look at are [`transport.setLoopMode()`][transport.setLoopMode],
   [`ui.next()`][ui.next], and [`ui.previous()`][ui.previous].
 
+* Configure your script so that it gets [set up automatically](./automatic_script_setup.md)
+  by FL Studio when a compatible device is connected.
+
 * Look for a "programmer's manual" for your device, which will have essential
   information required for taking full control of your device. Not all devices
   have these, but they are invaluable when they are made available, so it is
@@ -515,8 +518,7 @@ are some ideas:
 * Use the functions in the [`device`][device] module to send MIDI messages back
   to your device, potentially allowing you to control its LEDs and screen.
 
-* Share your hard work by sharing your script on the
-  [MIDI Controller Scripting](https://forum.image-line.com/viewforum.php?f=1994)
-  forum.
+* Share your hard work with the world: check out the
+  [sharing your script tutorial](./sharing_your_script.md) for instructions.
 
 * Enjoy your device's new integration with FL Studio.

@@ -1,0 +1,3 @@
+# Automatic script setup
+
+TODO
