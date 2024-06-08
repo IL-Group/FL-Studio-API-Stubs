@@ -28,7 +28,7 @@ set up a folder with the same name as your MIDI controller to make it easier
 to find later. For example, in this screenshot, we have created a script folder
 for devices which use Native Instruments' Komplete Kontrol system.
 
-![A screenshot of the Image-Line hardware folder, showing a script folder named "NI Komplete Kontrol"](./installing_scripts/script_folder.png).
+![A screenshot of the Image-Line hardware folder, showing a script folder named "NI Komplete Kontrol"](./installing_scripts/script_folder.png)
 
 Keep your file explorer opened to your "script folder", as you will add files
 there later.

@@ -1,3 +1,5 @@
 nav:
+    - Installing scripts: installing_scripts.md
     - Getting Started: getting_started.md
+    - Sharing scripts: sharing_scripts.md
     - ...

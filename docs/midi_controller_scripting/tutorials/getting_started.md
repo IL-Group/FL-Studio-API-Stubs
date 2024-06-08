@@ -1,5 +1,10 @@
 # Getting started with MIDI Controller Scripting
 
+!!! NOTE
+    This tutorial is for writing your own MIDI Controller Scripts. If you're
+    looking to install an existing script, check out [this tutorial](./installing_scripts.md)
+    instead.
+
 If you use a MIDI controller with FL Studio, it can be frustrating when it
 doesn’t work correctly out of the box. Fortunately, FL Studio includes a
 feature called MIDI Controller Scripting, which lets us add support for any
@@ -519,6 +524,6 @@ are some ideas:
   to your device, potentially allowing you to control its LEDs and screen.
 
 * Share your hard work with the world: check out the
-  [sharing your script tutorial](./sharing_your_script.md) for instructions.
+  [sharing your script tutorial](./sharing_scripts.md) for instructions.
 
 * Enjoy your device's new integration with FL Studio.
