@@ -75,4 +75,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascript/removeDunderToc.js
+
 docs_dir: build_docs
