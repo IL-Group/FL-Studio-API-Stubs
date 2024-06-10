@@ -5,7 +5,7 @@ version = "36.1.0"
 description = "Stub code, type definitions and documentation for the FL Studio Python API"
 readme = "README.md"
 
-authors = ["Miguel Guthridge <hello@miguelguthridge.com>"]
+authors = ["Maddy Guthridge <hello@maddyguthridge.com>"]
 license = "LGPL-3.0-only"
 
 repository = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"

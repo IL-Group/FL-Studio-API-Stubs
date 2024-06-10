@@ -21,7 +21,7 @@ output.
 
 ## Authors
 
-* Miguel Guthridge (hello@miguelguthridge.com)
+* Maddy Guthridge (hello@maddyguthridge.com)
 """
 import arrangement
 import channels

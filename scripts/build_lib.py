@@ -4,7 +4,7 @@
 Transform docstrings as a pre-build step. This uses `transdoc` to rewrite
 docstrings
 
-Author: Miguel Guthridge
+Author: Maddy Guthridge
 Date: 2024-04-07
 """
 from pathlib import Path

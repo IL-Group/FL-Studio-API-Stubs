@@ -12,7 +12,7 @@ Script for building the documentation site using mkdocs.
 4. Run `mkdocs` to create the HTML page
 5. Move the output file into the `site/` directory.
 
-Author: Miguel Guthridge
+Author: Maddy Guthridge
 Date: 2024-04-08
 """
 import os

@@ -10,7 +10,7 @@ Allows you to control and interact with the FL Studio Playlist.
 * Playlist tracks are 1-indexed.
 
 * For information on performance mode, see the
-[performance mode tutorial](https://miguelguthridge.github.io/FL-Studio-API-Stubs/tutorials/performance_mode/).
+{{docs_url_page("performance mode tutorial", "midi_controller_scripting/tutorials/performance_mode/")}}.
 """
 
 from .__tracks import (

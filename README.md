@@ -94,5 +94,5 @@ online and in library form, the layout is a little complex.
   building the documentation or building the package.
 
 * `data/` contains other assets used by the repository, such as
-  [Transdoc](https://github.com/MiguelGuthridge/transdoc) rule definitions, and
+  [Transdoc](https://github.com/MaddyGuthridge/transdoc) rule definitions, and
   docstring templates.

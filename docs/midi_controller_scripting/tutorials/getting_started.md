@@ -75,7 +75,7 @@ Open this file and copy the starter code across.
     controllers.
 
     Authors:
-    * Miguel Guthridge
+    * Maddy Guthridge
     * Your Name
     """
 
@@ -422,7 +422,7 @@ This is all that we'll be implementing in this tutorial.
     controllers.
 
     Authors:
-    * Miguel Guthridge
+    * Maddy Guthridge
     """
     import transport
 
