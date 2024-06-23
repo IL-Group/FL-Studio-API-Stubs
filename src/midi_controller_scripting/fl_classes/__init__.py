@@ -415,7 +415,8 @@ class FlMidiMsg:
 
     @property
     def isIncrement(self) -> bool:
-        """Whether the event should be an increment event
+        """
+        Whether the event should be an increment event
 
         If the script sets this to `True`, FL Studio will consider it to be a
         relative event, meaning that it will change values relative to that
@@ -432,10 +433,11 @@ class FlMidiMsg:
 
     @property
     def res(self) -> float:
-        """MIDI res
+        """
+        Increment resolution of event.
 
-        ### HELP WANTED:
-        * How is this used?
+        This value determines how fine-grained an increment event should be
+        when `isIncrement` is set.
         """
         return self.__res
 
