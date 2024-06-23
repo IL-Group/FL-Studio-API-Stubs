@@ -44,7 +44,7 @@ def launchAudioEditor(
 def openEventEditor(
     eventId: int,
     mode: int,
-    newWindow: int = 0,
+    newWindow: bool = False,
 ) -> int:
     """
     Launches an event editor for `eventId`.
@@ -56,10 +56,10 @@ def openEventEditor(
 
     * `eventId` (`int`): event ID.
 
-    * `mode` (`int`): Refer to the {{fl_manual_anchor[openEventEditorMode]}}.
+    * `mode` (`int`): One of the {{docs_url_page("openEventEditorMode constants", "midi_controller_scripting/midi/event editor modes")}}.
 
-    * `newWindow` (`int`, optional): whether to open in a new window. Defaults
-      to 0.
+    * `newWindow` (`bool`, optional): whether to open in a new window. Defaults
+      to `False`.
 
     ## Returns:
      * `int`: ???

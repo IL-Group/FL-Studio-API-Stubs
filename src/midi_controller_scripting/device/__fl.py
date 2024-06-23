@@ -155,11 +155,7 @@ def getLinkedInfo(eventID: int) -> int:
     * `int`: linked control info:
           * `-1`: no linked control.
 
-          * `Event_CantInterpolate` (`1`): ???
-
-          * `Event_Float` (`2`): ???
-
-          * `Event_Centered` (`4`): ???
+          * one of the {{docs_url_page("linked event flags", "midi_controller_scripting/midi/linked event flags/")}}.
 
     Included since API version 1.
     """
@@ -174,10 +170,6 @@ def linkToLastTweaked(
 ) -> int:
     """
     Links the control with the given index to the last tweaked parameter.
-
-    ## WARNING
-
-    * This function is subject to change before the release of FL Studio 21.
 
     ## Args
 
