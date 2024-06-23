@@ -9,7 +9,7 @@ def jumpToMarker(delta: int, select: bool) -> None:
     """
     Jumps to the marker at the given delta index.
 
-    For example, to jump to the previous marker, use an delta of `-1`.
+    For example, to jump to the previous marker, use a delta of `-1`.
 
     ## Args
 
