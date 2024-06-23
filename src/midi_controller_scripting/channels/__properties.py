@@ -538,16 +538,7 @@ def getChannelType(index: int, useGlobalIndex: bool = False) -> int:
 
     ## Returns
 
-    * `int`: type of channel:
-          * `GT_Sampler` (`0`): internal sampler.
-
-          * `GT_Hybrid` (`1`): generator plugin feeding internal sampler.
-
-          * `GT_GenPlug` (`2`): generator plugin.
-
-          * `GT_Layer` (`3`): layer (refer to the {{fl_manual_page[chansettings_layer.htm]}}).
-
-          * `GT_AutoClip` (`4`): automation clip.
+    * `int`: type of channel, one of the {{docs_url_page("channel type constants", "midi_controller_scripting/midi/channel types")}}.
 
     Included since API Version 19.
 
@@ -837,7 +828,7 @@ def processRECEvent(eventId: int, value: int, flags: int, /) -> int:
 
     ## WARNING
 
-    * This function is deprecated here, and moved to `general.processRECEvent`
+    * This function is deprecated here, and moved to {{docs_url_fn[general.processRECEvent]}}
       as of API version 7.
 
     Included since API version 1.
