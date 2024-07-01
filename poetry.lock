@@ -1224,13 +1224,13 @@ files = [
 
 [[package]]
 name = "transdoc"
-version = "0.2.3"
+version = "0.2.4"
 description = "A simple tool for transforming Python docstrings by embedding results from Python function calls"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "transdoc-0.2.3-py3-none-any.whl", hash = "sha256:61c1df6c8501e0c7f6d80a414cda560d0abc2f31ec5a2d831fc1b2d2eacfb779"},
-    {file = "transdoc-0.2.3.tar.gz", hash = "sha256:b2e8681d0e7c0fb971129539cf8e3ec25462906bc737c8683f2269c7c9b904a6"},
+    {file = "transdoc-0.2.4-py3-none-any.whl", hash = "sha256:79f6b3c83d8013f4398443b4748061112c8356b630fb66c77f8f4b18f77c6006"},
+    {file = "transdoc-0.2.4.tar.gz", hash = "sha256:6f2f0a41dc53a49267d64335551a63ae21a13efdaa1054653973a8293c28b0a4"},
 ]
 
 [package.dependencies]
