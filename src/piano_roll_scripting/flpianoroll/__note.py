@@ -150,6 +150,33 @@ class Note:
         pass
 
     @property
+    def repeats(self) -> int:
+        """
+        The repeats property of the note from 0 to 14.
+
+        * `0`: no repeat
+        * `1`: 1/4 (beat)
+        * `2`: 1/8 dotted
+        * `3`: 1/4 triplet
+        * `4`: 1/8
+        * `5`: 1/16 dotted
+        * `6`: 1/8 triplet
+        * `7`: 1/16 (step)
+        * `8`: 1/32 dotted
+        * `9`: 1/16 triplet
+        * `10`: 1/32 (half step)
+        * `11`: 1/64 dotted
+        * `12`: 1/32 triplet
+        * `13`: 1/64 (quarter step)
+        * `14`: 1/64 triplet
+        """
+        return 0
+
+    @repeats.setter
+    def repeats(self, new_value: int) -> None:
+        pass
+
+    @property
     def slide(self) -> bool:
         """
         Whether the note is a slide note.
