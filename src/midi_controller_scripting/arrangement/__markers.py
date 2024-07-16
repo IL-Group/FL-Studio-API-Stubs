@@ -42,11 +42,14 @@ def getMarkerName(index: int) -> str:
 
 def addAutoTimeMarker(time: int, name: str) -> None:
     """
-    Add an automatic time marker at `time`.
+    Add an automatic time marker at the given `time`.
 
     ## Args
 
-    * `time` (`int`): time (TODO: What are the units?).
+    * `time` (`int`): time, in
+      {{docs_url_page("absolute ticks", "midi_controller_scripting/tutorials/time_units/#ticks")}}.
+      A value can be gathered using the {{docs_url_fn[transport.getSongPos]}}
+      function.
 
     * `name` (`str`): name of new marker.
 
