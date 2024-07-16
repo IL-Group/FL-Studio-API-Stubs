@@ -50,6 +50,10 @@ One minute is equal to 60 seconds.
 
 One centisecond is equal to one hundredth of a second.
 
+## Milliseconds
+
+One millisecond is equal to one thousandth of a second.
+
 ## M:S:CS
 
 "M:S:CS" is time counted as minutes, seconds and centiseconds.
@@ -57,3 +61,11 @@ One centisecond is equal to one hundredth of a second.
 * The number of minutes since the start of the current arrangement.
 * The number of seconds since the start of the current minute.
 * The number of centiseconds since the start of the current second.
+
+## Fractional
+
+Fractional time is represented as a percentage of the way through the song. For
+example, `0.5` means that the playhead is half-way through the song.
+
+Fractional time is measured based on ticks, so tempo changes will cause the
+rate of change of fractional time to vary.
