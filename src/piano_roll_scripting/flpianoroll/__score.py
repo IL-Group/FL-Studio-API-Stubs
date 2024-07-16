@@ -45,6 +45,30 @@ class Score:
         """
         return 0
 
+    @property
+    def snap_root_note(self) -> int:
+        """
+        Root note of the piano roll's snap to scale setting,
+        where C is note `0`.
+        Note that this does not reflect key/scale markers.
+
+        Read-only.
+        """
+        return 0
+
+    @property
+    def snap_scale_helper(self) -> str:
+        """
+        String in the form of `0,1,0,1,0,0,1,0,1,0,1,0` with 0 indicating notes
+        **in** the scale and 1 indicating notes **not** in scale of the piano
+        roll's snap to scale setting.
+        This helper is always C-aligned.
+        Note that this does not reflect key/scale markers.
+
+        Read-only.
+        """
+        return "0,1,0,1,0,0,1,0,1,0,1,0"
+
     def clear(self, all: bool = False) -> None:
         """
         Clear the selected notes and markers on the piano roll, or if there is
@@ -161,6 +185,39 @@ class Score:
 
         * `index` (`int`): index of the marker to remove
         """
+
+    def getTimelineSelection(self) -> tuple[int, int]:
+        """
+        Returns the selected timeline range.
+
+        ## Returns
+
+        * `tuple[int, int]`: selection start, selection end (start is -1 if no selection was made)
+        """
+        return -1, 0
+
+    def getDefaultNoteProperties(self) -> Note:
+        """
+        Returns a note with the currently active style.
+
+        ## Returns
+
+        `Note`: note with the draw tool's current properties
+        """
+        return Note()
+
+    def getNextFreeGroupIndex(self) -> int:
+        """
+        Returns the next free note group index.
+        If your script adds multiple groups, make sure to add the notes of one
+        group using `addNote` before calling this function again to get the
+        updated next free group index.
+
+        ## Returns
+
+        `int`: Next free note group index
+        """
+        return 0
 
 
 score = Score()
