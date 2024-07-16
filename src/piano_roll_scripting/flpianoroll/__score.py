@@ -44,7 +44,7 @@ class Score:
         Read-only.
         """
         return 0
-    
+
     @property
     def snap_root_note(self) -> int:
         """
@@ -54,6 +54,7 @@ class Score:
 
         Read-only.
         """
+        return 0
 
     @property
     def snap_scale_helper(self) -> str:
@@ -66,6 +67,7 @@ class Score:
 
         Read-only.
         """
+        return "0,1,0,1,0,0,1,0,1,0,1,0"
 
     def clear(self, all: bool = False) -> None:
         """
@@ -192,6 +194,7 @@ class Score:
 
         * `tuple[int, int]`: selection start, selection end (start is -1 if no selection was made)
         """
+        return -1, 0
 
     def getDefaultNoteProperties(self) -> Note:
         """
@@ -201,6 +204,7 @@ class Score:
 
         `Note`: note with the draw tool's current properties
         """
+        return Note()
 
     def getNextFreeGroupIndex(self) -> int:
         """
@@ -213,6 +217,8 @@ class Score:
 
         `int`: Next free note group index
         """
+        return 0
+
 
 score = Score()
 """
