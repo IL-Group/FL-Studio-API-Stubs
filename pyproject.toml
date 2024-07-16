@@ -35,7 +35,17 @@ classifiers = [
     "Typing :: Typed",
     "Typing :: Stubs Only",
 ]
-include = ["py.typed"]
+include = [
+    # Explicitly include all .py files in `build_lib`, otherwise, they will be
+    # skipped due to the `.gitignore`.
+    "build_lib/**/*.py",
+    # And the `py.typed` files
+    "build_lib/**/py.typed",
+    # NOTE: Any extra files won't be bundled unless explicitly included here.
+    # Am considering making transdoc skip files in the `.gitignore`, which
+    # would allow us to blindly include everything in `build_lib` without also
+    # including stuff like .pyc files.
+]
 
 packages = [
     # MIDI controller scripting
