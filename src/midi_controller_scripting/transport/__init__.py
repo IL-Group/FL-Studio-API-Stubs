@@ -152,24 +152,27 @@ def getSongPos(mode: int = -1) -> 'float | int':
     ## Args
 
     * `mode` (`int`, optional): mode for return:
-          * [default] (`-1`): as a fraction of the total length between `0` and `1` (eg `0.5` would indicate we were half-way through the song). Returns as `float`.
+          * [default] (`-1`):  {{docs_url_page("fractional time", "midi_controller_scripting/tutorials/time_units/#fractional")}}. Returns as `float`.
 
           * `SONGLENGTH_MS` (`0`): milliseconds (as `int`).
 
           * `SONGLENGTH_S` (`1`): seconds (as `int`).
 
-          * `SONGLENGTH_ABSTICKS` (`2`): ticks (as `int`).
+          * `SONGLENGTH_ABSTICKS` (`2`): {{docs_url_page("absolute ticks", "midi_controller_scripting/tutorials/time_units/#ticks")}} (as `int`).
 
-          * `SONGLENGTH_BARS` (`3`): bars-steps-ticks format, bars component (as `int`).
+          * `SONGLENGTH_BARS` (`3`): {{docs_url_page("B:S:T format", "midi_controller_scripting/tutorials/time_units/#bst")}}, bars component (as `int`).
 
-          * `SONGLENGTH_STEPS` (`4`): bars-steps-ticks format, steps component (as `int`).
+          * `SONGLENGTH_STEPS` (`4`): {{docs_url_page("B:S:T format", "midi_controller_scripting/tutorials/time_units/#bst")}}, steps component (as `int`).
 
-          * `SONGLENGTH_TICKS` (`5`): bars-steps-ticks format, ticks component (as `int`).
+          * `SONGLENGTH_TICKS` (`5`): {{docs_url_page("B:S:T format", "midi_controller_scripting/tutorials/time_units/#bst")}}, ticks component (as `int`).
 
     ## Example Usage
 
-    An overall bars-steps-ticks position can be gathered through making
-    three calls to the function as follows:
+    The {{docs_url_fn[transport.getSongPosHint]}} function (returning time in
+    {{docs_url_page("B:S:T", "midi_controller_scripting/tutorials/time_units/#bst")}}
+    (bars-steps-ticks) format) can be emulated through making three calls to
+    the function as follows:
+
     ```py
     bars = transport.getSongPosition(3)
     steps = transport.getSongPosition(4)
@@ -206,30 +209,17 @@ def setSongPos(position: 'float | int', mode: int = -1) -> None:
 
     ## Args
 
-     * `position` (`float` or `int`): new song position (type depends on
-       `mode`).
+    * `position` (`float` or `int`): new song position (type depends on
+      `mode`).
 
-     * `mode` (`int`, optional): mode for `position`:
-          * [default] (`-1`): as a fraction of the total length between `0`
-            and `1` (eg `0.5` would indicate we were half-way through the
-            song). Requires position to be passed as type `float`.
+    * `mode` (`int`, optional): mode for `position`:
+          * [default] (`-1`):  {{docs_url_page("fractional time", "midi_controller_scripting/tutorials/time_units/#fractional")}}. Requires position to be passed as type `float`.
 
           * `SONGLENGTH_MS` (`0`): milliseconds (as `int`)
 
           * `SONGLENGTH_S` (`1`): seconds (as `int`).
 
-          * `SONGLENGTH_ABSTICKS` (`2`): absolute number of ticks (as `int`).
-
-          * `SONGLENGTH_BARS` (`3`): bars-steps-ticks format, bars component (as `int`).
-
-          * `SONGLENGTH_STEPS` (`4`): bars-steps-ticks format, steps component (as `int`).
-
-          * `SONGLENGTH_TICKS` (`5`): bars-steps-ticks format, ticks component (as `int`).
-
-    ## WARNING
-
-    * Positions currently won't work when using bars (`mode = 3`),
-      steps (`mode = 4`) or ticks (`mode = 5`).
+          * `SONGLENGTH_ABSTICKS` (`2`): {{docs_url_page("absolute ticks", "midi_controller_scripting/tutorials/time_units/#ticks")}} (as `int`).
 
     Included since API version 1, with optional parameter added in API version
     4.
@@ -251,13 +241,13 @@ def getSongLength(mode: int) -> int:
 
           * `SONGLENGTH_S` (`1`): seconds.
 
-          * `SONGLENGTH_ABSTICKS` (`2`): ticks.
+          * `SONGLENGTH_ABSTICKS` (`2`): {{docs_url_page("absolute ticks", "midi_controller_scripting/tutorials/time_units/#ticks")}}.
 
-          * `SONGLENGTH_BARS` (`3`): bars-steps-ticks format, bars component.
+          * `SONGLENGTH_BARS` (`3`): {{docs_url_page("B:S:T format", "midi_controller_scripting/tutorials/time_units/#bst")}}, bars component.
 
-          * `SONGLENGTH_STEPS` (`4`): bars-steps-ticks format, steps component.
+          * `SONGLENGTH_STEPS` (`4`): {{docs_url_page("B:S:T format", "midi_controller_scripting/tutorials/time_units/#bst")}}, steps component.
 
-          * `SONGLENGTH_TICKS` (`5`): bars-steps-ticks format, ticks component.
+          * `SONGLENGTH_TICKS` (`5`): {{docs_url_page("B:S:T format", "midi_controller_scripting/tutorials/time_units/#bst")}}, ticks component.
 
     ## Returns
 
@@ -270,7 +260,7 @@ def getSongLength(mode: int) -> int:
 
 def getSongPosHint() -> str:
     """
-    Returns a hint for the current playback position as `"bars:steps:ticks"`.
+    Returns a hint for the current playback position in .
 
     This applies to both pattern mode and song mode.
 

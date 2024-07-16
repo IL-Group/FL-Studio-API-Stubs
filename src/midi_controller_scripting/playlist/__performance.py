@@ -385,7 +385,8 @@ def incLiveTrigMode(index: int, value: int) -> None:
 
 def getVisTimeBar() -> int:
     """
-    Returns the current bar number, as shown in the song position panel.
+    Returns the current bar number, as shown in the song position panel. See
+    {{docs_url_page("time format documentation", "midi_controller_scripting/tutorials/time_units")}}.
 
     ## Returns
 
@@ -396,28 +397,30 @@ def getVisTimeBar() -> int:
     return 0
 
 
-def getVisTimeTick() -> int:
+def getVisTimeStep() -> int:
     """
-    Returns the tick number within the song, as shown in the song position
-    panel.
+    Returns the step number within the song, as shown in the song position
+    panel. See
+    {{docs_url_page("time format documentation", "midi_controller_scripting/tutorials/time_units")}}.
 
     ## Returns
 
-    * `int`: time tick.
+    * `int`: time step.
 
     Included since API version 1.
     """
     return 0
 
 
-def getVisTimeStep() -> int:
+def getVisTimeTick() -> int:
     """
-    Returns the step number within the song, as shown in the song position
-    panel.
+    Returns the tick number within the song, as shown in the song position
+    panel. See
+    {{docs_url_page("time format documentation", "midi_controller_scripting/tutorials/time_units")}}.
 
     ## Returns
 
-    * `int`: time step.
+    * `int`: time tick.
 
     Included since API version 1.
     """
