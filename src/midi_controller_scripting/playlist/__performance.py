@@ -290,7 +290,9 @@ def triggerLiveClip(
 
     * `flags` (`int`): live clip trigger flags. Refer to {{fl_manual_anchor[triggerLiveClipFlags]}}.
 
-    * `velocity` (`int`, optional): velocity for triggering clip. Defaults to `-1`.
+    * `velocity` (`int`, optional): layer index to trigger. If multiple clips
+      are positioned in the same location on the playlist, this can be used to
+      control which one is triggered. Defaults to `-1`, to cycle through clips.
 
     Included since API version 1.
     """
