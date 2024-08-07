@@ -154,7 +154,7 @@ def isGridBitAssigned(index: int, useGlobalIndex: bool = False) -> bool:
 def getStepParam(
     step: int,
     param: int,
-    offset: int,
+    index: int,
     startPos: int,
     padsStride: int = 16,
     useGlobalIndex: bool = False,
@@ -169,11 +169,17 @@ def getStepParam(
 
     * `param` (`int`): one of the parameter types (see below).
 
-    * `offset` (`int`): ???
+    * `index` (`int`): channel index
 
-    * `startPos` (`int`): ????
+    * `offset` (`int`): step offset. This is added to the `step` value, but
+      allows you to look past the end of the pattern if the pattern length has
+      been limited (eg if the pattern length if `16`, `step` has a maximum of
+      `15`, but `offset` can be used to look further)
 
-    * `padsStride` (`int`, optional): ?????. Defaults to 16.
+    * `padsStride` (`int`, optional): pattern length control -- setting this
+      value determines the pattern's length during the lookup, and is an
+      alternate way to look past the end of a pattern if the pattern length has
+      been limited. Defaults to 16.
 
     * `useGlobalIndex` (`bool`, optional): whether to use the global channel
       index.
