@@ -7,7 +7,7 @@ Helper functions for controlling the screen of the AKAI FL Studio Fire MIDI
 controller.
 
 These likely aren't useful for most scripts, but if you're writing a script for
-the Fire they might be handy.
+the AKAI Fire they might be handy.
 
 ## HELP WANTED
 
@@ -126,16 +126,84 @@ def blank(*args) -> None:
     ...
 
 
-def displayBar(*args) -> None:
-    ...
+def displayBar(zero: int, vertical_position: int, text: str, value, bipolar) -> None:
+    """
+    Unsure (undocumented)
+
+    ## Args
+
+    * `zero` (`int`): not sure, always zero
+
+    * `vertical_position` (`int`): text row height, multiplied by text row
+
+    * `text` (`str`): text to write?
+
+    * `value` (`_type_`): ???
+
+    * `bipolar` (`_type_`): ???
+
+    Included since API Version 1
+    """
 
 
-def displayText(*args) -> None:
-    ...
+def displayText(
+    font: int,
+    justification: int,
+    text_row: int,
+    text: str,
+    check_if_same: bool,
+    display_time: int,
+) -> None:
+    """
+    Unsure (undocumented), but probably displays text on the Akai Fire
+
+    ## Args
+
+    * `font` (`int`): font size to use
+
+          * `Font6x8`: 0
+          * `Font6x16`: 1
+          * `Font10x16`: 2
+          * `Font12x32`: 3
+
+    * `justification` (`int`): text justification
+
+          * `JustifyLeft`: 0
+          * `JustifyCenter`: 1
+          * `JustifyRight`: 2
+
+    * `text_row` (`int`): text row
+
+          * `Top`: 0
+          * `Middle`: 1
+          * `Bottom`: 2
+
+    * `text` (`str`): text to display
+
+    * `check_if_same` (`bool`): ???
+
+    * `display_time` (`int`): duration to display text for (in ms)
+
+    Included since API Version 1
+    """
 
 
-def displayTimedText(*args) -> None:
-    ...
+def displayTimedText(text: str, text_row: int) -> None:
+    """
+    Unsure (undocumented), but probably displays text for a limited time
+
+    ## Args
+
+    * `text` (`str`): text to display
+
+    * `text_row` (`int`): text row
+
+          * `Top`: 0
+          * `Middle`: 1
+          * `Bottom`: 2
+
+    Included since API Version 1
+    """
 
 
 def drawRect(*args) -> None:
