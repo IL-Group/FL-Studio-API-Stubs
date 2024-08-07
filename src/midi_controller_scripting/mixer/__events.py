@@ -48,7 +48,7 @@ def isTrackPluginValid(index: int, plugIndex: int) -> bool:
 
     ## Returns
 
-    * `bool`: whether track is mute locked
+    * `bool`: whether a plugin is loaded at this location.
 
     Included since API version 1.
     """
