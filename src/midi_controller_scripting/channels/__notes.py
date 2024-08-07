@@ -32,7 +32,11 @@ def midiNoteOn(
 
     * `velocity` (`int`): note velocity (1-127, 0 is note off).
 
-    * `channel` (`int`, optional): MIDI channel to use. Defaults to -1.
+    * `channel` (`int`, optional): MIDI channel to use. Defaults to `-1`, for
+      the user's selected channel. Note that this option only takes effect if
+      the target channel has its
+      {{fl_manual_page("/channelrack.htm#channelrack_midi_channel_through", "MIDI channel through")}}
+      option enabled.
 
     ## Examples
 
