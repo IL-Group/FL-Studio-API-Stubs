@@ -7,7 +7,7 @@ import sys
 import os
 from typing import Any, cast
 import griffe
-from griffe.dataclasses import Kind
+from griffe import Kind
 from scripts.consts import MODULES, PATHS_TO_MODULES
 
 
@@ -20,7 +20,7 @@ sys.path.extend([
 
 
 # Load griffe definitions for all modules
-module_info: dict[str, dict[str, Any]] = {}
+module_info: dict[str, dict[str, dict[str, Any]]] = {}
 for mod in MODULES:
     loaded_mod = griffe.load(mod, resolve_aliases=True, resolve_external=True)
     module_info[mod] = loaded_mod.as_dict()
@@ -40,7 +40,7 @@ def get_item_docs_url(module: str, name: str) -> Any:
     """
     mod_info = module_info[module]
 
-    for item in mod_info["members"]:
+    for item in mod_info["members"].values():
         if item["name"] == name:
             if item["kind"] == Kind.ALIAS:
                 path: list[str] = []
