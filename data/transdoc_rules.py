@@ -7,7 +7,7 @@ import sys
 import os
 from typing import Any, cast
 import griffe
-from griffe.dataclasses import Kind
+from griffe import Kind
 from scripts.consts import MODULES, PATHS_TO_MODULES
 
 
