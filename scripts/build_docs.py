@@ -121,7 +121,11 @@ def replace_directory(src: Path, dest: Path) -> None:
     for file in items_in_dest:
         if file not in items_in_src:
             # print("remove", dest / file)
-            rmtree(dest / file)
+            to_remove = dest / file
+            if to_remove.is_dir():
+                rmtree(to_remove)
+            else:
+                to_remove.unlink()
 
 
 def py_path_to_md(path: Path) -> Path:
