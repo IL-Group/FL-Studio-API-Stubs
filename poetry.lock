@@ -763,17 +763,17 @@ python-legacy = ["mkdocstrings-python-legacy (>=0.2.1)"]
 
 [[package]]
 name = "mkdocstrings-python"
-version = "1.10.3"
+version = "1.10.8"
 description = "A Python handler for mkdocstrings."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocstrings_python-1.10.3-py3-none-any.whl", hash = "sha256:11ff6d21d3818fb03af82c3ea6225b1534837e17f790aa5f09626524171f949b"},
-    {file = "mkdocstrings_python-1.10.3.tar.gz", hash = "sha256:321cf9c732907ab2b1fedaafa28765eaa089d89320f35f7206d00ea266889d03"},
+    {file = "mkdocstrings_python-1.10.8-py3-none-any.whl", hash = "sha256:bb12e76c8b071686617f824029cb1dfe0e9afe89f27fb3ad9a27f95f054dcd89"},
+    {file = "mkdocstrings_python-1.10.8.tar.gz", hash = "sha256:5856a59cbebbb8deb133224a540de1ff60bded25e54d8beacc375bb133d39016"},
 ]
 
 [package.dependencies]
-griffe = ">=0.44"
+griffe = ">=0.49"
 mkdocstrings = ">=0.25"
 
 [[package]]
@@ -1246,13 +1246,13 @@ files = [
 
 [[package]]
 name = "transdoc"
-version = "0.2.4"
+version = "0.2.5"
 description = "A simple tool for transforming Python docstrings by embedding results from Python function calls"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "transdoc-0.2.4-py3-none-any.whl", hash = "sha256:79f6b3c83d8013f4398443b4748061112c8356b630fb66c77f8f4b18f77c6006"},
-    {file = "transdoc-0.2.4.tar.gz", hash = "sha256:6f2f0a41dc53a49267d64335551a63ae21a13efdaa1054653973a8293c28b0a4"},
+    {file = "transdoc-0.2.5-py3-none-any.whl", hash = "sha256:94ab2d87f97539b3f8dc235c0574335696dd27eae910b20a61a66dc7f0f8d25f"},
+    {file = "transdoc-0.2.5.tar.gz", hash = "sha256:a50c85a25faeaeb282fdee2f7d4b22a357c69a68c6bc950df7873e601f38a0ac"},
 ]
 
 [package.dependencies]
