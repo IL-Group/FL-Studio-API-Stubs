@@ -363,13 +363,13 @@ dev = ["flake8", "markdown", "twine", "wheel"]
 
 [[package]]
 name = "griffe"
-version = "1.0.0"
+version = "1.2.0"
 description = "Signatures for entire Python programs. Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "griffe-1.0.0-py3-none-any.whl", hash = "sha256:7e113220efc489c2e8189656b1f01c1184417ba5395573ff05cdc7d07a1b0a5e"},
-    {file = "griffe-1.0.0.tar.gz", hash = "sha256:a9df647e5602fc0f826fca1cda5d9a0e554cdea67eb7948f6629dca7336e6afd"},
+    {file = "griffe-1.2.0-py3-none-any.whl", hash = "sha256:a8b2fcb1ecdc5a412e646b0b4375eb20a5d2eac3a11dd8c10c56967a4097663c"},
+    {file = "griffe-1.2.0.tar.gz", hash = "sha256:1c9f6ef7455930f3f9b0c4145a961c90385d1e2cbc496f7796fbff560ec60d31"},
 ]
 
 [package.dependencies]
