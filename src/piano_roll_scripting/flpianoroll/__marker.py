@@ -100,20 +100,22 @@ class Marker:
     def scale_helper(self) -> str:
         """
         Notes that are highlighted in the piano roll, as a comma-separated list
-        of boolean integers.
+        of boolean integers with 0 indicating notes **in** the scale and 1
+        indicating notes **not** in scale.
+        This helper is always C-aligned.
 
         For example, if C, D and Eb were highlighted, the elements would be:
 
         ```py
         >>> marker.scale_helper
-        '1,0,1,1,0,0,0,0,0,0,0,0'
+        '0,1,0,0,1,1,1,1,1,1,1,1'
         ```
 
         To parse this into a more Pythonic form, you could use the following
         code:
 
         ```py
-        >>> [n == '1' for n in marker.scale_helper.split(',')]
+        >>> [n == '0' for n in marker.scale_helper.split(',')]
         [True, False, True, True, False, False, False, False, False, False, False, False]
         ```
 
@@ -122,7 +124,7 @@ class Marker:
 
         ```py
         >>> scale = [True, False, True, True, False, False, False, False, False, False, False, False]
-        >>> marker.scale_helper = ",".join(str(int(v)) for v in scale)
+        >>> marker.scale_helper = ",".join(str(int(not v)) for v in scale)
         ```
         """
         return ""
