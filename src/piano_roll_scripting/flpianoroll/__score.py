@@ -192,9 +192,9 @@ class Score:
 
         ## Returns
 
-        * `tuple[int, int]`: selection start, selection end (start is -1 if no selection was made)
+        * `tuple[int, int]`: selection start, selection end (end is -1 if no selection was made)
         """
-        return -1, 0
+        return 0, -1
 
     def getDefaultNoteProperties(self) -> Note:
         """
