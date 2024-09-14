@@ -327,7 +327,7 @@ def OnMidiIn(event):
 
 ### Linking the record button
 
-Now that we have handled the play button handled, let's also link the record button. 
+Now that we have handled the play button, let's also link the record button. 
 Since we know that if the user presses the play button, they haven't pressed
 been the record button, we can use an `elif` statement to only perform this check
 if the play button has not been pressed.
