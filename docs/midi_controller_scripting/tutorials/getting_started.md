@@ -222,7 +222,7 @@ Each event can often be identified using the `status` and `data1` values, with
 no different: the play button is identified as `status=191, data1=115`, with
 `data2=127` when pressing the button and `data2=0` when releasing the button.
 
-Write down your results down so you can use them later.
+Write down your results so you can use them later.
 
 ### Linking the play button
 
