@@ -228,7 +228,7 @@ Write down your results so you can use them later.
 
 Let's write some code that responds to the play button. We can add an `if`
 statement to our `OnMidiIn` function that matches events with the
-`status` and `data1` values we identified brefore (191 and 115).
+`status` and `data1` values we identified before (191 and 115).
 
 Inside this `if` statement, we call the `print` function. This writes information 
 to the script output - in this case: `"You pressed the play button"`.
