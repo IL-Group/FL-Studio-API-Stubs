@@ -23,38 +23,37 @@ Allows you to control and interact with FL Studio Patterns.
   the active pattern (indicated by an arrow to the left of its entry in the
   pattern picker).
 """
-from .__properties import (
-    patternNumber,
-    patternCount,
-    patternMax,
-    getPatternName,
-    setPatternName,
-    getPatternColor,
-    setPatternColor,
-    getPatternLength,
-    jumpToPattern,
-    findFirstNextEmptyPat,
-    isPatternSelected,
-    selectPattern,
-    selectAll,
-    deselectAll,
-    burnLoop,
-    isPatternDefault,
-    clonePattern,
-    getChannelLoopStyle,
-    setChannelLoop,
-)
-from .__performance import (
-    getBlockSetStatus,
-    ensureValidNoteRecord,
-)
 from .__groups import (
     getActivePatternGroup,
     getPatternGroupCount,
     getPatternGroupName,
     getPatternsInGroup,
 )
-
+from .__performance import (
+    ensureValidNoteRecord,
+    getBlockSetStatus,
+)
+from .__properties import (
+    burnLoop,
+    clonePattern,
+    deselectAll,
+    findFirstNextEmptyPat,
+    getChannelLoopStyle,
+    getPatternColor,
+    getPatternLength,
+    getPatternName,
+    isPatternDefault,
+    isPatternSelected,
+    jumpToPattern,
+    patternCount,
+    patternMax,
+    patternNumber,
+    selectAll,
+    selectPattern,
+    setChannelLoop,
+    setPatternColor,
+    setPatternName,
+)
 
 __all__ = (
     'patternNumber',

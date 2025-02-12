@@ -2,10 +2,9 @@
 The `ScriptDialog` class is used to create and control dialog windows when
 running piano roll scripts.
 """
-from typing import Union
 
 
-class ScriptDialog():
+class ScriptDialog:
     """
     Dialog that is shown when script is called
     """
@@ -92,7 +91,7 @@ class ScriptDialog():
         * `name` (`str`): Name of the control surface's preset file (without the `.fst` extension)
         """
 
-    def GetInputValue(self, name: str) -> Union[str, int, float]:
+    def GetInputValue(self, name: str) -> str | int | float:
         """
         Retrieve the current value of the input with the specified name
 

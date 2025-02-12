@@ -9,8 +9,8 @@ Date: 2024-04-07
 """
 
 from pathlib import Path
-import transdoc
 
+import transdoc
 
 INPUT = Path("src")
 RULES = Path("data/transdoc_rules.py")

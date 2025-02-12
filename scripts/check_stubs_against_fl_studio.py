@@ -7,9 +7,10 @@ Studio's library.
 import importlib
 import inspect
 import json
-import flapi
-from .consts import MODULES
 
+import flapi
+
+from .consts import MODULES
 
 LibraryItems = dict[str, list[str]]
 

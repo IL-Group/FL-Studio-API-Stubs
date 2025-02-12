@@ -19,12 +19,11 @@ Date: 2024-04-08
 import os
 import sys
 from pathlib import Path
-from shutil import rmtree, copytree, copy
+from shutil import copy, copytree, rmtree
 
+import transdoc
 from mkdocs.commands.build import build as mkdocs_build
 from mkdocs.config import load_config
-import transdoc
-
 
 TRANSDOC_INPUT = Path("src")
 """
@@ -197,10 +196,7 @@ def generate_module_tree(
         # Now write contents for all remaining contents in the directory
         for node, sub_tree in tree.items():
             # Only adjust the import path if we're in a module
-            if is_module:
-                import_path = mod_import_path / node
-            else:
-                import_path = Path(node)
+            import_path = mod_import_path / node if is_module else Path(node)
             generate_module_tree(
                 sub_tree,
                 mod_path / node,
@@ -264,7 +260,7 @@ def find_duplicates(src: Path, dest: Path) -> list[Path]:
     * `dest` (`Path`): directory where files will be merged into
     """
     duplicates = []
-    for root, dirs, files in os.walk(src):
+    for root, _dirs, files in os.walk(src):
         root_path = Path(root)
         dest_root = dest.joinpath(root_path.relative_to(src))
         # print(f"Root: {root} -> {dest_root}")

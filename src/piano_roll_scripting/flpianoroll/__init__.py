@@ -20,17 +20,18 @@ be used in scripts that run in FL Studio's piano roll.
 * {{docs_url_attr[flpianoroll.Utils]}}: a collection of useful functions for
   interacting with the piano roll.
 """
-from enveditor import Utils
-from .__script_dialog import ScriptDialog
-from .__note import Note
-from .__marker import Marker
-from .__score import score
 
+from enveditor import Utils
+
+from .__marker import Marker
+from .__note import Note
+from .__score import score
+from .__script_dialog import ScriptDialog
 
 __all__ = [
-    'score',
-    'Note',
-    'Marker',
-    'ScriptDialog',
-    'Utils',
+    "score",
+    "Note",
+    "Marker",
+    "ScriptDialog",
+    "Utils",
 ]

@@ -33,6 +33,6 @@ __all__ = [
     'Utils',
 ]
 
+from .__sample import Editor, EditorSample, MEEditor, Region, Sample
 from .__script_dialog import ScriptDialog
-from .__sample import Region, Sample, EditorSample, MEEditor, Editor
 from .__utils import TUtils, Utils

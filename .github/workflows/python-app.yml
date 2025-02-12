@@ -11,7 +11,7 @@ on:
 
 jobs:
 
-  Flake8:
+  Lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -28,11 +28,11 @@ jobs:
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
     - run: poetry --version
     - run: poetry install --no-root
-    - name: Lint with flake8
+    - name: Lint with Ruff
       run: |
-        poetry run flake8
+        poetry run ruff check
 
-  Mypy:
+  Type-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -49,6 +49,6 @@ jobs:
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
     - run: poetry --version
     - run: poetry install --no-root
-    - name: Lint with mypy
+    - name: Type-check with mypy
       run: |
         poetry run mypy

@@ -14,7 +14,6 @@ patterns.setPatternName(active_pattern, "ACTIVE")
 ```
 """
 
-from typing import Optional
 
 
 def patternNumber() -> int:
@@ -298,7 +297,7 @@ def isPatternDefault(index: int) -> bool:
     return True
 
 
-def clonePattern(index: Optional[int] = None):
+def clonePattern(index: int | None = None):
     """
     Clones the pattern at the given index
 

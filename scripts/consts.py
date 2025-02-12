@@ -6,7 +6,6 @@ Constants used by build and CI scripts
 import os
 from pathlib import Path
 
-
 DOCS_SECTIONS = os.listdir(Path('src'))
 """
 List of sections within the docs -- maps to the contents of the src/ directory.

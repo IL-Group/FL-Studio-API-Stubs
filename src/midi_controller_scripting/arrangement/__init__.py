@@ -36,13 +36,13 @@ from .__live import (
     liveSelectionStart,
 )
 from .__markers import (
-    jumpToMarker,
-    getMarkerName,
     addAutoTimeMarker,
+    getMarkerName,
+    jumpToMarker,
 )
 from .__selection import (
-    selectionStart,
     selectionEnd,
+    selectionStart,
 )
 from .__time import (
     currentTime,

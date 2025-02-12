@@ -24,6 +24,7 @@ device.midiOutMsg(0x9, 0x0, 60, 100)
 ```
 """
 from typing import overload
+
 from fl_classes import FlMidiMsg
 
 
@@ -322,4 +323,4 @@ def getDeviceID() -> bytes:
 
     Included since API Version 25.
     """
-    return bytes()
+    return b""

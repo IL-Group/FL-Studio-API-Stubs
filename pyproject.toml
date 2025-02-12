@@ -1,15 +1,13 @@
-[tool.poetry]
+[project]
 name = "fl-studio-api-stubs"
 version = "37.0.1"
 
 description = "Stub code, type definitions and documentation for the FL Studio Python API"
 readme = "README.md"
 
-authors = ["Maddy Guthridge <hello@maddyguthridge.com>"]
+authors = [{ name = "Maddy Guthridge", email = "hello@maddyguthridge.com" }]
 license = "LGPL-3.0-only"
 
-repository = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
-documentation = "https://il-group.github.io/FL-Studio-API-Stubs/"
 
 keywords = [
     "fl-studio",
@@ -35,6 +33,14 @@ classifiers = [
     "Typing :: Typed",
     "Typing :: Stubs Only",
 ]
+
+requires-python = ">= 3.11, < 4.0"
+
+[project.urls]
+repository = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
+documentation = "https://il-group.github.io/FL-Studio-API-Stubs/"
+
+[tool.poetry]
 include = [
     # Explicitly include all .py files in `build_lib`, otherwise, they will be
     # skipped due to the `.gitignore`.
@@ -72,18 +78,9 @@ packages = [
     { include = "flpianoroll", from = "build_lib/piano_roll_scripting" },
 ]
 
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
-"Online Documentation" = "https://il-group.github.io/FL-Studio-API-Stubs/"
-
-
-[tool.poetry.dependencies]
-# Primary dependencies
-python = "^3.11"
-
 [tool.poetry.group.build.dependencies]
 # Build dependencies -- required to build the library
-transdoc = {extras = ["python"], version = "^1.1.0"}
+transdoc = { extras = ["python"], version = "^1.1.0" }
 griffe = "^1.0.0"
 
 [tool.poetry.group.docs.dependencies]
@@ -99,30 +96,43 @@ mkdocs-section-index = "^0.3.8"
 [tool.poetry.group.ci.dependencies]
 # CI dependencies -- required to run continuous integration, including
 # linting, type checking, etc
-coverage = "^7.2.2"
-autopep8 = "^2.0.2"
 mypy = "^1.1.1"
 typing-extensions = "^4.5.0"
-flake8 = "^7.0.0"
-flake8-pyproject = "^1.2.3"
-pytest = ">=7.2.2,<9.0.0"
 flapi = "^1.0.1"
-
-[tool.flake8]
-exclude = [
-    '.git',
-    '__pycache__',
-    'old',
-    'build',
-    'dist',
-    'prebuild_docs',
-    'build_lib',
-]
-ignore = ['E501', 'W503']
+ruff = "^0.9.6"
 
 [tool.mypy]
 check_untyped_defs = true
 files = ["src", "scripts", "data"]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+ignore = ['E501']
+
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore lints that involve significant rewrites in utils library, since it
+# is intentionally the same as that in FL Studio
+"src/midi_controller_scripting/utils/*" = [
+    # Ternary operator
+    "SIM108",
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -40,31 +40,31 @@ __all__ = [
 ]
 
 
-from .__undo import (
-    saveUndo,
-    undo,
-    undoUp,
-    undoDown,
-    undoUpDown,
-    restoreUndo,
-    restoreUndoLevel,
-    getUndoLevelHint,
-    getUndoHistoryPos,
-    getUndoHistoryCount,
-    getUndoHistoryLast,
-    setUndoHistoryPos,
-    setUndoHistoryCount,
-    setUndoHistoryLast,
-)
 from .__fl_state import (
+    clearLog,
+    dumpScoreLog,
+    getChangedFlag,
+    getPrecount,
     getRecPPB,
     getRecPPQ,
     getUseMetronome,
-    getPrecount,
-    getChangedFlag,
     getVersion,
     processRECEvent,
-    dumpScoreLog,
-    clearLog,
     safeToEdit,
+)
+from .__undo import (
+    getUndoHistoryCount,
+    getUndoHistoryLast,
+    getUndoHistoryPos,
+    getUndoLevelHint,
+    restoreUndo,
+    restoreUndoLevel,
+    saveUndo,
+    setUndoHistoryCount,
+    setUndoHistoryLast,
+    setUndoHistoryPos,
+    undo,
+    undoDown,
+    undoUp,
+    undoUpDown,
 )
