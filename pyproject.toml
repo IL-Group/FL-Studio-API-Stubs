@@ -79,11 +79,11 @@ packages = [
 
 [tool.poetry.dependencies]
 # Primary dependencies
-python = "^3.10"
+python = "^3.11"
 
 [tool.poetry.group.build.dependencies]
 # Build dependencies -- required to build the library
-transdoc = "^0.2.2"
+transdoc = {extras = ["python"], version = "^1.1.0"}
 griffe = "^1.0.0"
 
 [tool.poetry.group.docs.dependencies]

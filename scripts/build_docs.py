@@ -15,6 +15,7 @@ Script for building the documentation site using mkdocs.
 Author: Maddy Guthridge
 Date: 2024-04-08
 """
+
 import os
 import sys
 from pathlib import Path
@@ -22,7 +23,7 @@ from shutil import rmtree, copytree, copy
 
 from mkdocs.commands.build import build as mkdocs_build
 from mkdocs.config import load_config
-from transdoc import main as transdoc_main
+import transdoc
 
 
 TRANSDOC_INPUT = Path("src")
@@ -72,7 +73,7 @@ Final output location for the script
 """
 
 
-FileTree = dict[str, 'FileTree']
+FileTree = dict[str, "FileTree"]
 """
 Tree of files.
 
@@ -137,9 +138,7 @@ def py_path_to_md(path: Path) -> Path:
     * `__example.py` -> `Example.md`
     * `__script_dialog.py` -> `Script Dialog.md`
     """
-    return path \
-        .with_name(path.name.replace('_', ' ').strip()) \
-        .with_suffix(".md")
+    return path.with_name(path.name.replace("_", " ").strip()).with_suffix(".md")
 
 
 def generate_module_tree(
@@ -306,14 +305,16 @@ def main():
     # the site
     os.environ["DOCS_BUILD_SITE"] = "TRUE"
     # Run transdoc compilation
-    ret = transdoc_main(
-        TRANSDOC_INPUT,
-        TRANSDOC_RULES,
-        DOCS_PREBUILD_DIR,
-        force=True,
-    )
-    if ret:
-        print(f"Transdoc exited with code {ret}!", file=sys.stderr)
+    try:
+        transdoc.transform_tree(
+            transdoc.get_all_handlers(),
+            transdoc.TransdocTransformer.from_file(TRANSDOC_RULES),
+            TRANSDOC_INPUT,
+            DOCS_PREBUILD_DIR,
+            force=True,
+        )
+    except ExceptionGroup as e:
+        transdoc.util.print_error(e)
         exit(1)
 
     print("Generate auto-docstrings...")
