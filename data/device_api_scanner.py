@@ -23,6 +23,9 @@ output.
 
 * Maddy Guthridge (hello@maddyguthridge.com)
 """
+# import utils
+import json
+
 import arrangement
 import channels
 import device
@@ -35,10 +38,6 @@ import plugins
 import screen
 import transport
 import ui
-# import utils
-
-import json
-
 
 modules = [
     arrangement,

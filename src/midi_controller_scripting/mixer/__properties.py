@@ -3,7 +3,8 @@ Mixer > Properties
 
 Properties of the mixer and other aspects of FL Studio as a whole
 """
-from typing import Optional, overload, Literal
+from typing import Literal, Optional, overload
+
 import midi
 
 

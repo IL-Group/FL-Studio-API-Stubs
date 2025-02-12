@@ -5,7 +5,7 @@ running piano roll scripts.
 from typing import Union
 
 
-class ScriptDialog():
+class ScriptDialog:
     """
     Dialog that is shown when script is called
     """

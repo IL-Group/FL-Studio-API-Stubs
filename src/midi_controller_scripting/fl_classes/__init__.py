@@ -19,6 +19,7 @@ def OnMidiIn(event: FlMidiMsg) -> None:
 ```
 """
 from typing import Optional, overload
+
 from typing_extensions import TypeGuard
 
 
@@ -157,9 +158,8 @@ class FlMidiMsg:
         elif isinstance(other, int):
             if isMidiMsgStandard(self):
                 return eventToRawData(self) == other
-        elif isinstance(other, bytes):
-            if isMidiMsgSysex(self):
-                return eventToRawData(self) == other
+        elif isinstance(other, bytes) and isMidiMsgSysex(self):
+            return eventToRawData(self) == other
         return False
 
     @staticmethod

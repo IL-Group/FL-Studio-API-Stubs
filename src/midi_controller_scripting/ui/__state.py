@@ -2,7 +2,7 @@
 The state functions within the `ui` module are used to query and control the
 state of FL Studio's user interface.
 """
-from typing import overload, Literal
+from typing import Literal, overload
 
 
 def isClosing() -> bool:

@@ -59,44 +59,44 @@ __all__ = [
 ]
 
 from .__device import (
+    directFeedback,
+    getDeviceID,
+    getMasterSync,
+    getName,
+    getPortNumber,
     isAssigned,
     isMidiOutAssigned,
-    getPortNumber,
-    getName,
     midiOutMsg,
     midiOutNewMsg,
     midiOutSysex,
-    sendMsgGeneric,
-    directFeedback,
     repeatMidiEvent,
-    stopRepeatMidiEvent,
+    sendMsgGeneric,
     setMasterSync,
-    getMasterSync,
-    getDeviceID,
-)
-from .__fl import (
-    processMIDICC,
-    forwardMIDICC,
-    findEventID,
-    getLinkedValue,
-    getLinkedValueString,
-    getLinkedParamName,
-    getLinkedInfo,
-    getLinkedChannel,
-    linkToLastTweaked,
-    getIdleElapsed,
+    stopRepeatMidiEvent,
 )
 from .__dispatch import (
     dispatch,
-    dispatchReceiverCount,
     dispatchGetReceiverPortNumber,
+    dispatchReceiverCount,
+)
+from .__fl import (
+    findEventID,
+    forwardMIDICC,
+    getIdleElapsed,
+    getLinkedChannel,
+    getLinkedInfo,
+    getLinkedParamName,
+    getLinkedValue,
+    getLinkedValueString,
+    linkToLastTweaked,
+    processMIDICC,
 )
 from .__util import (
+    baseTrackSelect,
     createRefreshThread,
     destroyRefreshThread,
     fullRefresh,
+    hardwareRefreshMixerTrack,
     isDoubleClick,
     setHasMeters,
-    baseTrackSelect,
-    hardwareRefreshMixerTrack,
 )

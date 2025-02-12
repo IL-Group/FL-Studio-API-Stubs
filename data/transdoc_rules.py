@@ -3,13 +3,14 @@
 
 Rule definitions for transdoc.
 """
-import sys
 import os
+import sys
 from typing import Any, cast
+
 import griffe
 from griffe import Kind
-from scripts.consts import MODULES, PATHS_TO_MODULES
 
+from scripts.consts import MODULES, PATHS_TO_MODULES
 
 # Add `src/*` to PATH so that building doesn't fail
 sys.path.extend([

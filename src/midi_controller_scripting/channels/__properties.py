@@ -13,8 +13,9 @@ for i in range(channels.channelCount()):
         channels.setChannelColor(i, 0x9648aa)
 ```
 """
+from typing import Literal, overload
+
 import midi
-from typing import overload, Literal
 
 
 def selectedChannel(

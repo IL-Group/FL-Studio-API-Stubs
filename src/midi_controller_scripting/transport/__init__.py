@@ -15,8 +15,9 @@ transport.record()
 transport.start()
 ```
 """
+from typing import Literal, overload
+
 import midi
-from typing import overload, Literal
 
 
 def start() -> None:

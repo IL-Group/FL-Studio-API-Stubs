@@ -29,6 +29,7 @@ separate logic for `OnNoteOn`, `OnNoteOff` and `OnControlChange` than it is to
 handle all the events in `OnMidiMsg`.
 """
 from typing import Literal
+
 from fl_classes import FlMidiMsg
 
 

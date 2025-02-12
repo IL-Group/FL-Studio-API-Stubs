@@ -2,7 +2,7 @@
 The following event IDs can be used to target properties of the playlist and
 patterns.
 """
-from .ranges import REC_ItemRange, REC_Chan_First
+from .ranges import REC_Chan_First, REC_ItemRange
 
 # playlist
 REC_Playlist_First = 0x5000 * REC_ItemRange

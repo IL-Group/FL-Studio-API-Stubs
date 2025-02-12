@@ -1,7 +1,7 @@
 """
 Functions for communicating with other MIDI scripts.
 """
-from typing import Optional, overload, Literal
+from typing import Literal, Optional, overload
 
 
 @overload
