@@ -1313,14 +1313,14 @@ files = [
 
 [[package]]
 name = "transdoc"
-version = "1.1.0"
+version = "1.1.1"
 description = "Transform your documentation by embedding results from Python function calls"
 optional = false
 python-versions = ">=3.11"
 groups = ["build"]
 files = [
-    {file = "transdoc-1.1.0-py3-none-any.whl", hash = "sha256:9aaee32b1f940288c069a07703b7f79fc0ce73291a6ffe97f55b9711595770c9"},
-    {file = "transdoc-1.1.0.tar.gz", hash = "sha256:3459006d956a5d03dc75c09baf3e486d650eb0b2887f2b5b04b19a4b3bd08def"},
+    {file = "transdoc-1.1.1-py3-none-any.whl", hash = "sha256:55d555813d6077e0808dacf3781e633c159788ef74d667bffda63243e44dbe73"},
+    {file = "transdoc-1.1.1.tar.gz", hash = "sha256:f156a480c877fff32d4ec9596e013521919d16b853ab59f82d84ab7004df5768"},
 ]
 
 [package.dependencies]
