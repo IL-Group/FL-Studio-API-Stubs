@@ -14,6 +14,11 @@
     color: #ffffff !important;
 }
 
+/* Fix spacing around nested nav items */
+.md-nav__item--nested {
+    padding-bottom: 8px !important;
+}
+
 /* Search box background */
 @media screen and (min-width: 60em) {
     .md-search__form {

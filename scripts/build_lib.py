@@ -7,6 +7,7 @@ docstrings
 Author: Maddy Guthridge
 Date: 2024-04-07
 """
+
 from pathlib import Path
 import transdoc
 
@@ -17,8 +18,19 @@ OUTPUT = Path("build_lib")
 
 
 def main():
-    return transdoc.main(INPUT, RULES, OUTPUT, force=True)
+    try:
+        transdoc.transform_tree(
+            transdoc.get_all_handlers(),
+            transdoc.TransdocTransformer.from_file(RULES),
+            INPUT,
+            OUTPUT,
+            force=True,
+        )
+    except ExceptionGroup as e:
+        transdoc.util.print_error(e)
+        return 1
+    return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     exit(main())
