@@ -1,7 +1,7 @@
 """
 Functions for communicating with other MIDI scripts.
 """
-from typing import Literal, Optional, overload
+from typing import Literal, overload
 
 
 @overload
@@ -24,7 +24,7 @@ def dispatch(
 def dispatch(
     ctrlIndex: int,
     message: int,
-    sysex: Optional[bytes] = None,
+    sysex: bytes | None = None,
 ) -> None:
     """
     Dispatch a MIDI message (either via a standard MIDI Message or through a

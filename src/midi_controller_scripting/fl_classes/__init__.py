@@ -18,9 +18,7 @@ def OnMidiIn(event: FlMidiMsg) -> None:
     ...
 ```
 """
-from typing import Optional, overload
-
-from typing_extensions import TypeGuard
+from typing import TypeGuard, overload
 
 
 class FlMidiMsg:
@@ -67,8 +65,8 @@ class FlMidiMsg:
     def __init__(
         self,
         status_sysex: 'int | list[int] | bytes',
-        data1: Optional[int] = None,
-        data2: Optional[int] = None,
+        data1: int | None = None,
+        data2: int | None = None,
         pmeFlags: int = 0b101110,
     ) -> None:
         """
@@ -108,7 +106,7 @@ class FlMidiMsg:
                 raise TypeError(
                     "data2 value cannot be None for standard events")
             self.__status = status_sysex
-            self.__sysex: Optional[bytes] = None
+            self.__sysex: bytes | None = None
         else:
             if data1 is not None:
                 raise TypeError(
@@ -163,7 +161,7 @@ class FlMidiMsg:
         return False
 
     @staticmethod
-    def __standard_check(value: Optional[int], prop: str) -> int:
+    def __standard_check(value: int | None, prop: str) -> int:
         """Check that it's a standard event, then return the value"""
         if value is None:
             raise ValueError(

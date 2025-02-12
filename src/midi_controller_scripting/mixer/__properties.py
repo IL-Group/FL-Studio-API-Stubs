@@ -3,7 +3,7 @@ Mixer > Properties
 
 Properties of the mixer and other aspects of FL Studio as a whole
 """
-from typing import Literal, Optional, overload
+from typing import Literal, overload
 
 import midi
 
@@ -176,7 +176,7 @@ def focusEditor(index: int, plugIndex: int):
     """
 
 
-def getActiveEffectIndex() -> Optional[tuple[int, int]]:
+def getActiveEffectIndex() -> tuple[int, int] | None:
     """
     Returns the index of the active effects plugin, or None if there isn't one.
 
