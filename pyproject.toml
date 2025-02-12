@@ -1,15 +1,13 @@
-[tool.poetry]
+[project]
 name = "fl-studio-api-stubs"
 version = "37.0.1"
 
 description = "Stub code, type definitions and documentation for the FL Studio Python API"
 readme = "README.md"
 
-authors = ["Maddy Guthridge <hello@maddyguthridge.com>"]
+authors = [{ name = "Maddy Guthridge", email = "hello@maddyguthridge.com" }]
 license = "LGPL-3.0-only"
 
-repository = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
-documentation = "https://il-group.github.io/FL-Studio-API-Stubs/"
 
 keywords = [
     "fl-studio",
@@ -35,6 +33,14 @@ classifiers = [
     "Typing :: Typed",
     "Typing :: Stubs Only",
 ]
+
+requires-python = ">= 3.11, < 4.0"
+
+[project.urls]
+repository = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
+documentation = "https://il-group.github.io/FL-Studio-API-Stubs/"
+
+[tool.poetry]
 include = [
     # Explicitly include all .py files in `build_lib`, otherwise, they will be
     # skipped due to the `.gitignore`.
@@ -71,15 +77,6 @@ packages = [
     # Piano roll scripting
     { include = "flpianoroll", from = "build_lib/piano_roll_scripting" },
 ]
-
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/IL-Group/FL-Studio-Api-Stubs/issues"
-"Online Documentation" = "https://il-group.github.io/FL-Studio-API-Stubs/"
-
-
-[tool.poetry.dependencies]
-# Primary dependencies
-python = "^3.11"
 
 [tool.poetry.group.build.dependencies]
 # Build dependencies -- required to build the library
