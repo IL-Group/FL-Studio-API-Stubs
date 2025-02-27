@@ -107,6 +107,11 @@ files = ["src", "scripts", "data"]
 
 [tool.ruff]
 line-length = 79
+include = [
+    "src/**/*.py",
+    "scripts/**/*.py",
+    "data/**/*.py",
+]
 
 [tool.ruff.lint]
 select = [
