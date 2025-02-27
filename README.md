@@ -56,6 +56,13 @@ poetry install
 Whenever you modify documentation, you will need to rerun the pre-build script
 for your changes to be persisted.
 
+### Running CI
+
+| Task          | Command                 |
+| ------------- | ----------------------- |
+| Linting       | `poetry run ruff check` |
+| Type-checking | `poetry run mypy`       |
+
 ### Developing the documentation site
 
 You can trigger a build of the documentation site by running:
