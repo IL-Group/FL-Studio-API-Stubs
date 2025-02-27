@@ -63,6 +63,14 @@ for your changes to be persisted.
 | Linting       | `poetry run ruff check` |
 | Type-checking | `poetry run mypy`       |
 
+### Publishing the Python package
+
+1. `poetry run python -m scripts.build_lib`
+2. `poetry publish --build -u __token__ -p [your PyPI API token]`
+
+On GitHub, you can trigger this by creating a release, provided the
+`PYPI_API_TOKEN` secret is set in the repository settings.
+
 ### Developing the documentation site
 
 You can trigger a build of the documentation site by running:
