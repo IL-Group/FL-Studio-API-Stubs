@@ -62,6 +62,14 @@ class Sample:
         Create an audio sample
         """
 
+    def LoadFromFile(self, path: str) -> None:
+        """
+        Load an audio sample from a file.
+
+        ## Args:
+        * `path` (`str`): the path to the audio file
+        """
+
     def GetSampleAt(self, position: int, channel: int) -> float:
         """
         Returns the magnitude of the waveform at position on the given audio
