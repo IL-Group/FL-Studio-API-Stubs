@@ -27,6 +27,13 @@ class Region:
         """
         return 0
 
+    @property
+    def Name(self) -> str:
+        """
+        The name of this region or marker.
+        """
+        return ""
+
 
 class MEEditor:
     """
