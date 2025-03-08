@@ -147,6 +147,16 @@ class Sample:
         * `end` (`int`): the ending position
         """
 
+    def DeleteFromTo(self, start: int, end: int) -> None:
+        """
+        Delete the waveform between the `start` and `end` positions (inclusive)
+
+        ## Args:
+        * `start` (`int`): the starting position
+
+        * `end` (`int`): the ending position
+        """
+
     def SineFromTo(
         self,
         start: int,
