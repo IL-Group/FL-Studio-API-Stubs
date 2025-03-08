@@ -147,6 +147,19 @@ class Sample:
         * `end` (`int`): the ending position
         """
 
+    def AddRegion(self, name: str, start: int, end: int = -1) -> None:
+        """
+        Add a region or marker to this sample.
+
+        ## Args:
+        * `name` (`str`): the name of the region
+
+        * `start` (`int`): the starting position of the region
+
+        * `end` (`int`, optional): the ending position of the region. If this
+          is less than `0`, then the region is a marker. Defaults to `-1`
+        """
+
     def SineFromTo(
         self,
         start: int,
