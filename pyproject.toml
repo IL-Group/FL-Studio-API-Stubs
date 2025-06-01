@@ -99,7 +99,7 @@ mkdocs-section-index = "^0.3.8"
 mypy = "^1.1.1"
 typing-extensions = "^4.13.2"
 flapi = "^1.0.1"
-ruff = "^0.11.7"
+ruff = "^0.11.12"
 
 [tool.mypy]
 check_untyped_defs = true
