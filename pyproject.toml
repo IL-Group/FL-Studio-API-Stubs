@@ -88,7 +88,7 @@ griffe = "^1.0.0"
 # Note build dependencies are also required
 mkdocs = "^1.4.2"
 mkdocs-gen-files = "^0.5.0"
-mkdocs-material = "^9.5.0"
+mkdocs-material = "^9.6.16"
 mkdocstrings = { version = ">=0.24,<0.27", extras = ["python"] }
 mkdocs-awesome-pages-plugin = "^2.9.2"
 mkdocs-section-index = "^0.3.8"
