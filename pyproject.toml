@@ -81,7 +81,7 @@ packages = [
 [tool.poetry.group.build.dependencies]
 # Build dependencies -- required to build the library
 transdoc = { extras = ["python"], version = "^1.1.0" }
-griffe = "^1.0.0"
+griffe = "^1.9.0"
 
 [tool.poetry.group.docs.dependencies]
 # Docs depdnencies -- required to build documentation site
