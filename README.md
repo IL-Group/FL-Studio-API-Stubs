@@ -7,6 +7,10 @@ Studio's Python API. This includes modules used for
 * [Edison Audio Scripting](https://il-group.github.io/FL-Studio-API-Stubs/edison_scripting/)
 * [Piano Roll Scripting](https://il-group.github.io/FL-Studio-API-Stubs/piano_roll_scripting/)
 
+## Unmaintained
+
+This version of the documentation is unmaintained. Please refer to the documentation in the [FL Studio manual](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/), or the [original author's version of the stubs](https://github.com/MaddyGuthridge/FL-Studio-API-Stubs).
+
 ## Usage
 
 This documentation can be [viewed online](https://il-group.github.io/FL-Studio-API-Stubs/),
