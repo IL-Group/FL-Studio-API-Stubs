@@ -55,6 +55,43 @@ def isTrackPluginValid(index: int, plugIndex: int) -> bool:
     return False
 
 
+def getPluginMixLevel(index: int, plugIndex: int) -> float:
+    """
+    Returns the mix level of a plugin on the mixer.
+
+    ## Args
+
+    * `index` (`int`): mixer track index.
+
+    * `plugIndex` (`int`): slot index on the given track.
+
+    ## Returns
+
+    * `float`: mix level.
+
+    Included since API Version `TODO`.
+    """
+    return 0.0
+
+
+def setPluginMixLevel(index: int, plugIndex: int, value: float, pickupMode: int = 0) -> None:
+    """
+    Sets the mix level of a plugin on the mixer.
+
+    ## Args
+
+    * `index` (`int`): mixer track index.
+
+    * `plugIndex` (`int`): slot index on the given track.
+
+    * `value` (`float`): new mix level (between 0 and 1).
+
+    * `pickupMode` (`int`, optional): pickup mode. Defaults to `0`.
+
+    Included since API Version `TODO`.
+    """
+
+
 def getEventValue(
     index: int,
     value: int = midi.MaxInt,
