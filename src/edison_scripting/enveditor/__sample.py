@@ -147,6 +147,14 @@ class Sample:
         * `end` (`int`): the ending position
         """
 
+    def DeleteRegion(self, index: int) -> None:
+        """
+        Delete the region at the given index.
+
+        ## Args:
+        * `index` (`int`): the index of the region to delete
+        """
+
     def SineFromTo(
         self,
         start: int,
