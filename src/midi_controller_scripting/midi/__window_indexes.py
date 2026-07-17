@@ -42,6 +42,11 @@ widBrowser = 4
 Content browser window.
 """
 
+widPlugin = 5
+"""
+Plugin window
+"""
+
 widPluginEffect = 6
 """
 Effect plugin window. This index is returned by {{docs_url_fn[ui.getFocused]}}
